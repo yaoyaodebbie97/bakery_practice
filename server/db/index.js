@@ -8,6 +8,11 @@ const Order = require('./models/Order')
 const OrderItems = require('./models/OrderItems')
 
 //associations could go here!
+User.hasMany(Order)
+Order.belongsTo(User)
+
+Product.belongsToMany(Order, {through: OrderItems})
+Order.belongsToMany(Product, {through: OrderItems})
 
 module.exports = {
   db,
