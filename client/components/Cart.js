@@ -11,7 +11,7 @@ class Cart extends React.Component {
       <div>
         <h1 className="">Your Cart</h1>
         <div className="Container">
-        {/* {productsInCart.map((product) => (
+        {productsInCart.map((product) => (
        <div className="cartComponent" key={product.id}>
          <img className="productImg" src={product.imageUrl} />
          <p>Product Name: {product.productName}</p>
@@ -28,7 +28,7 @@ class Cart extends React.Component {
         <Link to="/">Check Out</Link>
        </div>
         ))
-       } */}
+       }
 
         </div>
       </div>
