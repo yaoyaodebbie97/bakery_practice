@@ -48,7 +48,7 @@ const AuthFormLogIn = props => {
     <div>
       <form onSubmit={handleSubmit} name={name}>
         <div>
-          <p>Already a member? Sign In!</p>
+          <p>Already a member? Log In!</p>
           <label htmlFor="email">
             <small>Email</small>
           </label>

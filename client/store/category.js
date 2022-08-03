@@ -11,7 +11,7 @@ export const setCategory = (category) => ({
 
 // thunk creators 
 export const fetchCategory = (category) => async (dispatch) =>{
-  const {data} = await axios.get(`/api/products/${category}`)
+  const {data} = await axios.get(`/api/products/category/${category}`)
   dispatch(setCategory(data));
 }
 
