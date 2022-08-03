@@ -10,14 +10,14 @@ export const addProduct = (product) => ({
 });
 
 export const removeProduct = (id) => ({
-    type: REMOVE_PRDUCT_FROM_CART,
+    type: REMOVE_PRODUCT_FROM_CART,
     id
   });
 
 export const addToCart = (product) => {
     return async (dispatch) => {
       try {
-      const {data} = await axios.post('/api/products', product)
+      const {data} = await axios.post('/api/cart', product)
       dispatch(addProduct(data))
       } catch (error) {
         console.error(error)
@@ -28,7 +28,7 @@ export const addToCart = (product) => {
 export const removedProduct = (id) => {
   return async (dispatch) => {
     try {
-    await axios.delete(`/api/products/${id}`)
+    await axios.delete(`/api/cart/${id}`)
     dispatch(removeProduct(id))
     } catch (error) {
       console.error(error)

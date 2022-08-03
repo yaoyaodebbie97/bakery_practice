@@ -24,9 +24,6 @@ export const fetchProducts = () => {
 };
 
 
-
-
-
 const initialState = []
 
 export default function productsReducer(state = initialState, action) {
