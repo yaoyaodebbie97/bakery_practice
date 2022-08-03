@@ -12,7 +12,7 @@ router.get('/', requireToken, isAdmin, async (req, res, next) => {
       // send everything to anyone who asks!
       attributes: ['id', 'email']
     })
-    res.json(users)
+    res.send(users)
   } catch (err) {
     next(err)
   }
@@ -28,8 +28,8 @@ router.post(`/`, async (req, res, next) => {
   }
 })
 
-// get single user and order history
-router.get('/:userId', requireToken, async (req, res, next) => {
+// get user order history
+router.get('/:userId/orders', requireToken, async (req, res, next) => {
   try {
     const user = await User.findByPK(req.params.id, {
       include: [Order]
