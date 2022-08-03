@@ -1,4 +1,4 @@
-export const mockUsers = [
+const mockUsers = [
   {
     firstName: 'Gratia',
     lastName: 'Marjoribanks',
@@ -401,7 +401,7 @@ export const mockUsers = [
   },
 ];
 
-export const mockProducts = [
+const mockProducts = [
   {
     productName: 'Nut - Almond, Blanched, Sliced',
     description:
@@ -1484,7 +1484,7 @@ export const mockProducts = [
   },
 ];
 
-export const mockOrders = [
+const mockOrders = [
   { status: 'Complete', totalQuantity: 3, totalCost: 29.84 },
   { status: 'Complete', totalQuantity: 9, totalCost: 75.26 },
   { status: 'Complete', totalQuantity: 10, totalCost: 60.78 },
@@ -1531,3 +1531,5 @@ export const mockOrders = [
   { status: 'Confirmed', totalQuantity: 14, totalCost: 57.85 },
   { status: 'Processing', totalQuantity: 2, totalCost: 93.86 },
 ];
+
+module.exports = { mockUsers, mockProducts, mockOrders };
