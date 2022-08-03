@@ -4,15 +4,36 @@ const {
   db,
   models: { User, Product, Order, OrderItems },
 } = require('../server/db');
-const { mockUsers, mockOrders, mockProducts } = require('../seedData.js');
+const {
+  mockUsers,
+  mockOrders,
+  mockProducts,
+  // mockOrderItems,
+} = require('../seedData.js');
 
 async function addOrders() {
   for (let i = 1; i <= 45; i++) {
     let order = await Order.findByPk(i);
-    let randomUser = Math.floor(Math.random() * 50);
+    let randomUser = Math.floor(Math.random() * 50) + 1;
     await order.setUser(randomUser);
   }
 }
+
+async function addProducts() {
+  for (let i = 1; i <= 33; i++) {
+    let orderItems = await Order.findByPk(i);
+    let randomProduct = Math.floor(Math.random() * 120) + 1;
+    await orderItems.setProducts(randomProduct);
+  }
+}
+
+// async function addProducts() {
+//   for (let i = 1; i <= 45; i++) {
+//     let orderItems = await OrderItems.findByPk(i);
+//     let randomProduct= Math.floor(Math.random() * 45);
+//     await orderItems.setProduct(randomProduct);
+//   }
+// }
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
@@ -32,8 +53,15 @@ async function seed() {
     mockProducts.map((product) => {
       return Product.create(product);
     })
+    // mockOrderItems.map((orderItems) => {
+    //   return OrderItems.create(orderItems);
+    // })
   );
   await addOrders();
+  console.log(Object.keys(Order.prototype));
+
+  // await addOrderItems();
+  await addProducts();
 
   console.log(`seeded users`);
   console.log(`seeded successfully`);
