@@ -18,7 +18,7 @@ export const Home = props => {
       </div>
       <div>
         <Link to='/products/bread'>Bread</Link>
-        <Link to='/products/rolls'>Rolls</Link>
+        <Link to='/products/cupcakes'>Cupcakes</Link>
         <Link to='/products/cookies'>Cookies</Link>
         <Link to='/products/pies'>Pies</Link>
         <Link to='/products/pastries'>Pastries</Link>

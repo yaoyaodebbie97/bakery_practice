@@ -5,7 +5,7 @@ import {authenticate} from '../store'
 /**
  * COMPONENT
  */
-const AuthForm = props => {
+const AuthFormSignUp = props => {
   const {name, displayName, handleSubmit, error} = props
 
   return (
@@ -41,7 +41,7 @@ const AuthForm = props => {
     </div>
   )
 }
-const AuthFormSignUp = props => {
+const AuthFormLogIn = props => {
   const {name, displayName, handleSubmit, error} = props
 
   return (
@@ -105,5 +105,5 @@ const mapDispatch = dispatch => {
   }
 }
 
-export const Login = connect(mapLogin, mapDispatch)(AuthForm)
+export const Login = connect(mapLogin, mapDispatch)(AuthFormLogIn)
 export const Signup = connect(mapSignup, mapDispatch)(AuthFormSignUp)
