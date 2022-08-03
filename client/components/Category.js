@@ -13,15 +13,16 @@ class Category extends Component {
     }
 
     render() {
+        
         return (
         <div> 
             {this.props.category.length > 0 
             ? this.props.category.map ((product) => (
             <div key = {product.id}> 
                 <Link to = {`/products/${product.id}`} > 
-                <h1> name: {product.productName}</h1> 
-                <h1> price: {product.price}</h1> 
                 <img src = {product.imageUrl}></img>  
+                <h1> Product Name: {product.productName}</h1> 
+                <h1> Price: {product.price}</h1> 
                 </Link>
                 <button
                 className='addToCart'
@@ -44,7 +45,7 @@ const mapState = (state) => ({
   });
   
   const mapDispatch = (dispatch) => ({
-    getCategory: (id) => dispatch (fetchCategory(id)),
+    getCategory: (category) => dispatch (fetchCategory(category)),
     addToCart: (product) => dispatch (addToCart(product)),
   });
   
