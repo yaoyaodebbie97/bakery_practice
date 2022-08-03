@@ -4,6 +4,8 @@ import {withRouter, Route, Switch, Redirect} from 'react-router-dom'
 import { Login, Signup } from './components/AuthForm';
 import Home from './components/Home';
 import {me} from './store'
+import AllProducts from './components/AllProducts'
+import Cart from './components/Cart'
 
 /**
  * COMPONENT
@@ -16,6 +18,7 @@ class Routes extends Component {
   render() {
     const {isLoggedIn} = this.props
 
+
     return (
       <div>
         {isLoggedIn ? (
@@ -25,9 +28,13 @@ class Routes extends Component {
           </Switch>
         ) : (
           <Switch>
-            <Route path='/' exact component={ Login } />
+            <Route exact path='/' component={ Home } />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
+            <Route exact path="/products" component={AllProducts} />
+            <Route exact path="/cart" component={Cart} />
+
+            {/* <Route path="/products/:type" component={ByCategory} /> */}
           </Switch>
         )}
       </div>
