@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchProducts, addToCart} from "../store/products";
+import { fetchProducts} from "../store/products";
+import {addToCart} from "../store/cart"
+
 
 
 class AllProducts extends React.Component {
@@ -33,16 +35,16 @@ class AllProducts extends React.Component {
         <label htmlFor="category">Filter By Category:</label>
         <select name="category" value = {this.state.value} id="category" onChange ={this.handleChange}>
         <option value="All">All</option>
-        <option value="Bread">Bread</option>
-        <option value="Rolls">Rolls</option>
-        <option value="Cookies">Cookies</option>
-        <option value="Pies">Pies</option>
-        <option value="Pastries">Pastries</option>
-        <option value="Muffins">Muffins</option>
-        <option value="Cakes">Cakes</option>
+        <option value="bread">Bread</option>
+        <option value="cupcakes">Cupcakes</option>
+        <option value="cookies">Cookies</option>
+        <option value="pies">Pies</option>
+        <option value="pastries">Pastries</option>
+        <option value="muffins">Muffins</option>
+        <option value="cakes">Cakes</option>
         </select>
         <div className="Container">
-            {/* {this.state.value === 'All'? this.props.products.map(product => (
+            {this.state.value === 'All'? (this.props.products.map(product => (
                 <div key={product.id}>
                 <img className="productImg" src={product.imageUrl} />
          <p>Product Name: {product.productName}</p>
@@ -56,8 +58,8 @@ class AllProducts extends React.Component {
         </svg>
         </button>
         </div>
-            ) ) :
-            this.selectCategory.map((product) => (
+            ) )) :
+            (this.selectCategory().map((product) => (
                 <div key={product.id}>
                 <img className="productImg" src={product.imageUrl} />
          <p>Product Name: {product.productName}</p>
@@ -71,8 +73,8 @@ class AllProducts extends React.Component {
         </svg>
         </button>
         </div>
-            ))
-          } */}
+            )))
+          }
         </div>
 
       </div>
