@@ -12,21 +12,11 @@ router.get('/', requireToken, isAdmin, async (req, res, next) => {
       // explicitly select only the id and username fields - even though
       // users' passwords are encrypted, it won't help if we just
       // send everything to anyone who asks!
-      attributes: ['id', 'email'],
+      attributes: ['id', 'firstName', 'lastName', 'email', 'address'],
     });
     res.send(users);
   } catch (err) {
     next(err);
-  }
-});
-
-// sign up new user
-router.post(`/`, async (req, res, next) => {
-  try {
-    const newUser = await User.create(req.body);
-    res.send(newUser);
-  } catch (error) {
-    next(error);
   }
 });
 
