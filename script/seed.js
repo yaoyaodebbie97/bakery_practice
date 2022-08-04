@@ -41,10 +41,8 @@ async function seed() {
     mockProducts.map((product) => {
       return Product.create(product);
     })
-    // mockOrderItems.map((orderItems) => {
-    //   return OrderItems.create(orderItems);
-    // })
   );
+
   await addOrders();
   await addProducts();
 
