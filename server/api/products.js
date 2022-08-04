@@ -2,11 +2,14 @@ const router = require('express').Router();
 const {
   models: { Product },
 } = require('../db');
+const { requireToken, isAdmin } = require('./middleware');
 
 //ROUTE /api/products
 router.get('/', async (req, res, next) => {
   try {
-    const allProducts = await Product.findAll();
+    const allProducts = await Product.findAll({
+      attributes: ['id', 'productName', 'description', 'price', 'imageUrl', 'category']
+    });
     res.json(allProducts);
   } catch (err) {
     next(err);
