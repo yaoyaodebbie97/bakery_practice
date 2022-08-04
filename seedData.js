@@ -921,7 +921,7 @@ const mockProducts = [
       'libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed',
     quantity: 4,
     price: 25.16,
-    imageUrl: 'http://dummyimage.com/155x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/7525144/pexels-photo-7525144.jpeg?auto=compress&cs=tinysrgb&w=1600',
     category: 'cupcakes',
   },
   {
