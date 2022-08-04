@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {
-  models: { User, Order },
+  models: { User, Order, Product },
 } = require('../db');
 const { requireToken, isAdmin } = require('./middleware');
 module.exports = router;
@@ -30,13 +30,16 @@ router.post(`/`, async (req, res, next) => {
   }
 });
 
-// get user order history
+
 router.get('/:userId/orders', requireToken, async (req, res, next) => {
   try {
-    const user = await User.findByPK(req.params.id, {
-      include: [Order],
+    const userOrder = await Order.findAll({
+      include: [Product],
+      where: {
+        userId: req.params.userId
+      }
     });
-    res.send(user);
+    res.send(userOrder);
   } catch (err) {
     next(err);
   }
