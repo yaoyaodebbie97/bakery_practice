@@ -8,7 +8,14 @@ const { requireToken, isAdmin } = require('./middleware');
 router.get('/', async (req, res, next) => {
   try {
     const allProducts = await Product.findAll({
-      attributes: ['id', 'productName', 'description', 'price', 'imageUrl', 'category']
+      attributes: [
+        'id',
+        'productName',
+        'description',
+        'price',
+        'imageUrl',
+        'category',
+      ],
     });
     res.json(allProducts);
   } catch (err) {
@@ -30,8 +37,8 @@ router.post(`/`, requireToken, isAdmin, async (req, res, next) => {
 router.put('/:productId', requireToken, isAdmin, async (req, res, next) => {
   try {
     const product = await Product.findByPk(req.params.id);
-    await product.update(req.body)
-    res.send(product)
+    await product.update(req.body);
+    res.send(product);
   } catch (error) {
     next(error);
   }
@@ -41,8 +48,8 @@ router.put('/:productId', requireToken, isAdmin, async (req, res, next) => {
 router.delete('/:productId', requireToken, isAdmin, async (req, res, next) => {
   try {
     const product = await Product.findByPk(req.params.id);
-      await product.destroy();
-      res.send(product)
+    await product.destroy();
+    res.send(product);
   } catch (err) {
     next(err);
   }
@@ -50,7 +57,16 @@ router.delete('/:productId', requireToken, isAdmin, async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const product = await Product.findByPk(req.params.id);
+    const product = await Product.findByPk(req.params.id, {
+      attributes: [
+        'id',
+        'productName',
+        'description',
+        'price',
+        'imageUrl',
+        'category',
+      ],
+    });
     res.json(product);
   } catch (err) {
     next(err);
@@ -63,6 +79,14 @@ router.get('/category/:category', async (req, res, next) => {
       where: {
         category: req.params.category,
       },
+      attributes: [
+        'id',
+        'productName',
+        'description',
+        'price',
+        'imageUrl',
+        'category',
+      ],
     });
     res.json(allProducts);
   } catch (err) {
