@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {
-  models: { User, Order },
+  models: { User, Order, Product },
 } = require('../db');
 const { requireToken, isAdmin } = require('./middleware');
 module.exports = router;
@@ -12,7 +12,7 @@ router.get('/', requireToken, isAdmin, async (req, res, next) => {
       // explicitly select only the id and username fields - even though
       // users' passwords are encrypted, it won't help if we just
       // send everything to anyone who asks!
-      attributes: ['id', 'email'],
+      attributes: ['id', 'firstName', 'lastName', 'email', 'address'],
     });
     res.send(users);
   } catch (err) {
@@ -20,8 +20,8 @@ router.get('/', requireToken, isAdmin, async (req, res, next) => {
   }
 });
 
-// create new user
-router.post(`/`, async (req, res, next) => {
+// admin can create add users
+router.post(`/`, requireToken, isAdmin, async (req, res, next) => {
   try {
     const newUser = await User.create(req.body);
     res.send(newUser);
@@ -30,13 +30,38 @@ router.post(`/`, async (req, res, next) => {
   }
 });
 
-// get user order history
+// admin can update users
+router.put('/:userId', requireToken, isAdmin, async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.params.id);
+    await user.update(req.body)
+    res.send(user)
+  } catch (error) {
+    next(error);
+  }
+});
+
+// admin can delete users
+router.delete('/:userId', requireToken, isAdmin, async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.params.id);
+      await user.destroy();
+      res.send(user)
+  } catch (err) {
+    next(err);
+  }
+});
+
+
 router.get('/:userId/orders', requireToken, async (req, res, next) => {
   try {
-    const user = await User.findByPK(req.params.id, {
-      include: [Order],
+    const userOrder = await Order.findAll({
+      include: [Product],
+      where: {
+        userId: req.params.userId
+      }
     });
-    res.send(user);
+    res.send(userOrder);
   } catch (err) {
     next(err);
   }

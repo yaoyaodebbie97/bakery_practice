@@ -2,14 +2,9 @@
 
 const {
   db,
-  models: { User, Product, Order, OrderItems },
+  models: { User, Product, Order },
 } = require('../server/db');
-const {
-  mockUsers,
-  mockOrders,
-  mockProducts,
-  // mockOrderItems,
-} = require('../seedData.js');
+const { mockUsers, mockOrders, mockProducts } = require('../seedData.js');
 
 async function addOrders() {
   for (let i = 1; i <= 45; i++) {
@@ -27,13 +22,6 @@ async function addProducts() {
   }
 }
 
-// async function addProducts() {
-//   for (let i = 1; i <= 45; i++) {
-//     let orderItems = await OrderItems.findByPk(i);
-//     let randomProduct= Math.floor(Math.random() * 45);
-//     await orderItems.setProduct(randomProduct);
-//   }
-// }
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
@@ -58,9 +46,6 @@ async function seed() {
     // })
   );
   await addOrders();
-  console.log(Object.keys(Order.prototype));
-
-  // await addOrderItems();
   await addProducts();
 
   console.log(`seeded users`);

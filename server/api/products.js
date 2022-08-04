@@ -2,24 +2,20 @@ const router = require('express').Router();
 const {
   models: { Product },
 } = require('../db');
+const { requireToken, isAdmin } = require('./middleware');
 
 //ROUTE /api/products
 router.get('/', async (req, res, next) => {
   try {
-    const allProducts = await Product.findAll();
-    res.json(allProducts);
-  } catch (err) {
-    next(err);
-  }
-});
-
-
-router.get('/category/:category', async (req, res, next) => {
-  try {
     const allProducts = await Product.findAll({
-      where: {
-        category: req.params.category,
-      },
+      attributes: [
+        'id',
+        'productName',
+        'description',
+        'price',
+        'imageUrl',
+        'category',
+      ],
     });
     res.json(allProducts);
   } catch (err) {
@@ -27,35 +23,75 @@ router.get('/category/:category', async (req, res, next) => {
   }
 });
 
-router.get('/:id', async (req, res, next) => {
+// admin can create add products
+router.post(`/`, requireToken, isAdmin, async (req, res, next) => {
+  try {
+    const newProduct = await Product.create(req.body);
+    res.send(newProduct);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// admin can update products
+router.put('/:productId', requireToken, isAdmin, async (req, res, next) => {
   try {
     const product = await Product.findByPk(req.params.id);
+    await product.update(req.body);
+    res.send(product);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// admin can delete products
+router.delete('/:productId', requireToken, isAdmin, async (req, res, next) => {
+  try {
+    const product = await Product.findByPk(req.params.id);
+    await product.destroy();
+    res.send(product);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get('/:id', async (req, res, next) => {
+  try {
+    const product = await Product.findByPk(req.params.id, {
+      attributes: [
+        'id',
+        'productName',
+        'description',
+        'price',
+        'imageUrl',
+        'category',
+      ],
+    });
     res.json(product);
   } catch (err) {
     next(err);
   }
-
 });
 
-// const category = ['bread', 'cupcakes', 'cookies', 'pies','pastries','muffins','cakes'];
-// router.get('/:sth', async (req, res, next) => {
-//     try {
-//         const sth = req.params.sth;
-//         if  (category.includes(sth)){
-//             const allProducts = await Product.findAll({
-//                 where: {
-//                 category: sth,
-//                 },
-//             })
-//             res.json(allProducts);
-//         }
-//         else {
-//             const product = await Product.findByPk(sth);
-//             res.json(product);
-//         }
-//     } catch (err) {
-//       next(err);
-//     }
-//   });
+router.get('/category/:category', async (req, res, next) => {
+  try {
+    const allProducts = await Product.findAll({
+      where: {
+        category: req.params.category,
+      },
+      attributes: [
+        'id',
+        'productName',
+        'description',
+        'price',
+        'imageUrl',
+        'category',
+      ],
+    });
+    res.json(allProducts);
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;
