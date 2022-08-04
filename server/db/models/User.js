@@ -2,7 +2,6 @@ const Sequelize = require('sequelize');
 const db = require('../db');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const axios = require('axios');
 
 const SALT_ROUNDS = 5;
 
@@ -67,7 +66,7 @@ User.prototype.generateToken = function () {
 User.authenticate = async function ({ email, password }) {
   const user = await this.findOne({ where: { email } });
   if (!user || !(await user.correctPassword(password))) {
-    const error = Error('Incorrect email/password');
+    const error = Error('Incorrect username/password');
     error.status = 401;
     throw error;
   }
