@@ -54,15 +54,40 @@ export const fetchCart = () =>{
   }
 
 }
-export const addToCart = (id, quantity) => {
+// export const addToCart = (id, quantity) => {
+//   return async (dispatch) => {
+//     try {
+//        const token = window.localStorage.getItem('token'); // TOKEN 
+//        if (token){ // logged in user 
+//           const {data} = await axios.post('/api/cart', {  // axios call to alter the database 
+//             productId: id,
+//             totalQuantity: quantity
+//           }, {
+//               headers: {
+//                   authorization: token
+//               }
+//           })
+//           dispatch(updateTheCart(data))
+//        }  else{ // for a guest or not signed in user 
+//            let cart = JSON.parse(window.localStorage.getItem('cart'))
+//             ? JSON.parse(window.localStorage.getItem('cart'))
+//             : {products:[]}
+//            cart.products.push({productId: id, totalQuantity: quantity});
+//            window.localStorage.setItem('cart', JSON.stringify(cart));
+//            dispatch(updateTheCart(cart))
+//        }
+//     } catch (err) {
+//       console.log(err)
+//     }
+//   }
+// };
+
+export const addToCart = (product, quantity) => {
   return async (dispatch) => {
     try {
        const token = window.localStorage.getItem('token'); // TOKEN 
        if (token){ // logged in user 
-          const {data} = await axios.post('/api/cart', {  // axios call to alter the database 
-            productId: id,
-            totalQuantity: quantity
-          }, {
+          const {data} = await axios.post('/api/cart', product, {
               headers: {
                   authorization: token
               }
@@ -72,7 +97,8 @@ export const addToCart = (id, quantity) => {
            let cart = JSON.parse(window.localStorage.getItem('cart'))
             ? JSON.parse(window.localStorage.getItem('cart'))
             : {products:[]}
-           cart.products.push({productId: id, totalQuantity: quantity});
+           const cost = product.price * quantity; 
+           cart.products.push({id: product.id, quantity: quantity, cost: cost });
            window.localStorage.setItem('cart', JSON.stringify(cart));
            dispatch(updateTheCart(cart))
        }

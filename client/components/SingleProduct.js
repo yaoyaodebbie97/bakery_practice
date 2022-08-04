@@ -18,11 +18,11 @@ class SingleProduct extends Component {
       }
 
     handleSelect(evt){
-      this.setState ({quantity: evt.target.value});
+      this.setState ({totalQuantity: evt.target.value});
     } 
 
     handleAdd() {
-      this.props.addToCart(this.props.match.params.id, this.state.totalQuantity);
+      this.props.addToCart(this.props.product, this.state.totalQuantity);
     }
 
     render() {
@@ -33,7 +33,7 @@ class SingleProduct extends Component {
             <p> Product Name: {product.productName} </p>
             <p> Description: {product.description}</p>
          
-            <select name="quantity" id="quantity" onChange = {(evt)=>this.handleSelect(evt)} > 
+            <select name="quantity" id="quantity" onChange = {this.handleSelect} > 
                 <option value={1}>1</option>
                 <option value={2}>2</option>
                 <option value={3}>3</option>
@@ -63,7 +63,7 @@ const mapState = (state) => ({
   
   const mapDispatch = (dispatch) => ({
     getSingleProduct: (id) => dispatch (fetchSingleProduct(id)),
-    addToCart: (product) => dispatch (addToCart(product)),
+    addToCart: (product, quantity) => dispatch (addToCart(product, quantity)),
   });
   
   export default connect(mapState, mapDispatch)(SingleProduct);

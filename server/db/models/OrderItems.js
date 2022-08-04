@@ -23,3 +23,4 @@ const OrderItems = db.define('orderItems', {
 });
 
 module.exports = OrderItems;
+
