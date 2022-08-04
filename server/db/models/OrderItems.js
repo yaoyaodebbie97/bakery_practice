@@ -13,9 +13,6 @@ const OrderItems = db.define('orderItems', {
     allowNull: true,
     defaultValue: 5,
   },
-  // unitCost: {
-  //   type: Sequelize.DECIMAL(10,2),
-  // },
   totalCost: {
     type: Sequelize.INTEGER,
     defaultValue: 400,
