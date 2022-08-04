@@ -39,7 +39,7 @@ class Category extends Component {
                 </button>
             </div>
             ))
-            : <h1> No Product in this Category </h1>
+            : <h1> Still Loading </h1>
             }
         </div>
         )
