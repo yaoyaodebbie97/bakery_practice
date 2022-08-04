@@ -408,16 +408,16 @@ const mockProducts = [
       'diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non',
     quantity: 69,
     price: 14.99,
-    imageUrl: 'http://dummyimage.com/111x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/1387070/pexels-photo-1387070.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'bread',
   },
   {
-    productName: 'Flower - Daisies',
+    productName: 'Raspberry Crisps',
     description:
       'duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel',
     quantity: 64,
     price: 27.1,
-    imageUrl: 'http://dummyimage.com/161x100.png/cc0000/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/12959868/pexels-photo-12959868.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cookies',
   },
   {
@@ -426,7 +426,7 @@ const mockProducts = [
       'blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est',
     quantity: 56,
     price: 15.86,
-    imageUrl: 'http://dummyimage.com/219x100.png/dddddd/000000',
+    imageUrl: 'https://www.pexels.com/photo/clear-glass-bottle-with-milk-3522528/',
     category: 'cookies',
   },
   {
@@ -435,7 +435,7 @@ const mockProducts = [
       'ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede',
     quantity: 46,
     price: 17.74,
-    imageUrl: 'http://dummyimage.com/230x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/2418652/pexels-photo-2418652.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'muffins',
   },
   {
@@ -444,7 +444,7 @@ const mockProducts = [
       'nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed',
     quantity: 0,
     price: 16.16,
-    imageUrl: 'http://dummyimage.com/206x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/131899/pexels-photo-131899.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'muffins',
   },
   {
@@ -453,7 +453,7 @@ const mockProducts = [
       'rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa',
     quantity: 19,
     price: 6.0,
-    imageUrl: 'http://dummyimage.com/162x100.png/cc0000/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/2361503/pexels-photo-2361503.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pies',
   },
   {
@@ -462,7 +462,7 @@ const mockProducts = [
       'nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt',
     quantity: 54,
     price: 15.95,
-    imageUrl: 'http://dummyimage.com/118x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80',
     category: 'cupcakes',
   },
   {
@@ -471,7 +471,7 @@ const mockProducts = [
       'odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar',
     quantity: 51,
     price: 12.4,
-    imageUrl: 'http://dummyimage.com/235x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/1169790/pexels-photo-1169790.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pastries',
   },
   {
@@ -480,7 +480,7 @@ const mockProducts = [
       'id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in',
     quantity: 64,
     price: 18.36,
-    imageUrl: 'http://dummyimage.com/139x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/6210740/pexels-photo-6210740.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cupcakes',
   },
   {
@@ -489,7 +489,7 @@ const mockProducts = [
       'sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui',
     quantity: 86,
     price: 19.64,
-    imageUrl: 'http://dummyimage.com/176x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/10509251/pexels-photo-10509251.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'muffins',
   },
   {
@@ -498,7 +498,7 @@ const mockProducts = [
       'non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in',
     quantity: null,
     price: 10.15,
-    imageUrl: null,
+    imageUrl: "https://images.pexels.com/photos/11961854/pexels-photo-11961854.jpeg?auto=compress&cs=tinysrgb&w=300",
     category: 'pastries',
   },
   {
@@ -507,16 +507,16 @@ const mockProducts = [
       'maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras',
     quantity: 9,
     price: 19.64,
-    imageUrl: 'http://dummyimage.com/218x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/3856007/pexels-photo-3856007.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cookies',
   },
   {
-    productName: 'Beer - Camerons Auburn',
+    productName: 'Italian - Wedding Cake',
     description:
       'id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in',
     quantity: 76,
     price: 14.82,
-    imageUrl: 'http://dummyimage.com/215x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://i.postimg.cc/sfSzyty2/0-D10-E034-F0-DD-49-A6-9329-AF624-DEC66-F5.jpg',
     category: 'cakes',
   },
   {
@@ -525,7 +525,7 @@ const mockProducts = [
       'orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat',
     quantity: null,
     price: 26.74,
-    imageUrl: null,
+    imageUrl: "https://images.pexels.com/photos/1002322/pexels-photo-1002322.jpeg?auto=compress&cs=tinysrgb&w=300",
     category: 'bread',
   },
   {
@@ -534,7 +534,7 @@ const mockProducts = [
       'suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes',
     quantity: 60,
     price: 13.45,
-    imageUrl: 'http://dummyimage.com/242x100.png/cc0000/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/11880571/pexels-photo-11880571.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pastries',
   },
   {
@@ -543,7 +543,7 @@ const mockProducts = [
       'vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam',
     quantity: 94,
     price: 8.23,
-    imageUrl: 'http://dummyimage.com/141x100.png/cc0000/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/5107180/pexels-photo-5107180.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pies',
   },
   {
@@ -552,7 +552,7 @@ const mockProducts = [
       'eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae',
     quantity: 96,
     price: 24.4,
-    imageUrl: 'http://dummyimage.com/125x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/3730917/pexels-photo-3730917.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'bread',
   },
   {
@@ -561,7 +561,7 @@ const mockProducts = [
       'risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum',
     quantity: 52,
     price: 14.97,
-    imageUrl: 'http://dummyimage.com/154x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/6431587/pexels-photo-6431587.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cookies',
   },
   {
@@ -570,7 +570,7 @@ const mockProducts = [
       'mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae',
     quantity: 3,
     price: 7.6,
-    imageUrl: 'http://dummyimage.com/134x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/9582686/pexels-photo-9582686.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pastries',
   },
   {
@@ -579,7 +579,7 @@ const mockProducts = [
       'vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit',
     quantity: 44,
     price: 17.38,
-    imageUrl: 'http://dummyimage.com/135x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/3141268/pexels-photo-3141268.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'bread',
   },
   {
@@ -588,7 +588,7 @@ const mockProducts = [
       'ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin',
     quantity: 74,
     price: 29.12,
-    imageUrl: 'http://dummyimage.com/161x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/556829/pexels-photo-556829.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'muffins',
   },
   {
@@ -597,7 +597,7 @@ const mockProducts = [
       'est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin',
     quantity: 0,
     price: 16.23,
-    imageUrl: 'http://dummyimage.com/244x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/9295339/pexels-photo-9295339.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cupcakes',
   },
   {
@@ -606,7 +606,7 @@ const mockProducts = [
       'augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna',
     quantity: 52,
     price: 27.37,
-    imageUrl: 'http://dummyimage.com/122x100.png/cc0000/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/5634612/pexels-photo-5634612.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cookies',
   },
   {
@@ -615,7 +615,7 @@ const mockProducts = [
       'elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac',
     quantity: 7,
     price: 20.86,
-    imageUrl: 'http://dummyimage.com/128x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/10319189/pexels-photo-10319189.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cupcakes',
   },
   {
@@ -624,7 +624,7 @@ const mockProducts = [
       'in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis',
     quantity: 67,
     price: 21.53,
-    imageUrl: 'http://dummyimage.com/195x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/7962412/pexels-photo-7962412.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'bread',
   },
   {
@@ -633,7 +633,7 @@ const mockProducts = [
       'at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis',
     quantity: 23,
     price: 17.21,
-    imageUrl: 'http://dummyimage.com/170x100.png/cc0000/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/1070850/pexels-photo-1070850.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cakes',
   },
   {
@@ -642,7 +642,7 @@ const mockProducts = [
       'enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu',
     quantity: 41,
     price: 5.95,
-    imageUrl: 'http://dummyimage.com/162x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/7474207/pexels-photo-7474207.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cupcakes',
   },
   {
@@ -651,7 +651,7 @@ const mockProducts = [
       'quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio',
     quantity: 48,
     price: 27.99,
-    imageUrl: 'http://dummyimage.com/188x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/1721934/pexels-photo-1721934.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cakes',
   },
   {
@@ -660,7 +660,7 @@ const mockProducts = [
       'feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium',
     quantity: 7,
     price: 8.13,
-    imageUrl: 'http://dummyimage.com/231x100.png/cc0000/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/7816718/pexels-photo-7816718.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cupcakes',
   },
   {
@@ -669,7 +669,7 @@ const mockProducts = [
       'mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea',
     quantity: 6,
     price: 11.07,
-    imageUrl: 'http://dummyimage.com/185x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/6163264/pexels-photo-6163264.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pies',
   },
   {
@@ -678,7 +678,7 @@ const mockProducts = [
       'magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent',
     quantity: 89,
     price: 11.38,
-    imageUrl: 'http://dummyimage.com/151x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/5706442/pexels-photo-5706442.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pies',
   },
   {
@@ -687,7 +687,7 @@ const mockProducts = [
       'amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris',
     quantity: 14,
     price: 22.62,
-    imageUrl: 'http://dummyimage.com/245x100.png/cc0000/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/5419095/pexels-photo-5419095.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pies',
   },
   {
@@ -696,7 +696,7 @@ const mockProducts = [
       'enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue',
     quantity: 12,
     price: 23.03,
-    imageUrl: 'http://dummyimage.com/158x100.png/dddddd/000000',
+    imageUrl: 'https://www.pexels.com/@pixabay/',
     category: 'pastries',
   },
   {
@@ -705,7 +705,7 @@ const mockProducts = [
       'nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi',
     quantity: 69,
     price: 7.12,
-    imageUrl: 'http://dummyimage.com/240x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/7180590/pexels-photo-7180590.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cookies',
   },
   {
@@ -714,7 +714,7 @@ const mockProducts = [
       'pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam',
     quantity: 14,
     price: 18.82,
-    imageUrl: 'http://dummyimage.com/151x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/3776529/pexels-photo-3776529.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'muffins',
   },
   {
@@ -723,7 +723,7 @@ const mockProducts = [
       'amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper',
     quantity: 21,
     price: 15.37,
-    imageUrl: 'http://dummyimage.com/144x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/10718225/pexels-photo-10718225.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cupcakes',
   },
   {
@@ -732,7 +732,7 @@ const mockProducts = [
       'platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante',
     quantity: null,
     price: 11.77,
-    imageUrl: null,
+    imageUrl: "https://images.pexels.com/photos/9095910/pexels-photo-9095910.jpeg?auto=compress&cs=tinysrgb&w=300",
     category: 'cupcakes',
   },
   {
@@ -741,7 +741,7 @@ const mockProducts = [
       'nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in',
     quantity: 5,
     price: 19.69,
-    imageUrl: 'http://dummyimage.com/106x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/4167157/pexels-photo-4167157.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'muffins',
   },
   {
@@ -750,7 +750,7 @@ const mockProducts = [
       'primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec',
     quantity: 63,
     price: 9.22,
-    imageUrl: 'http://dummyimage.com/122x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/2661996/pexels-photo-2661996.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'bread',
   },
   {
@@ -759,7 +759,7 @@ const mockProducts = [
       'a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante',
     quantity: 87,
     price: 27.56,
-    imageUrl: 'http://dummyimage.com/137x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/1721932/pexels-photo-1721932.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cakes',
   },
   {
@@ -768,7 +768,7 @@ const mockProducts = [
       'velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta',
     quantity: 12,
     price: 15.89,
-    imageUrl: 'http://dummyimage.com/138x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/8963942/pexels-photo-8963942.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pastries',
   },
   {
@@ -777,7 +777,7 @@ const mockProducts = [
       'aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor',
     quantity: 36,
     price: 22.23,
-    imageUrl: 'http://dummyimage.com/190x100.png/cc0000/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/1070852/pexels-photo-1070852.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cakes',
   },
   {
@@ -786,7 +786,7 @@ const mockProducts = [
       'dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent',
     quantity: 30,
     price: 8.06,
-    imageUrl: 'http://dummyimage.com/112x100.png/cc0000/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/4946407/pexels-photo-4946407.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'muffins',
   },
   {
@@ -795,7 +795,7 @@ const mockProducts = [
       'massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in',
     quantity: 94,
     price: 9.55,
-    imageUrl: 'http://dummyimage.com/218x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/10690387/pexels-photo-10690387.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cupcakes',
   },
   {
@@ -804,7 +804,7 @@ const mockProducts = [
       'dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis',
     quantity: 0,
     price: 27.37,
-    imageUrl: 'http://dummyimage.com/127x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/10300106/pexels-photo-10300106.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cookies',
   },
   {
@@ -813,7 +813,7 @@ const mockProducts = [
       'amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus',
     quantity: 83,
     price: 29.79,
-    imageUrl: 'http://dummyimage.com/134x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/5900063/pexels-photo-5900063.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cookies',
   },
   {
@@ -822,7 +822,7 @@ const mockProducts = [
       'orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi',
     quantity: 4,
     price: 24.56,
-    imageUrl: 'http://dummyimage.com/136x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/6608542/pexels-photo-6608542.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'bread',
   },
   {
@@ -831,7 +831,7 @@ const mockProducts = [
       'in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi',
     quantity: 75,
     price: 22.97,
-    imageUrl: 'http://dummyimage.com/174x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/8250338/pexels-photo-8250338.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pastries',
   },
   {
@@ -840,7 +840,7 @@ const mockProducts = [
       'aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci',
     quantity: 63,
     price: 18.14,
-    imageUrl: 'http://dummyimage.com/107x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/4792391/pexels-photo-4792391.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'muffins',
   },
   {
@@ -849,7 +849,7 @@ const mockProducts = [
       'sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus',
     quantity: null,
     price: 19.94,
-    imageUrl: null,
+    imageUrl: "https://images.pexels.com/photos/1157835/pexels-photo-1157835.jpeg?auto=compress&cs=tinysrgb&w=300",
     category: 'pastries',
   },
   {
@@ -858,7 +858,7 @@ const mockProducts = [
       'pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa',
     quantity: 50,
     price: 17.18,
-    imageUrl: 'http://dummyimage.com/166x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/6557291/pexels-photo-6557291.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cakes',
   },
   {
@@ -867,7 +867,7 @@ const mockProducts = [
       'urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam',
     quantity: 66,
     price: 6.43,
-    imageUrl: 'http://dummyimage.com/248x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/4881595/pexels-photo-4881595.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'bread',
   },
   {
@@ -876,7 +876,7 @@ const mockProducts = [
       'in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum',
     quantity: 38,
     price: 21.03,
-    imageUrl: 'http://dummyimage.com/191x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/4959709/pexels-photo-4959709.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cakes',
   },
   {
@@ -885,7 +885,7 @@ const mockProducts = [
       'et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet',
     quantity: 4,
     price: 8.81,
-    imageUrl: 'http://dummyimage.com/186x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/267308/pexels-photo-267308.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pastries',
   },
   {
@@ -894,7 +894,7 @@ const mockProducts = [
       'sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat',
     quantity: 12,
     price: 15.82,
-    imageUrl: 'http://dummyimage.com/235x100.png/cc0000/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/5419095/pexels-photo-5419095.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pies',
   },
   {
@@ -903,7 +903,7 @@ const mockProducts = [
       'iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat',
     quantity: 69,
     price: 6.31,
-    imageUrl: 'http://dummyimage.com/102x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/5853924/pexels-photo-5853924.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cookies',
   },
   {
@@ -912,7 +912,7 @@ const mockProducts = [
       'ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede',
     quantity: null,
     price: 8.05,
-    imageUrl: null,
+    imageUrl: "https://images.pexels.com/photos/1721932/pexels-photo-1721932.jpeg?auto=compress&cs=tinysrgb&w=300",
     category: 'cakes',
   },
   {
@@ -930,7 +930,7 @@ const mockProducts = [
       'ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis',
     quantity: null,
     price: 6.51,
-    imageUrl: null,
+    imageUrl: "https://www.pexels.com/@jessbaileydesign/",
     category: 'cupcakes',
   },
   {
@@ -939,7 +939,7 @@ const mockProducts = [
       'rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo',
     quantity: null,
     price: 8.49,
-    imageUrl: null,
+    imageUrl: "https://images.pexels.com/photos/4792396/pexels-photo-4792396.jpeg?auto=compress&cs=tinysrgb&w=300",
     category: 'muffins',
   },
   {
@@ -948,7 +948,7 @@ const mockProducts = [
       'morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue',
     quantity: 20,
     price: 17.67,
-    imageUrl: 'http://dummyimage.com/111x100.png/cc0000/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/1657343/pexels-photo-1657343.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'muffins',
   },
   {
@@ -957,7 +957,7 @@ const mockProducts = [
       'nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante',
     quantity: 56,
     price: 5.91,
-    imageUrl: 'http://dummyimage.com/243x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/3309805/pexels-photo-3309805.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cookies',
   },
   {
@@ -966,7 +966,7 @@ const mockProducts = [
       'in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus',
     quantity: 80,
     price: 16.33,
-    imageUrl: 'http://dummyimage.com/234x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/12959868/pexels-photo-12959868.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cookies',
   },
   {
@@ -975,7 +975,7 @@ const mockProducts = [
       'nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor',
     quantity: 89,
     price: 7.17,
-    imageUrl: 'http://dummyimage.com/172x100.png/cc0000/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/6341572/pexels-photo-6341572.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cakes',
   },
   {
@@ -984,7 +984,7 @@ const mockProducts = [
       'at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate',
     quantity: null,
     price: 26.94,
-    imageUrl: null,
+    imageUrl: "https://images.pexels.com/photos/5419104/pexels-photo-5419104.jpeg?auto=compress&cs=tinysrgb&w=300",
     category: 'pies',
   },
   {
@@ -993,7 +993,7 @@ const mockProducts = [
       'metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna',
     quantity: 11,
     price: 8.71,
-    imageUrl: 'http://dummyimage.com/155x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/1169790/pexels-photo-1169790.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pastries',
   },
   {
@@ -1002,7 +1002,7 @@ const mockProducts = [
       'tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc',
     quantity: 51,
     price: 5.14,
-    imageUrl: 'http://dummyimage.com/241x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/11961854/pexels-photo-11961854.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pastries',
   },
   {
@@ -1011,7 +1011,7 @@ const mockProducts = [
       'ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui',
     quantity: 97,
     price: 26.96,
-    imageUrl: 'http://dummyimage.com/223x100.png/cc0000/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/2418652/pexels-photo-2418652.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'muffins',
   },
   {
@@ -1020,7 +1020,7 @@ const mockProducts = [
       'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse',
     quantity: 82,
     price: 17.32,
-    imageUrl: 'http://dummyimage.com/214x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/10509251/pexels-photo-10509251.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'muffins',
   },
   {
@@ -1029,7 +1029,7 @@ const mockProducts = [
       'aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam',
     quantity: 36,
     price: 18.09,
-    imageUrl: 'http://dummyimage.com/150x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/556829/pexels-photo-556829.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'muffins',
   },
   {
@@ -1038,7 +1038,7 @@ const mockProducts = [
       'id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac',
     quantity: 72,
     price: 13.14,
-    imageUrl: 'http://dummyimage.com/220x100.png/cc0000/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/5634612/pexels-photo-5634612.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cookies',
   },
   {
@@ -1047,7 +1047,7 @@ const mockProducts = [
       'diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris',
     quantity: 75,
     price: 28.44,
-    imageUrl: 'http://dummyimage.com/237x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/5500480/pexels-photo-5500480.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pies',
   },
   {
@@ -1056,7 +1056,7 @@ const mockProducts = [
       'elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus',
     quantity: 75,
     price: 24.98,
-    imageUrl: 'http://dummyimage.com/164x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/6210740/pexels-photo-6210740.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cupcakes',
   },
   {
@@ -1065,7 +1065,7 @@ const mockProducts = [
       'elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing',
     quantity: 93,
     price: 21.11,
-    imageUrl: 'http://dummyimage.com/205x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/9295339/pexels-photo-9295339.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cupcakes',
   },
   {
@@ -1074,7 +1074,7 @@ const mockProducts = [
       'orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh',
     quantity: 37,
     price: 11.67,
-    imageUrl: 'http://dummyimage.com/140x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/8250338/pexels-photo-8250338.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pastries',
   },
   {
@@ -1083,7 +1083,7 @@ const mockProducts = [
       'sit amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non',
     quantity: 39,
     price: 12.41,
-    imageUrl: 'http://dummyimage.com/226x100.png/dddddd/000000',
+    imageUrl: 'https://i.postimg.cc/sfSzyty2/0-D10-E034-F0-DD-49-A6-9329-AF624-DEC66-F5.jpg',
     category: 'cakes',
   },
   {
@@ -1092,7 +1092,7 @@ const mockProducts = [
       'morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique',
     quantity: 30,
     price: 25.13,
-    imageUrl: 'http://dummyimage.com/163x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/4792391/pexels-photo-4792391.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'muffins',
   },
   {
@@ -1101,7 +1101,7 @@ const mockProducts = [
       'fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris',
     quantity: 56,
     price: 12.52,
-    imageUrl: 'http://dummyimage.com/212x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/8250338/pexels-photo-8250338.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pastries',
   },
   {
@@ -1110,7 +1110,7 @@ const mockProducts = [
       'nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus',
     quantity: null,
     price: 9.9,
-    imageUrl: null,
+    imageUrl: "https://images.pexels.com/photos/7180590/pexels-photo-7180590.jpeg?auto=compress&cs=tinysrgb&w=300",
     category: 'cookies',
   },
   {
@@ -1119,7 +1119,7 @@ const mockProducts = [
       'etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut',
     quantity: 98,
     price: 9.32,
-    imageUrl: 'http://dummyimage.com/248x100.png/dddddd/000000',
+    imageUrl: 'https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80',
     category: 'cupcakes',
   },
   {
@@ -1128,7 +1128,7 @@ const mockProducts = [
       'luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est',
     quantity: 48,
     price: 28.03,
-    imageUrl: 'http://dummyimage.com/161x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/6574741/pexels-photo-6574741.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pies',
   },
   {
@@ -1137,7 +1137,7 @@ const mockProducts = [
       'orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu',
     quantity: 81,
     price: 11.93,
-    imageUrl: 'http://dummyimage.com/240x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/5634612/pexels-photo-5634612.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cookies',
   },
   {
@@ -1146,7 +1146,7 @@ const mockProducts = [
       'eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus',
     quantity: 95,
     price: 25.38,
-    imageUrl: 'http://dummyimage.com/225x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/1721932/pexels-photo-1721932.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cakes',
   },
   {
@@ -1155,7 +1155,7 @@ const mockProducts = [
       'accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut',
     quantity: 21,
     price: 27.43,
-    imageUrl: 'http://dummyimage.com/239x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/2418652/pexels-photo-2418652.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'muffins',
   },
   {
@@ -1164,7 +1164,7 @@ const mockProducts = [
       'non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus',
     quantity: 66,
     price: 6.13,
-    imageUrl: 'http://dummyimage.com/140x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/5107180/pexels-photo-5107180.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pastries',
   },
   {
@@ -1173,7 +1173,7 @@ const mockProducts = [
       'morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla',
     quantity: 7,
     price: 9.62,
-    imageUrl: 'http://dummyimage.com/203x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/7180590/pexels-photo-7180590.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cookies',
   },
   {
@@ -1182,7 +1182,7 @@ const mockProducts = [
       'in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis',
     quantity: 16,
     price: 7.62,
-    imageUrl: 'http://dummyimage.com/236x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/10300106/pexels-photo-10300106.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cookies',
   },
   {
@@ -1191,7 +1191,7 @@ const mockProducts = [
       'vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis',
     quantity: 26,
     price: 6.31,
-    imageUrl: 'http://dummyimage.com/239x100.png/cc0000/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/8105063/pexels-photo-8105063.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pies',
   },
   {
@@ -1200,7 +1200,7 @@ const mockProducts = [
       'in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum',
     quantity: 42,
     price: 16.78,
-    imageUrl: 'http://dummyimage.com/131x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/7474207/pexels-photo-7474207.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cupcakes',
   },
   {
@@ -1209,7 +1209,7 @@ const mockProducts = [
       'orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a',
     quantity: 74,
     price: 7.93,
-    imageUrl: 'http://dummyimage.com/162x100.png/cc0000/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/2418652/pexels-photo-2418652.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'muffins',
   },
   {
@@ -1218,7 +1218,7 @@ const mockProducts = [
       'metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend',
     quantity: 62,
     price: 21.62,
-    imageUrl: 'http://dummyimage.com/173x100.png/cc0000/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/5900063/pexels-photo-5900063.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cookies',
   },
   {
@@ -1227,7 +1227,7 @@ const mockProducts = [
       'sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis',
     quantity: 90,
     price: 26.2,
-    imageUrl: 'http://dummyimage.com/104x100.png/cc0000/ffffff',
+    imageUrl: 'https://i.postimg.cc/sfSzyty2/0-D10-E034-F0-DD-49-A6-9329-AF624-DEC66-F5.jpg',
     category: 'cakes',
   },
   {
@@ -1236,7 +1236,7 @@ const mockProducts = [
       'id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis',
     quantity: 38,
     price: 26.97,
-    imageUrl: 'http://dummyimage.com/183x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/1387070/pexels-photo-1387070.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'bread',
   },
   {
@@ -1245,7 +1245,7 @@ const mockProducts = [
       'justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat',
     quantity: 10,
     price: 23.64,
-    imageUrl: 'http://dummyimage.com/117x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/1070850/pexels-photo-1070850.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cakes',
   },
   {
@@ -1254,7 +1254,7 @@ const mockProducts = [
       'lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere',
     quantity: 89,
     price: 7.76,
-    imageUrl: 'http://dummyimage.com/156x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/9582686/pexels-photo-9582686.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pastries',
   },
   {
@@ -1263,7 +1263,7 @@ const mockProducts = [
       'neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui',
     quantity: 51,
     price: 6.96,
-    imageUrl: 'http://dummyimage.com/125x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/2418652/pexels-photo-2418652.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'muffins',
   },
   {
@@ -1272,7 +1272,7 @@ const mockProducts = [
       'morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie',
     quantity: 59,
     price: 12.39,
-    imageUrl: 'http://dummyimage.com/175x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/8250338/pexels-photo-8250338.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pastries',
   },
   {
@@ -1281,7 +1281,7 @@ const mockProducts = [
       'bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce',
     quantity: 95,
     price: 24.75,
-    imageUrl: 'http://dummyimage.com/164x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/3141268/pexels-photo-3141268.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'bread',
   },
   {
@@ -1290,7 +1290,7 @@ const mockProducts = [
       'eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus',
     quantity: 38,
     price: 7.61,
-    imageUrl: 'http://dummyimage.com/241x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/9008662/pexels-photo-9008662.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pies',
   },
   {
@@ -1299,7 +1299,7 @@ const mockProducts = [
       'lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum',
     quantity: 74,
     price: 12.43,
-    imageUrl: 'http://dummyimage.com/165x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/8963942/pexels-photo-8963942.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pastries',
   },
   {
@@ -1308,7 +1308,7 @@ const mockProducts = [
       'mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum',
     quantity: 20,
     price: 25.46,
-    imageUrl: 'http://dummyimage.com/161x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/1721932/pexels-photo-1721932.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cakes',
   },
   {
@@ -1317,7 +1317,7 @@ const mockProducts = [
       'in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla',
     quantity: 90,
     price: 16.96,
-    imageUrl: 'http://dummyimage.com/243x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/3141268/pexels-photo-3141268.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'bread',
   },
   {
@@ -1326,7 +1326,7 @@ const mockProducts = [
       'mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing',
     quantity: 5,
     price: 25.3,
-    imageUrl: null,
+    imageUrl: "https://images.pexels.com/photos/5853924/pexels-photo-5853924.jpeg?auto=compress&cs=tinysrgb&w=300",
     category: 'cookies',
   },
   {
@@ -1335,7 +1335,7 @@ const mockProducts = [
       'vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper',
     quantity: 59,
     price: 23.33,
-    imageUrl: 'http://dummyimage.com/174x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/6557291/pexels-photo-6557291.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cakes',
   },
   {
@@ -1344,7 +1344,7 @@ const mockProducts = [
       'volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus',
     quantity: 26,
     price: 18.58,
-    imageUrl: 'http://dummyimage.com/217x100.png/cc0000/ffffff',
+    imageUrl: 'https://www.pexels.com/@pixabay/',
     category: 'pastries',
   },
   {
@@ -1353,7 +1353,7 @@ const mockProducts = [
       'venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar',
     quantity: 48,
     price: 15.88,
-    imageUrl: 'http://dummyimage.com/226x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/12959868/pexels-photo-12959868.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cookies',
   },
   {
@@ -1362,7 +1362,7 @@ const mockProducts = [
       'erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia',
     quantity: 98,
     price: 9.77,
-    imageUrl: 'http://dummyimage.com/192x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/9813069/pexels-photo-9813069.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pies',
   },
   {
@@ -1371,7 +1371,7 @@ const mockProducts = [
       'phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu',
     quantity: 63,
     price: 6.6,
-    imageUrl: 'http://dummyimage.com/225x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/556829/pexels-photo-556829.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'muffins',
   },
   {
@@ -1380,7 +1380,7 @@ const mockProducts = [
       'at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna',
     quantity: 60,
     price: 11.2,
-    imageUrl: 'http://dummyimage.com/180x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/3776529/pexels-photo-3776529.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'muffins',
   },
   {
@@ -1389,7 +1389,7 @@ const mockProducts = [
       'odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus',
     quantity: 53,
     price: 23.61,
-    imageUrl: 'http://dummyimage.com/160x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/6210756/pexels-photo-6210756.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cupcakes',
   },
   {
@@ -1398,7 +1398,7 @@ const mockProducts = [
       'montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent',
     quantity: 73,
     price: 12.42,
-    imageUrl: 'http://dummyimage.com/250x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/9813069/pexels-photo-9813069.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pies',
   },
   {
@@ -1407,7 +1407,7 @@ const mockProducts = [
       'semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et',
     quantity: 59,
     price: 20.43,
-    imageUrl: 'http://dummyimage.com/148x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/1002322/pexels-photo-1002322.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'bread',
   },
   {
@@ -1416,7 +1416,7 @@ const mockProducts = [
       'suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa',
     quantity: 38,
     price: 17.83,
-    imageUrl: 'http://dummyimage.com/103x100.png/ff4444/ffffff',
+    imageUrl: 'https://www.pexels.com/photo/clear-glass-bottle-with-milk-3522528/',
     category: 'cookies',
   },
   {
@@ -1425,7 +1425,7 @@ const mockProducts = [
       'accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula',
     quantity: 44,
     price: 5.65,
-    imageUrl: 'http://dummyimage.com/191x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/3856007/pexels-photo-3856007.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cookies',
   },
   {
@@ -1434,7 +1434,7 @@ const mockProducts = [
       'aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis',
     quantity: 42,
     price: 20.54,
-    imageUrl: 'http://dummyimage.com/171x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/6431587/pexels-photo-6431587.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cookies',
   },
   {
@@ -1443,7 +1443,7 @@ const mockProducts = [
       'primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor',
     quantity: 90,
     price: 10.74,
-    imageUrl: 'http://dummyimage.com/164x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/7474207/pexels-photo-7474207.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cupcakes',
   },
   {
@@ -1452,7 +1452,7 @@ const mockProducts = [
       'amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non',
     quantity: 47,
     price: 8.74,
-    imageUrl: 'http://dummyimage.com/248x100.png/5fa2dd/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/5634612/pexels-photo-5634612.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'cookies',
   },
   {
@@ -1461,7 +1461,7 @@ const mockProducts = [
       'mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui',
     quantity: 80,
     price: 25.38,
-    imageUrl: 'http://dummyimage.com/163x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/5706442/pexels-photo-5706442.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pies',
   },
   {
@@ -1470,7 +1470,7 @@ const mockProducts = [
       'rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel',
     quantity: 15,
     price: 10.14,
-    imageUrl: 'http://dummyimage.com/147x100.png/ff4444/ffffff',
+    imageUrl: 'https://images.pexels.com/photos/9582686/pexels-photo-9582686.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pastries',
   },
   {
@@ -1479,7 +1479,7 @@ const mockProducts = [
       'condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui',
     quantity: 71,
     price: 18.37,
-    imageUrl: 'http://dummyimage.com/238x100.png/dddddd/000000',
+    imageUrl: 'https://images.pexels.com/photos/11880571/pexels-photo-11880571.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'pastries',
   },
 ];
