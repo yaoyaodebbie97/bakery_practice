@@ -20,13 +20,45 @@ router.get('/', requireToken, isAdmin, async (req, res, next) => {
   }
 });
 
-// create new user
+// sign up new user
 router.post(`/`, async (req, res, next) => {
   try {
     const newUser = await User.create(req.body);
     res.send(newUser);
   } catch (error) {
     next(error);
+  }
+});
+
+// admin can create add users
+router.post(`/`, requireToken, isAdmin, async (req, res, next) => {
+  try {
+    const newUser = await User.create(req.body);
+    res.send(newUser);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// admin can update users
+router.put('/:userId', requireToken, isAdmin, async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.params.id);
+    await user.update(req.body)
+    res.send(user)
+  } catch (error) {
+    next(error);
+  }
+});
+
+// admin can delete users
+router.delete('/:userId', requireToken, isAdmin, async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.params.id);
+      await user.destroy();
+      res.send(user)
+  } catch (err) {
+    next(err);
   }
 });
 
