@@ -1,48 +1,26 @@
-// OrderItem --> Order 
+// for /api/cart
+router.get("/", requireToken, async (req, res, next) => {
+    try {
+      const user = await User.findByPk(req.user.id)
+      if (user) {
+        const currentCart = await Order.findOne({
+          where: {
+            userId: user.id,
+            status: "open",
+          },
+        });
+      }  
+      else {
+        const currentCart = window.sessionStorage.getItem('cart') 
+      }
+      currentCart.length() > 0 
+      ? res.json(currentCart)
+      : res.send('Your Shopping Cart is empty')
 
-import productsReducer from "../store/products"
-
-// // create a class method 
-// Order.getOrCreateShoppingCart = async function (userId) {
-//       // if there is a cart
-//       let currentOrder = await Order.findOne({
-//         where: {
-//           type: 'open',
-//           userId: userId,
-//         },
-//       });
-  
-//       // If cart does not exist, create a new one 
-//       if (!currentOrder) {
-//         currentOrder = await Order.create({
-//           type: 'open',
-//           userId: userId,
-//         });
-//       }
-//       return currentOrder;
-      
-//   };
-
-
-// // this is for the cart route api/cart
-// // get all items by orderId -- this is to get the cart
-// app.get("/", async (req, res, next) => {
-//   try {
-//     const user = await User.findByToken(req.headers.authorization);
-//     const myOrder = await Order.getOrCreateShoppingCart(user.id);
-//     res.send(
-//       await orderItem.findAll({
-//         where: {
-//           orderId: myOrder.id,
-//         },
-//       })
-//     );
-//   } catch (ex) {
-//     next(ex);
-//   }
-// });
-
-
+    } catch (err) {
+      next(err);
+    }
+  });
 
 // using /category/:categorgy
 // / changes made to 
@@ -51,4 +29,4 @@ import productsReducer from "../store/products"
 // 3. category reducer 
 // 4. home page 
 
-// todo: singleItem add multiple to the cart
+// add to cart, need a body // product ID + quantity 
