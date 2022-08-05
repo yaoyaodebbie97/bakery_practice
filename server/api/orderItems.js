@@ -51,21 +51,32 @@ router.post("/", async (req, res, next) => {
                 userId: user.id
             })
         }
-
-      OrderItems.create({
-           orderId: order.id,
-           productId: req.body.productId,
-           totalQuantity: req.body.totalQuantity,
-           totalCost: req.body.totalCost
+      //  //  if we already added this item to cart, no need to do so 
+       const itemExist = await OrderItems.findOne({
+         where:{
+           productId: req.body.productId
+         }
        })
-      
-       res.send(
-        await OrderItems.findAll({
-          where: {
-            orderId: order.id,
-          },
-        })
-      );
+       if (itemExist){
+         return;
+       }
+       else{
+              OrderItems.create({
+                orderId: order.id,
+                productId: req.body.productId,
+                totalQuantity: req.body.totalQuantity,
+                totalCost: req.body.totalCost
+            })
+          
+            res.send(
+            await OrderItems.findAll({
+              where: {
+                orderId: order.id,
+              },
+            })
+          );
+       }
+
     // res.send(order); // this will send order info id, status, userId, etc
 
     } catch (error) {
