@@ -2,11 +2,7 @@ import axios from "axios";
 
 
 const GET_CART = 'GET_CART'
-// const ADD_PRODUCT  = 'ADD_PRODUCT'
-const UPDATE_CART = 'UPDATE_CART'
-// const REMOVE_PRODUCT = 'REMOVE_PROUDUCT' 
-
-
+const UPDATE_CART = 'UPDATE_CART' 
 
 export const getCart = (cart) => ({
   type: GET_CART,
@@ -14,17 +10,7 @@ export const getCart = (cart) => ({
 });
 
 
-// export const addProduct = (cart) => ({
-//     type: ADD_PRODUCT,
-//     cart
-// });
-
-// export const removeProduct = (cart) => ({ // make it product instead of id to make it consistent 
-//     type: REMOVE_PRODUCT,
-//     cart
-// });
-
-export const updateTheCart = (cart) =>({ // either adding a new item, removing a new item, updating the quantity of the item 
+export const updateTheCart = (cart) =>({ // either adding a new item, removing a item, updating the quantity of the item 
   type: UPDATE_CART,
   cart,
 })
@@ -39,8 +25,8 @@ export const fetchCart = () =>{
         const {data} = await axios.get('/api/cart', {
           headers: {
               authorization: token
-          }
-        })
+          }}
+        )
         await dispatch(getCart(data))
       }
       else {
@@ -54,41 +40,19 @@ export const fetchCart = () =>{
   }
 
 }
-// export const addToCart = (id, quantity) => {
-//   return async (dispatch) => {
-//     try {
-//        const token = window.localStorage.getItem('token'); // TOKEN 
-//        if (token){ // logged in user 
-//           const {data} = await axios.post('/api/cart', {  // axios call to alter the database 
-//             productId: id,
-//             totalQuantity: quantity
-//           }, {
-//               headers: {
-//                   authorization: token
-//               }
-//           })
-//           dispatch(updateTheCart(data))
-//        }  else{ // for a guest or not signed in user 
-//            let cart = JSON.parse(window.localStorage.getItem('cart'))
-//             ? JSON.parse(window.localStorage.getItem('cart'))
-//             : {products:[]}
-//            cart.products.push({productId: id, totalQuantity: quantity});
-//            window.localStorage.setItem('cart', JSON.stringify(cart));
-//            dispatch(updateTheCart(cart))
-//        }
-//     } catch (err) {
-//       console.log(err)
-//     }
-//   }
-// };
 
 export const addToCart = (product, quantity) => {
   return async (dispatch) => {
+    const cost = product.price * quantity; 
     try {
-       const token = window.localStorage.getItem('token'); // TOKEN 
+       const token = window.localStorage.getItem('token'); 
        if (token){ // logged in user 
-          const {data} = await axios.post('/api/cart', product, {
-              headers: {
+          const {data} = await axios.post('/api/cart', {
+            productId: product.id,
+            totalQuantity: quantity,
+            totalCost: cost 
+          }, 
+          {  headers: {
                   authorization: token
               }
           })
@@ -96,9 +60,8 @@ export const addToCart = (product, quantity) => {
        }  else{ // for a guest or not signed in user 
            let cart = JSON.parse(window.localStorage.getItem('cart'))
             ? JSON.parse(window.localStorage.getItem('cart'))
-            : {products:[]}
-           const cost = product.price * quantity; 
-           cart.products.push({id: product.id, quantity: quantity, cost: cost });
+            : [] 
+           cart.push({productId: product.id, totalQuantity: parseInt(quantity), totalCost: cost });
            window.localStorage.setItem('cart', JSON.stringify(cart));
            dispatch(updateTheCart(cart))
        }
@@ -111,7 +74,7 @@ export const addToCart = (product, quantity) => {
 export const removeFromCart = (id) => {
   return async (dispatch) => {
     try {
-      const token = window.localStorage.getItem('token'); // TOKEN 
+      const token = window.localStorage.getItem('token'); 
       if (token) {
         const {data} = await axios.delete(`/api/cart/${id}`, {
           headers: {
@@ -121,7 +84,7 @@ export const removeFromCart = (id) => {
         dispatch(updateTheCart(data))
       } else{
         const cart = JSON.parse(window.localStorage.getItem('cart'))
-        const newCart = {products: cart.products.filter(product => product.id !== id)};
+        const newCart = cart.filter( item => item.productId !== id);
         window.localStorage.setItem('cart', JSON.stringify(newCart))
         dispatch(updateTheCart(newCart))
       }
@@ -131,23 +94,29 @@ export const removeFromCart = (id) => {
   }
 };
 
-export const updateCart = (id, newQuantity) => {
+export const updateQuantity = (item, quantityChange) => {
   return async (dispatch) => {
     try {
-       const token = window.localStorage.getItem('token'); // TOKEN 
-       if (token){ // logged in user 
-          const {data} = await axios.put('/api/cart', {  // axios call to alter the database 
-            productId: id,
-            totalQuantity: newQuantity
+       const token = window.localStorage.getItem('token'); 
+       if (token){ 
+          const {data} = await axios.put('/api/cart', {  
+            itemId: item.id,
+            quantityChange: quantityChange,
           }, {
               headers: {
                   authorization: token
               }
           })
           dispatch(updateTheCart(data))
-       }  else{ // for a guest or not signed in user 
+       }  else{ 
            const cart = JSON.parse(window.localStorage.getItem('cart'))
-           cart.products.push({productId: id, totalQuantity: newQuantity});
+           for (let i = 0; i< cart.length; i++){
+             if (cart[i].productId === item.productId){// in the local storage, we stored productId, not the item id 
+               const newQuantity = cart[i].totalQuantity + quantityChange;
+               cart[i].totalCost = cart[i].totalCost * newQuantity/ cart[i].totalQuantity // same percentage change 
+               cart[i].totalQuantity  = newQuantity;
+             }
+           }
            window.localStorage.setItem('cart', JSON.stringify(cart));
            dispatch(updateTheCart(cart))
        }
@@ -158,14 +127,17 @@ export const updateCart = (id, newQuantity) => {
 };
 
 
-  const initialState = {} // object 
+  const initialState = []
 
-  export default function productsReducer(state = initialState, action) {
+  export default function cartReducer(state = initialState, action) {
     switch (action.type) {
-      case UPDATE_CART:
-        return action.cart;''
+     
       case GET_CART:
         return action.cart;
+
+      case UPDATE_CART:
+        return action.cart;
+        
       default:
         return state
 
