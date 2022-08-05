@@ -1697,4 +1697,4 @@ const mockOrders = [
   { status: 'closed' },
 ];
 
-module.exports = { mockUsers, mockProducts, mockOrders, mockOrderItems };
+module.exports = { mockUsers, mockProducts, mockOrders, mockOrderItems};

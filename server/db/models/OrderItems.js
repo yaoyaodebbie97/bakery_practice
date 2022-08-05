@@ -11,13 +11,13 @@ const OrderItems = db.define('orderItems', {
   totalQuantity: {
     type: Sequelize.INTEGER,
     allowNull: true,
-    defaultValue: 5,
+    // defaultValue: 5,
   },
+
   totalCost: {
     type: Sequelize.INTEGER,
-    defaultValue: 400,
+    // defaultValue: 400,
   },
 });
 
 module.exports = OrderItems;
-
