@@ -1,12 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
+// import {me} from '../store/auth'
 import { fetchOrders } from '../store/userOrders'
 
 export class OrderHistory extends React.Component {
 
   componentDidMount() {
-    console.log(this.props.match.params.id)
-    this.props.getOrders(this.props.match.params.id);
+    // await this.props.getUser()
+  this.props.getOrders();
   }
 
   render() {
@@ -31,12 +32,13 @@ export class OrderHistory extends React.Component {
 
 
 const mapStateToProps = state => ({
-// user: state.auth,
+  // user: state.user,
  orders: state.orders,
 })
 
 const mapDispatchToProps = dispatch => ({
-  getOrders: id => dispatch(fetchOrders(id)),
+  // getUser: () => dispatch(me()),
+  getOrders: () => dispatch(fetchOrders()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrderHistory)

@@ -99,9 +99,6 @@ class Cart extends Component {
 
 
 
-<<<<<<< HEAD
-export default connect(mapState,mapDispatch)(Cart);
-=======
 const mapState = (state) => ({
   cart: state.cart,
 });
@@ -113,4 +110,3 @@ const mapDispatch = (dispatch) => ({
 });
 
 export default connect(mapState, mapDispatch)(Cart);
->>>>>>> bec74be98c305a32649668b7b3d2dded57973ccf

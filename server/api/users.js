@@ -53,30 +53,30 @@ router.delete('/:userId', requireToken, isAdmin, async (req, res, next) => {
 });
 
 // user can update account
-router.put('/:userId', requireToken, async (req, res, next) => {
-  try {
-    const user = await User.findByPk(req.params.id, {
-      attributes: [
-        'firstName',
-        'lastName',
-        'address',
-      ],
-    });
-    await user.update(req.body)
-    res.send(user)
-  } catch (error) {
-    next(error);
-  }
-});
+// router.put('/:userId', requireToken, async (req, res, next) => {
+//   try {
+//     const user = await User.findByPk(req.params.id, {
+//       attributes: [
+//         'firstName',
+//         'lastName',
+//         'address',
+//       ],
+//     });
+//     await user.update(req.body)
+//     res.send(user)
+//   } catch (error) {
+//     next(error);
+//   }
+// });
 
 
-router.get('/:userId/orders', requireToken, async (req, res, next) => {
+router.get('/orders', requireToken, async (req, res, next) => {
   try {
     const userOrder = await Order.findAll({
       include: [Product],
       where: {
-        userId: req.params.id
-      }
+        id: req.user.dataValues.id,
+      },
     });
     res.send(userOrder);
   } catch (err) {
