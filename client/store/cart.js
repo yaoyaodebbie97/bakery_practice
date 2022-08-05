@@ -9,7 +9,6 @@ export const getCart = (cart) => ({
   cart
 });
 
-
 export const updateTheCart = (cart) =>({ // either adding a new item, removing a item, updating the quantity of the item 
   type: UPDATE_CART,
   cart,
@@ -60,10 +59,16 @@ export const addToCart = (product, quantity) => {
        }  else{ // for a guest or not signed in user 
            let cart = JSON.parse(window.localStorage.getItem('cart'))
             ? JSON.parse(window.localStorage.getItem('cart'))
-            : [] 
-           cart.push({productId: product.id, totalQuantity: parseInt(quantity), totalCost: cost });
+            : {products: [] } 
+            cart.products.push({
+            productName: product.productName,
+            productId: product.id, 
+            unitPrice: product.price,
+            totalQuantity: parseInt(quantity), 
+            totalCost: cost });
            window.localStorage.setItem('cart', JSON.stringify(cart));
            dispatch(updateTheCart(cart))
+  
        }
     } catch (err) {
       console.log(err)
@@ -84,7 +89,7 @@ export const removeFromCart = (id) => {
         dispatch(updateTheCart(data))
       } else{
         const cart = JSON.parse(window.localStorage.getItem('cart'))
-        const newCart = cart.filter( item => item.productId !== id);
+        const newCart = cart.products.filter( item => item.productId !== id);
         window.localStorage.setItem('cart', JSON.stringify(newCart))
         dispatch(updateTheCart(newCart))
       }
@@ -110,11 +115,13 @@ export const updateQuantity = (item, quantityChange) => {
           dispatch(updateTheCart(data))
        }  else{ 
            const cart = JSON.parse(window.localStorage.getItem('cart'))
-           for (let i = 0; i< cart.length; i++){
-             if (cart[i].productId === item.productId){// in the local storage, we stored productId, not the item id 
-               const newQuantity = cart[i].totalQuantity + quantityChange;
-               cart[i].totalCost = cart[i].totalCost * newQuantity/ cart[i].totalQuantity // same percentage change 
-               cart[i].totalQuantity  = newQuantity;
+           for (let i = 0; i< cart.products.length; i++){
+             if (cart.products[i].productId === item.productId){// in the local storage, we stored productId, not the item id 
+              //  const newQuantity = cart.products[i].totalQuantity + quantityChange;
+              //  cart.products[i].totalCost = cart.products[i].totalCost * newQuantity/ cart.products[i].totalQuantity // same percentage change 
+              //  cart.products[i].totalQuantity  = newQuantity;
+              cart.products[i].totalQuantity += quantityChange;
+              cart.products[i].totalCost += quantityChange * cart.products[i].unitPrice;
              }
            }
            window.localStorage.setItem('cart', JSON.stringify(cart));
@@ -127,7 +134,7 @@ export const updateQuantity = (item, quantityChange) => {
 };
 
 
-  const initialState = []
+  const initialState = {}
 
   export default function cartReducer(state = initialState, action) {
     switch (action.type) {
