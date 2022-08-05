@@ -8,6 +8,7 @@ import AllProducts from './components/AllProducts';
 import Cart from './components/Cart';
 import Category from './components/Category';
 import SingleProduct from './components/SingleProduct';
+import OrderHistory from './components/OrderHistory';
 /**
  * COMPONENT
  */
@@ -28,6 +29,7 @@ class Routes extends Component {
             {/* <Redirect to='/home' /> */}
             <Route path='/login' component={Login} />
             <Route path='/signup' component={Signup} />
+            <Route path='/users/:id/orders' component={OrderHistory} />
             <Route exact path='/products' component={AllProducts} />
             <Route exact path='/products/category/:category' component={Category} />
             <Route exact path='/products/:id' component={SingleProduct} />

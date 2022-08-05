@@ -9,12 +9,25 @@ export const getOrders = (orders) => ({
 
 export const fetchOrders = (id) => {
   return async (dispatch) => {
-    const { data } = await axios.get(`api/users/${id}/orders`)
-    dispatch(fetchOrders(orders))
+    try {
+      const token = window.localStorage.getItem('token');
+      if (token) {
+        const { data } = await axios.get(`/api/users/${id}/orders`, {
+          headers: {
+            authorization: token
+          }
+        })
+        await dispatch(getOrders(data))
+      } else {
+        console.log("no token")
+      }
+    } catch (err) {
+      console.error('Uh oh, trouble finding User order history!');
+    }
   }
 }
 
-const userOrdersReducer = (state = [], action) => {
+const userOrdersReducer = (state = {}, action) => {
   switch (action.type) {
     case GET_ORDERS:
       return action.orders
