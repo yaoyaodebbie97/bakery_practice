@@ -1,6 +1,8 @@
 const router = require('express').Router()
 const { models: { User, Order, Product, OrderItems }} = require('../db')
 module.exports = router
+const { requireToken, isAdmin } = require('./middleware');
+
 
 // api/cart  (can think of orderItems as items in cart )
 
@@ -20,11 +22,12 @@ router.get("/", async (req, res, next) => {
           })
       }
 
-      res.send( 
-        await OrderItems.findAll({
-          where: {
-            orderId: order.id,
+      res.send(
+        await Order.findOne({
+          where:{
+            id: order.id
           },
+          include:[Product]
         })
       );
     } catch (ex) {
@@ -32,11 +35,9 @@ router.get("/", async (req, res, next) => {
     }
   });
 
-
   /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-router.post("/", async (req, res, next) => {
+router.post("/", requireToken, async (req, res, next) => {
     try {
         const user = await User.findByToken(req.headers.authorization);
         let order = await Order.findOne({
@@ -51,33 +52,22 @@ router.post("/", async (req, res, next) => {
                 userId: user.id
             })
         }
-      //  //  if we already added this item to cart, no need to do so 
-       const itemExist = await OrderItems.findOne({
-         where:{
-           productId: req.body.productId
-         }
-       })
-       if (itemExist){
-         return;
-       }
-       else{
-              OrderItems.create({
+        OrderItems.create({
                 orderId: order.id,
                 productId: req.body.productId,
                 totalQuantity: req.body.totalQuantity,
                 totalCost: req.body.totalCost
-            })
+        })
           
-            res.send(
-            await OrderItems.findAll({
-              where: {
-                orderId: order.id,
-              },
-            })
-          );
-       }
+        res.send(
+          await Order.findOne({
+            where:{
+              id: order.id
+            },
+            include:[Product]
+          })
+        );
 
-    // res.send(order); // this will send order info id, status, userId, etc
 
     } catch (error) {
       next(error);
@@ -103,22 +93,28 @@ router.post("/", async (req, res, next) => {
             })
         }
 
-        // const item = await OrderItems.findByPk(req.params.id); // this is not correct, the id is the product's id, not the orderItem id 
-        // await item.destroy(); 
         await OrderItems.destroy({
             where: {
                 productId: req.params.id
             }
         })
 
+        res.send(
+          await Order.findOne({
+            where:{
+              id: order.id
+            },
+            include:[Product]
+          })
+        );
       
-       res.send(
-        await OrderItems.findAll({
-          where: {
-            orderId: order.id,
-          },
-        })
-      );
+      //  res.send(
+      //   await OrderItems.findAll({
+      //     where: {
+      //       orderId: order.id,
+      //     },
+      //   })
+      // );
     } catch (err) {
       next(err);
     }
@@ -147,7 +143,6 @@ router.post("/", async (req, res, next) => {
               id: req.body.itemId
           }
       })
-
       const newQuantity = item.totalQuantity + req.body.quantityChange
       const newCost =  item.totalCost * newQuantity/item.totalQuantity;
       await item.update({
@@ -155,11 +150,12 @@ router.post("/", async (req, res, next) => {
           totalCost: newCost
       })
 
-      res.send( 
-        await OrderItems.findAll({
-          where: {
-            orderId: order.id,
+      res.send(
+        await Order.findOne({
+          where:{
+            id: order.id
           },
+          include:[Product]
         })
       );
     } catch (err) {
@@ -167,3 +163,30 @@ router.post("/", async (req, res, next) => {
     }
   });
 
+
+
+
+
+  //admin see all open orders
+router.get('/', requireToken, isAdmin, async (req, res, next) => {
+  try {
+    const allOrders = await Order.findAll({
+      attributes: ['id', 'status', 'userId'],
+      where: { status: 'open' },
+      include: [
+        {
+          model: Product,
+          attributes: ['id', 'productName', 'price', 'imageUrl', 'category'],
+        },
+        {
+          model: User,
+          attributes: ['id', 'firstName', 'lastName', 'email', 'address'],
+          group: ['User.id'],
+        },
+      ],
+    });
+    res.json(allOrders);
+  } catch (err) {
+    next(err);
+  }
+});
