@@ -40,6 +40,7 @@ export const fetchCart = () =>{
 
 }
 
+
 export const addToCart = (product, quantity) => {
   return async (dispatch) => {
     const cost = product.price * quantity; 
@@ -58,14 +59,16 @@ export const addToCart = (product, quantity) => {
           dispatch(updateTheCart(data))
        }  else{ // for a guest or not signed in user 
            let cart = JSON.parse(window.localStorage.getItem('cart'))
-            ? JSON.parse(window.localStorage.getItem('cart'))
-            : {products: [] } 
+              ? JSON.parse(window.localStorage.getItem('cart'))
+              : {products: [] } 
             cart.products.push({
             productName: product.productName,
             productId: product.id, 
             unitPrice: product.price,
-            totalQuantity: parseInt(quantity), 
-            totalCost: cost });
+            orderItems: {
+              totalQuantity: parseInt(quantity), 
+              totalCost: cost }
+            })
            window.localStorage.setItem('cart', JSON.stringify(cart));
            dispatch(updateTheCart(cart))
   

@@ -5,20 +5,20 @@ const { requireToken, isAdmin } = require('./middleware');
 
 
 // api/cart  (can think of orderItems as items in cart )
-
-router.get("/", async (req, res, next) => {
+router.get("/", requireToken, async (req, res, next) => {
     try {
-      const user = await User.findByToken(req.headers.authorization);
+      // const user = await User.findByToken(req.headers.authorization);
+      console.log(req);
       let order = await Order.findOne({
           where: {
-              userId: user.id,
+              userId: req.user.dataValues.id,
               status: 'open'
           }
       })
       if (!order) {
           order = await Order.create({
               status: 'open',
-              userId: user.id
+              userId: req.user.dataValues.id
           })
       }
 
@@ -39,34 +39,42 @@ router.get("/", async (req, res, next) => {
 
 router.post("/", requireToken, async (req, res, next) => {
     try {
-        const user = await User.findByToken(req.headers.authorization);
+        // const user = await User.findByToken(req.headers.authorization);
         let order = await Order.findOne({
             where: {
-                userId: user.id,
+                userId: req.user.dataValues.id,
                 status: 'open'
             }
         })
         if (!order) {
             order = await Order.create({
                 status: 'open',
-                userId: user.id
+                userId: req.user.dataValues.id
             })
         }
-        OrderItems.create({
-                orderId: order.id,
-                productId: req.body.productId,
-                totalQuantity: req.body.totalQuantity,
-                totalCost: req.body.totalCost
+// add the check here, so not allow user to add twice 
+        let itemExist = await OrderItems.findOne({
+          where:{
+            productId: req.body.productId
+          }
         })
-          
-        res.send(
-          await Order.findOne({
-            where:{
-              id: order.id
-            },
-            include:[Product]
+        if (itemExist) return;
+        else {await OrderItems.create({
+                  orderId: order.id,
+                  productId: req.body.productId,
+                  totalQuantity: req.body.totalQuantity,
+                  totalCost: req.body.totalCost
           })
-        );
+            
+          res.send(
+            await Order.findOne({
+              where:{
+                id: order.id
+              },
+              include:[Product]
+            })
+          );
+        }
 
 
     } catch (error) {
@@ -158,6 +166,7 @@ router.post("/", requireToken, async (req, res, next) => {
           include:[Product]
         })
       );
+
     } catch (err) {
       next(err);
     }
@@ -167,26 +176,26 @@ router.post("/", requireToken, async (req, res, next) => {
 
 
 
-  //admin see all open orders
-router.get('/', requireToken, isAdmin, async (req, res, next) => {
-  try {
-    const allOrders = await Order.findAll({
-      attributes: ['id', 'status', 'userId'],
-      where: { status: 'open' },
-      include: [
-        {
-          model: Product,
-          attributes: ['id', 'productName', 'price', 'imageUrl', 'category'],
-        },
-        {
-          model: User,
-          attributes: ['id', 'firstName', 'lastName', 'email', 'address'],
-          group: ['User.id'],
-        },
-      ],
-    });
-    res.json(allOrders);
-  } catch (err) {
-    next(err);
-  }
-});
+//   //admin see all open orders
+// router.get('/', requireToken, isAdmin, async (req, res, next) => {
+//   try {
+//     const allOrders = await Order.findAll({
+//       attributes: ['id', 'status', 'userId'],
+//       where: { status: 'open' },
+//       include: [
+//         {
+//           model: Product,
+//           attributes: ['id', 'productName', 'price', 'imageUrl', 'category'],
+//         },
+//         {
+//           model: User,
+//           attributes: ['id', 'firstName', 'lastName', 'email', 'address'],
+//           group: ['User.id'],
+//         },
+//       ],
+//     });
+//     res.json(allOrders);
+//   } catch (err) {
+//     next(err);
+//   }
+// });
