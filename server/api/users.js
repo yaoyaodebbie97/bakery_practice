@@ -34,8 +34,8 @@ router.post(`/`, requireToken, isAdmin, async (req, res, next) => {
 router.put('/:userId', requireToken, isAdmin, async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id);
-    await user.update(req.body)
-    res.send(user)
+    await user.update(req.body);
+    res.send(user);
   } catch (error) {
     next(error);
   }
@@ -45,24 +45,25 @@ router.put('/:userId', requireToken, isAdmin, async (req, res, next) => {
 router.delete('/:userId', requireToken, isAdmin, async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id);
-      await user.destroy();
-      res.send(user)
+    await user.destroy();
+    res.send(user);
   } catch (err) {
     next(err);
   }
 });
-
 
 router.get('/:userId/orders', requireToken, async (req, res, next) => {
   try {
     const userOrder = await Order.findAll({
       include: [Product],
       where: {
-        userId: req.params.userId
-      }
+        userId: req.params.userId,
+      },
     });
     res.send(userOrder);
   } catch (err) {
     next(err);
   }
 });
+
+console.log(req.headers.authorization);
