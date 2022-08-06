@@ -9,6 +9,7 @@ import Cart from './components/Cart';
 import Category from './components/Category';
 import SingleProduct from './components/SingleProduct';
 import OrderHistory from './components/OrderHistory';
+import UserAccount from './components/UserAccount';
 /**
  * COMPONENT
  */
@@ -30,6 +31,7 @@ class Routes extends Component {
             <Route path='/login' component={Login} />
             <Route path='/signup' component={Signup} />
             <Route path='/users/orders' component={OrderHistory} />
+            <Route path='/users/account' component={UserAccount} />
             <Route exact path='/products' component={AllProducts} />
             <Route exact path='/products/category/:category' component={Category} />
             <Route exact path='/products/:id' component={SingleProduct} />
