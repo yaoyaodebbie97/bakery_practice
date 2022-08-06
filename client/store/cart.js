@@ -104,6 +104,7 @@ export const removeFromCart = (id) => {
 
 export const updateQuantity = (item, quantityChange) => {
   return async (dispatch) => {
+    const cost = product.price * quantity; 
     try {
        const token = window.localStorage.getItem('token'); 
        if (token){ 
@@ -136,7 +137,6 @@ export const updateQuantity = (item, quantityChange) => {
   }
 };
 
-
   const initialState = {}
 
   export default function cartReducer(state = initialState, action) {
@@ -153,3 +153,4 @@ export const updateQuantity = (item, quantityChange) => {
 
     }
   }
+

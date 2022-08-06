@@ -95,6 +95,7 @@ class Cart extends Component {
      
 
       </div>
+
     );
   }
 }
