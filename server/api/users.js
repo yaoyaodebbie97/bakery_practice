@@ -52,31 +52,54 @@ router.delete('/:userId', requireToken, isAdmin, async (req, res, next) => {
   }
 });
 
+
+// get logged in user
+router.get('/account', requireToken, async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.user.dataValues.id, {
+      attributes: [
+        'firstName',
+        'lastName',
+        'address',
+      ],
+    });
+    res.send(user);
+  } catch (err) {
+    next(err);
+  }
+});
+
 // user can update account
-// router.put('/:userId', requireToken, async (req, res, next) => {
-//   try {
-//     const user = await User.findByPk(req.params.id, {
-//       attributes: [
-//         'firstName',
-//         'lastName',
-//         'address',
-//       ],
-//     });
-//     await user.update(req.body)
-//     res.send(user)
-//   } catch (error) {
-//     next(error);
-//   }
-// });
+router.put('/account', requireToken, async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.user.dataValues.id, {
+      attributes: [
+        'firstName',
+        'lastName',
+        'address',
+      ],
+    });
+    await user.update(req.body)
+    res.send(user)
+  } catch (error) {
+    next(error);
+  }
+});
 
 
 router.get('/orders', requireToken, async (req, res, next) => {
   try {
     const userOrder = await Order.findAll({
-      include: [Product],
+      // include: [Product],
       where: {
-        id: req.user.dataValues.id,
+        userId: req.user.dataValues.id,
       },
+           include: [
+        {
+          model: Product,
+          attributes: ['productName', 'price', 'imageUrl', 'category'],
+        },
+      ]
     });
     res.send(userOrder);
   } catch (err) {

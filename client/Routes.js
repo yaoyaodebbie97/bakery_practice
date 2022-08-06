@@ -10,7 +10,11 @@ import Cart from './components/Cart';
 import Category from './components/Category';
 import SingleProduct from './components/SingleProduct';
 import OrderHistory from './components/OrderHistory';
+<<<<<<< HEAD
+import UserAccount from './components/UserAccount';
+=======
 import Confirmation from './components/ConfirmationPage';
+>>>>>>> c657d5612fa603a2e2eb9df8a9ae29e5522dd73d
 /**
  * COMPONENT
  */
@@ -32,6 +36,7 @@ class Routes extends Component {
             <Route path='/login' component={Login} />
             <Route path='/signup' component={Signup} />
             <Route path='/users/orders' component={OrderHistory} />
+            <Route path='/users/account' component={UserAccount} />
             <Route exact path='/products' component={AllProducts} />
             <Route exact path='/products/:id' component={SingleProduct} />
             <Route exact path='/products/category/:category' component={Category} />
