@@ -46,8 +46,8 @@ class AllProducts extends React.Component {
         <div className="Container">
             {this.state.value === 'All'? (this.props.products.map(product => (
                 <div key={product.id}>
-               <img className="productImg" src={product.imageUrl} />
-               <Link to={`/products/${product.id}`}>Product Name: {product.productName}
+               <Link to={`/products/${product.id}`}> <img className="productImg" src={product.imageUrl} />
+         <p>Product Name: {product.productName}</p>
          </Link>
          <p>Price: {product.price}</p>
         </div>
