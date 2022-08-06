@@ -1,8 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {authenticate} from '../store'
-import {addToOrder} from '../store/order'
+import {authenticateSignUp} from '../store'
+import {authenticateLogin} from '../store'
 import {Link} from 'react-router-dom'
+
 
 /**
  * COMPONENT
@@ -31,6 +32,12 @@ const AuthFormSignUp_CheckOut = props => {
             <small>Password</small>
           </label>
           <input name="password" type="password" />
+        </div>
+        <div>
+          <label htmlFor="address">
+            <small>Address</small>
+          </label>
+          <input name="address" type="text" />
         </div>
         <div>
           <button type="submit">
@@ -83,7 +90,6 @@ const mapLogin = state => {
     name: 'login',
     displayName: 'Checkout',
     error: state.auth.error,
-    productsInCart: state.cart
   }
 }
 
@@ -92,22 +98,35 @@ const mapSignup = state => {
     name: 'signup',
     displayName: 'Checkout',
     error: state.auth.error,
-    productsInCart: state.cart
   }
 }
 
-const mapDispatch = dispatch => {
-  return {
-    handleSubmit(evt, order) {
-      evt.preventDefault()
-      const formName = evt.target.name
-      const email = evt.target.email.value
-      const password = evt.target.password.value
-      dispatch(authenticate(email, password, formName))
-      dispatch(addToOrder(this.props.productsInCart))
+const mapDispatchforLogIn = dispatch => {
+    return {
+      handleSubmit(evt) {
+        evt.preventDefault()
+        const formName = evt.target.name
+        const email = evt.target.email.value
+        const password = evt.target.password.value
+        dispatch(authenticateLogin(email, password, formName))
+      }
     }
   }
-}
+  
+  const mapDispatchforSignUp = dispatch => {
+    return {
+      handleSubmit(evt) {
+        evt.preventDefault()
+        const formName = evt.target.name
+        const email = evt.target.email.value
+        const password = evt.target.password.value
+        const firstName = evt.target.firstName.value
+        const lastName =evt.target.lastName.value
+        const address = evt.target.address.value
+        dispatch(authenticateSignUp(email, password, formName, firstName, lastName, address))
+      }
+    }
+  }
 
-export const Login_CheckOut = connect(mapLogin, mapDispatch)(AuthFormLogIn_CheckOut)
-export const Signup_CheckOut = connect(mapSignup, mapDispatch)(AuthFormSignUp_CheckOut)
+export const Login_CheckOut = connect(mapLogin, mapDispatchforLogIn)(AuthFormLogIn_CheckOut)
+export const Signup_CheckOut = connect(mapSignup, mapDispatchforSignUp)(AuthFormSignUp_CheckOut)

@@ -17,13 +17,13 @@ export const Home = props => {
         <p>Established in 2022.</p>
       </div>
       <div>
-        <Link to='/products/bread'>Bread</Link>
-        <Link to='/products/cupcakes'>Cupcakes</Link>
-        <Link to='/products/cookies'>Cookies</Link>
-        <Link to='/products/pies'>Pies</Link>
-        <Link to='/products/pastries'>Pastries</Link>
-        <Link to='/products/muffins'>Muffins</Link>
-        <Link to='/products/cakes'>Cakes</Link>
+        <Link to='/products/category/bread'>Bread    </Link>
+        <Link to='/products/category/cupcakes'>Cupcakes    </Link>
+        <Link to='/products/category/cookies'>Cookies    </Link>
+        <Link to='/products/category/pies'>Pies    </Link>
+        <Link to='/products/category/pastries'>Pastries    </Link>
+        <Link to='/products/category/muffins'>Muffins    </Link>
+        <Link to='/products/category/cakes'>Cakes    </Link>
         </div> 
     </div>
   )

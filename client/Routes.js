@@ -9,6 +9,8 @@ import AllProducts from './components/AllProducts';
 import Cart from './components/Cart';
 import Category from './components/Category';
 import Confirmation from './components/ConfirmationPage';
+import SingleProduct from './components/SingleProduct';
+import OrderHistory from './components/OrderHistory';
 
 
 /**
@@ -26,8 +28,19 @@ class Routes extends Component {
       <div>
         {isLoggedIn ? (
           <Switch>
-            <Route path='/home' component={Home} />
-            <Redirect to='/home' />
+           <Route exact path='/' component={Home} />
+            {/* <Redirect to='/home' component={Home} />  */}
+            <Route exact path='/home' component={Home} />
+            <Route path='/login' component={Login} />
+            <Route path='/signup' component={Signup} />
+            <Route path='/users/orders' component={OrderHistory} />
+            <Route exact path='/products' component={AllProducts} />
+            <Route exact path='/products/:id' component={SingleProduct} />
+            <Route exact path='/products/category/:category' component={Category} />
+            <Route exact path='/cart' component={Cart} />
+            <Route exact path='/checkout/login' component={Login_CheckOut} />
+            <Route exact path='/checkout/signup' component={Signup_CheckOut} />
+            <Route exact path='/confirmation' component={Confirmation} />
           </Switch>
         ) : (
           <Switch>
@@ -36,7 +49,8 @@ class Routes extends Component {
             <Route path='/login' component={Login} />
             <Route path='/signup' component={Signup} />
             <Route exact path='/products' component={AllProducts} />
-            <Route exact path='/products/:category' component={Category} />
+            <Route exact path='/products/:id' component={SingleProduct} />
+            <Route exact path='/products/category/:category' component={Category} />
             <Route exact path='/cart' component={Cart} />
             <Route exact path='/checkout/login' component={Login_CheckOut} />
             <Route exact path='/checkout/signup' component={Signup_CheckOut} />
