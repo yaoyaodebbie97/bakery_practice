@@ -10,7 +10,7 @@ import Cart from './components/Cart';
 import Category from './components/Category';
 import SingleProduct from './components/SingleProduct';
 import OrderHistory from './components/OrderHistory';
-import Confirmation from './ConfirmationPage';
+import Confirmation from './components/ConfirmationPage';
 /**
  * COMPONENT
  */

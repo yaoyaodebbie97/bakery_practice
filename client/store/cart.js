@@ -61,16 +61,30 @@ export const addToCart = (product, quantity) => {
            let cart = JSON.parse(window.localStorage.getItem('cart'))
               ? JSON.parse(window.localStorage.getItem('cart'))
               : {products: [] } 
-            cart.products.push({
-            productName: product.productName,
-            productId: product.id, 
-            unitPrice: product.price,
-            orderItems: {
-              totalQuantity: parseInt(quantity), 
-              totalCost: cost }
-            })
-           window.localStorage.setItem('cart', JSON.stringify(cart));
-           dispatch(updateTheCart(cart))
+
+            // for now, don't add same product twice 
+            let needToAdd = true;
+            for (let i = 0; i< cart.products.length; i++){
+              if (cart.products[i].orderItems.productId === product.id) {
+                needToAdd = false;
+                break;
+              }
+            }
+            // console.log(needToAdd)
+            if (needToAdd){
+              cart.products.push({
+                productName: product.productName,
+                imageUrl: product.imageUrl,
+                unitPrice: product.price,
+                orderItems: {
+                  productId: product.id,
+                  totalQuantity: parseInt(quantity), 
+                  totalCost: cost }
+              })
+             window.localStorage.setItem('cart', JSON.stringify(cart));
+             dispatch(updateTheCart(cart))
+
+            }
   
        }
     } catch (err) {
@@ -92,7 +106,8 @@ export const removeFromCart = (id) => {
         dispatch(updateTheCart(data))
       } else{
         const cart = JSON.parse(window.localStorage.getItem('cart'))
-        const newCart = cart.products.filter( item => item.productId !== id);
+        const newProducts= cart.products.filter(product => product.orderItems.productId !== id);
+        const newCart = {products: newProducts}
         window.localStorage.setItem('cart', JSON.stringify(newCart))
         dispatch(updateTheCart(newCart))
       }
@@ -104,7 +119,6 @@ export const removeFromCart = (id) => {
 
 export const updateQuantity = (item, quantityChange) => {
   return async (dispatch) => {
-    const cost = product.price * quantity; 
     try {
        const token = window.localStorage.getItem('token'); 
        if (token){ 
@@ -120,12 +134,9 @@ export const updateQuantity = (item, quantityChange) => {
        }  else{ 
            const cart = JSON.parse(window.localStorage.getItem('cart'))
            for (let i = 0; i< cart.products.length; i++){
-             if (cart.products[i].productId === item.productId){// in the local storage, we stored productId, not the item id 
-              //  const newQuantity = cart.products[i].totalQuantity + quantityChange;
-              //  cart.products[i].totalCost = cart.products[i].totalCost * newQuantity/ cart.products[i].totalQuantity // same percentage change 
-              //  cart.products[i].totalQuantity  = newQuantity;
-              cart.products[i].totalQuantity += quantityChange;
-              cart.products[i].totalCost += quantityChange * cart.products[i].unitPrice;
+             if (cart.products[i].orderItems.productId === item.productId){
+              cart.products[i].orderItems.totalQuantity = cart.products[i].orderItems.totalQuantity +  quantityChange;
+              cart.products[i].orderItems.totalCost = cart.products[i].orderItems.totalCost + quantityChange * cart.products[i].unitPrice;
              }
            }
            window.localStorage.setItem('cart', JSON.stringify(cart));

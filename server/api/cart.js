@@ -5,20 +5,20 @@ const { requireToken, isAdmin } = require('./middleware');
 
 
 // api/cart  (can think of orderItems as items in cart )
-router.get("/", requireToken, async (req, res, next) => {
+router.get("/", async (req, res, next) => {
     try {
-      // const user = await User.findByToken(req.headers.authorization);
+      const user = await User.findByToken(req.headers.authorization);
       console.log(req);
       let order = await Order.findOne({
           where: {
-              userId: req.user.dataValues.id,
+              userId: user.id,
               status: 'open'
           }
       })
       if (!order) {
           order = await Order.create({
               status: 'open',
-              userId: req.user.dataValues.id
+              userId: user.id
           })
       }
 
@@ -27,7 +27,8 @@ router.get("/", requireToken, async (req, res, next) => {
           where:{
             id: order.id
           },
-          include:[Product]
+          include:[Product],
+          order:[[Product, 'id','desc']] // adding order by so the result will not jump around 
         })
       );
     } catch (ex) {
@@ -37,19 +38,19 @@ router.get("/", requireToken, async (req, res, next) => {
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-router.post("/", requireToken, async (req, res, next) => {
+router.post("/", async (req, res, next) => {
     try {
-        // const user = await User.findByToken(req.headers.authorization);
+        const user = await User.findByToken(req.headers.authorization);
         let order = await Order.findOne({
             where: {
-                userId: req.user.dataValues.id,
+                userId: user.id,
                 status: 'open'
             }
         })
         if (!order) {
             order = await Order.create({
                 status: 'open',
-                userId: req.user.dataValues.id
+                userId: user.id
             })
         }
 // add the check here, so not allow user to add twice 
@@ -71,7 +72,8 @@ router.post("/", requireToken, async (req, res, next) => {
               where:{
                 id: order.id
               },
-              include:[Product]
+              include:[Product],
+              order:[[Product, 'id','desc']]
             })
           );
         }
@@ -112,7 +114,8 @@ router.post("/", requireToken, async (req, res, next) => {
             where:{
               id: order.id
             },
-            include:[Product]
+            include:[Product],
+            order:[[Product, 'id','desc']]
           })
         );
       
@@ -163,7 +166,8 @@ router.post("/", requireToken, async (req, res, next) => {
           where:{
             id: order.id
           },
-          include:[Product]
+          include:[Product],
+          order:[[Product, 'id','desc']]
         })
       );
 
