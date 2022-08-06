@@ -2,12 +2,19 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Login, Signup } from './components/AuthForm';
+import { Login_CheckOut, Signup_CheckOut } from './components/Checkout_AuthForm';
 import Home from './components/Home';
 import { me } from './store';
 import AllProducts from './components/AllProducts';
 import Cart from './components/Cart';
 import Category from './components/Category';
 import SingleProduct from './components/SingleProduct';
+import OrderHistory from './components/OrderHistory';
+<<<<<<< HEAD
+import UserAccount from './components/UserAccount';
+=======
+import Confirmation from './components/ConfirmationPage';
+>>>>>>> c657d5612fa603a2e2eb9df8a9ae29e5522dd73d
 /**
  * COMPONENT
  */
@@ -28,10 +35,15 @@ class Routes extends Component {
             <Route exact path='/home' component={Home} />
             <Route path='/login' component={Login} />
             <Route path='/signup' component={Signup} />
+            <Route path='/users/orders' component={OrderHistory} />
+            <Route path='/users/account' component={UserAccount} />
             <Route exact path='/products' component={AllProducts} />
-            <Route exact path='/products/category/:category' component={Category} />
             <Route exact path='/products/:id' component={SingleProduct} />
+            <Route exact path='/products/category/:category' component={Category} />
             <Route exact path='/cart' component={Cart} />
+            <Route exact path='/checkout/login' component={Login_CheckOut} />
+            <Route exact path='/checkout/signup' component={Signup_CheckOut} />
+            <Route exact path='/confirmation' component={Confirmation} />
           </Switch>
         ) : (
           <Switch>
@@ -40,9 +52,12 @@ class Routes extends Component {
             <Route path='/login' component={Login} />
             <Route path='/signup' component={Signup} />
             <Route exact path='/products' component={AllProducts} />
-            <Route exact path='/products/category/:category' component={Category} />
             <Route exact path='/products/:id' component={SingleProduct} />
+            <Route exact path='/products/category/:category' component={Category} />
             <Route exact path='/cart' component={Cart} />
+            <Route exact path='/checkout/login' component={Login_CheckOut} />
+            <Route exact path='/checkout/signup' component={Signup_CheckOut} />
+            <Route exact path='/confirmation' component={Confirmation} />
           </Switch>
         )}
       </div>

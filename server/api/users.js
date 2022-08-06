@@ -52,18 +52,46 @@ router.delete('/:userId', requireToken, isAdmin, async (req, res, next) => {
   }
 });
 
-router.get('/:userId/orders', requireToken, async (req, res, next) => {
+// get logged in user
+router.get('/account', requireToken, async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.user.dataValues.id, {
+      attributes: ['firstName', 'lastName', 'address'],
+    });
+    res.send(user);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// user can update account
+router.put('/account', requireToken, async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.user.dataValues.id, {
+      attributes: ['firstName', 'lastName', 'address'],
+    });
+    await user.update(req.body);
+    res.send(user);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get('/orders', requireToken, async (req, res, next) => {
   try {
     const userOrder = await Order.findAll({
-      include: [Product],
       where: {
-        userId: req.params.userId,
+        userId: req.user.dataValues.id,
       },
+      include: [
+        {
+          model: Product,
+          attributes: ['productName', 'price', 'imageUrl', 'category'],
+        },
+      ],
     });
     res.send(userOrder);
   } catch (err) {
     next(err);
   }
 });
-
-console.log(req.headers.authorization);

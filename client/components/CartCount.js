@@ -1,19 +1,4 @@
-import React, { Component } from "react";
-
-class CartCount extends Component {
-  constructor() {
-    super();
-  }
-
-  render() {
-    return <> 0 </>
-  }
-}  
-
-export default CartCount
-
 // import React, { Component } from "react";
-// import { connect } from "react-redux";
 
 // class CartCount extends Component {
 //   constructor() {
@@ -21,19 +6,38 @@ export default CartCount
 //   }
 
 //   render() {
-//     const { orderItem } = this.props;
-//     let count = 0;
-//     for (let i = 0; i< orderItem.length; i++){
-//       count += orderItem.totalQuantity;
-//     }
-//     return <>{count}</>;
+//     return <> 0 </>
 //   }
 // }  
 
-// const mapState = (state) => {
-//   return {
-//     orderItem: state.orderItem,
-//   };
-// };
+// export default CartCount
 
-// export default connect(mapState)(CartCount)
+import React, { Component } from "react";
+import { connect } from "react-redux";
+
+class CartCount extends Component {
+  constructor() {
+    super();
+  }
+
+  render() {
+    let count = 0;
+    const products = this.props.cart.products;
+    if (products){
+      for (let i = 0; i< products.length; i++){
+        count += products[i].orderItems.totalQuantity;
+      }
+    }
+    console.log(products)
+    console.log(count);
+    return <>{count}</>;
+  }
+}  
+
+const mapState = (state) => {
+  return {
+    cart: state.cart,
+  };
+};
+
+export default connect(mapState)(CartCount)
