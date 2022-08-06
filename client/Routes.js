@@ -10,11 +10,8 @@ import Cart from './components/Cart';
 import Category from './components/Category';
 import SingleProduct from './components/SingleProduct';
 import OrderHistory from './components/OrderHistory';
-<<<<<<< HEAD
 import UserAccount from './components/UserAccount';
-=======
 import Confirmation from './components/ConfirmationPage';
->>>>>>> c657d5612fa603a2e2eb9df8a9ae29e5522dd73d
 /**
  * COMPONENT
  */

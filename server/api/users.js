@@ -82,6 +82,7 @@ router.get('/orders', requireToken, async (req, res, next) => {
     const userOrder = await Order.findAll({
       where: {
         userId: req.user.dataValues.id,
+        status: 'closed'
       },
       include: [
         {
