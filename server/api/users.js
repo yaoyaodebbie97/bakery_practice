@@ -93,6 +93,7 @@ router.get('/orders', requireToken, async (req, res, next) => {
       // include: [Product],
       where: {
         userId: req.user.dataValues.id,
+        status: 'closed'
       },
            include: [
         {

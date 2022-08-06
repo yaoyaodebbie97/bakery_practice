@@ -5,20 +5,18 @@ const { requireToken, isAdmin } = require('./middleware');
 
 
 // api/cart  (can think of orderItems as items in cart )
-router.get("/", async (req, res, next) => {
+router.get("/", requireToken, async (req, res, next) => {
     try {
-      const user = await User.findByToken(req.headers.authorization);
-      console.log(req);
       let order = await Order.findOne({
           where: {
-              userId: user.id,
+              userId: req.user.dataValues.id,
               status: 'open'
           }
       })
       if (!order) {
           order = await Order.create({
               status: 'open',
-              userId: user.id
+              userId: req.user.dataValues.id
           })
       }
 
@@ -28,7 +26,7 @@ router.get("/", async (req, res, next) => {
             id: order.id
           },
           include:[Product],
-          order:[[Product, 'id','desc']] // adding order by so the result will not jump around 
+          order:[[Product, 'id','desc']] // adding order by so the result will not jump around
         })
       );
     } catch (ex) {
@@ -38,22 +36,20 @@ router.get("/", async (req, res, next) => {
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-router.post("/", async (req, res, next) => {
+router.post("/", requireToken, async (req, res, next) => {
     try {
-        const user = await User.findByToken(req.headers.authorization);
         let order = await Order.findOne({
             where: {
-                userId: user.id,
+                userId: req.user.dataValues.id,
                 status: 'open'
             }
         })
         if (!order) {
             order = await Order.create({
                 status: 'open',
-                userId: user.id
+                userId: req.user.dataValues.id
             })
         }
-// add the check here, so not allow user to add twice 
         let itemExist = await OrderItems.findOne({
           where:{
             productId: req.body.productId
@@ -66,7 +62,7 @@ router.post("/", async (req, res, next) => {
                   totalQuantity: req.body.totalQuantity,
                   totalCost: req.body.totalCost
           })
-            
+
           res.send(
             await Order.findOne({
               where:{
@@ -83,23 +79,22 @@ router.post("/", async (req, res, next) => {
       next(error);
     }
   });
-  
+
   /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  // for delete, no need things in request body, so just make it /id 
-  router.delete("/:id", async (req, res, next) => {
+  // for delete, no need things in request body, so just make it /id
+  router.delete("/:id", requireToken, async (req, res, next) => {
     try {
-        const user = await User.findByToken(req.headers.authorization);
         let order = await Order.findOne({
             where: {
-                userId: user.id,
+                userId: req.user.dataValues.id,
                 status: 'open'
             }
         })
         if (!order) {
             order = await Order.create({
                 status: 'open',
-                userId: user.id
+                userId: req.user.dataValues.id
             })
         }
 
@@ -118,7 +113,7 @@ router.post("/", async (req, res, next) => {
             order:[[Product, 'id','desc']]
           })
         );
-      
+
       //  res.send(
       //   await OrderItems.findAll({
       //     where: {
@@ -130,22 +125,21 @@ router.post("/", async (req, res, next) => {
       next(err);
     }
   });
-  
+
   ////////////////////////////////////////////////////////////////////////////////
 
-  router.put("/", async (req, res, next) => {
+  router.put("/", requireToken, async (req, res, next) => {
     try {
-      const user = await User.findByToken(req.headers.authorization);
       let order = await Order.findOne({
           where: {
-              userId: user.id,
+              userId: req.user.dataValues.id,
               status: 'open'
           }
       })
       if (!order) {
           order = await Order.create({
               status: 'open',
-              userId: user.id
+              userId: req.user.dataValues.id
           })
       }
 
@@ -156,6 +150,7 @@ router.post("/", async (req, res, next) => {
       })
       const newQuantity = item.totalQuantity + req.body.quantityChange
       const newCost =  item.totalCost * newQuantity/item.totalQuantity;
+      console.log(req)
       await item.update({
           totalQuantity: newQuantity,
           totalCost: newCost
