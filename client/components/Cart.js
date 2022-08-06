@@ -62,7 +62,6 @@ class Cart extends Component {
     this.handleClick = this.handleClick.bind(this)
   }
   componentDidMount() {
-    const totalPrice = 0
     this.props.fetchCart();
   }
   handleClick (id) {

@@ -8,11 +8,9 @@ import { me } from './store';
 import AllProducts from './components/AllProducts';
 import Cart from './components/Cart';
 import Category from './components/Category';
-import Confirmation from './components/ConfirmationPage';
 import SingleProduct from './components/SingleProduct';
 import OrderHistory from './components/OrderHistory';
-
-
+import Confirmation from './ConfirmationPage';
 /**
  * COMPONENT
  */
@@ -28,7 +26,7 @@ class Routes extends Component {
       <div>
         {isLoggedIn ? (
           <Switch>
-           <Route exact path='/' component={Home} />
+            <Route exact path='/' component={Home} />
             {/* <Redirect to='/home' component={Home} />  */}
             <Route exact path='/home' component={Home} />
             <Route path='/login' component={Login} />

@@ -29,7 +29,7 @@ class SingleProduct extends Component {
         const product = this.props.product
         return (
         <div>
-            <img src={product.imageUrl} />  
+            <img src = {product.imageUrl} ></img>  
             <p> Product Name: {product.productName} </p>
             <p> Description: {product.description}</p>
          
