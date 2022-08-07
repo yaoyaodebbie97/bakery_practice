@@ -8,7 +8,7 @@ import categoryReducer from './category';
 import singleProductReducer from './singleProduct';
 import userOrdersReducer from './userOrders';
 import cartReducer from './cart';
-import userAccountReducer from './userAccount';
+import userAccountReducer from './userAccount'
 
 
 const reducer = combineReducers({

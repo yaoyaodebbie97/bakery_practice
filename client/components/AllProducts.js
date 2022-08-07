@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchProducts} from "../store/products";
 import {Link} from 'react-router-dom'
+import {addToCart} from '../store/cart'
 
 
 
@@ -50,6 +51,12 @@ class AllProducts extends React.Component {
          <p>Product Name: {product.productName}</p>
          </Link>
          <p>Price: {product.price}</p>
+         <button
+         className='button'
+         onClick={() => this.props.addToCart(product,1)}> 
+         Add to Cart 
+         </button>
+
         </div>
             ) )) :
             (this.selectCategory().map((product) => (
@@ -59,6 +66,12 @@ class AllProducts extends React.Component {
             <p>Product Name: {product.productName}</p> 
          </Link>
          <p>Price: {product.price}</p>
+         <button
+         className='button'
+         onClick={() => this.props.addToCart(product,1)}> 
+         Add to Cart 
+         </button>
+
         </div>
             )))
           }
@@ -79,6 +92,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     getProducts: () => dispatch(fetchProducts()),
+    addToCart: (product, quantity) => dispatch (addToCart(product, quantity)),
   };
 };
 

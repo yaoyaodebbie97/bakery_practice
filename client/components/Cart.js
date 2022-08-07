@@ -2,11 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchCart, removeFromCart, updateQuantity} from "../store/cart";
 import CartCount from './CartCount';
+import CartPrice from './CartPrice';
+import {Link} from 'react-router-dom'
 
 class Cart extends Component {
   constructor(){
     super()
     this.handleClick = this.handleClick.bind(this)
+    // this.totalPrice = this.cartTotalPrice.bind(this)
   }
   componentDidMount() {
     this.props.fetchCart();
@@ -14,19 +17,32 @@ class Cart extends Component {
   handleClick (id) {
     this.props.removeFromCart(id)
   }
+
+  // cartTotalPrice() {
+  //   let totalPrice = 0
+  //   const products = this.props.cart.products;
+  //   if(this.props.cart.products !== null) {
+  //    for(let i=0; i< products.length; i++) {
+  //     totalPrice += products[i].orderItems.totalCost
+  //     }
+  //   }
+  //   return totalPrice
+  // }
+
   render() {
+    console.log('products',this.props.cart)
     return (
       <div>
-        <h1> Total Number of Items in Cart: <CartCount/></h1>
         {this.props.cart !== null && this.props.cart.products
         ? this.props.cart.products.map((product) => (
           <div key = {product.id}>
             {console.log(product)}
               <p> -----------------------</p>
-              <p> Name: {product.productName} </p>
+              <p> Product Name: {product.productName} </p>
               <img src=  {product.imageUrl}/>
               <p> Quantity: {product.orderItems.totalQuantity} </p>
-              <p> Cost: {product.orderItems.totalCost}</p>
+              <p> Unit Price: {product.unitPrice}</p>
+              <p> Total Price: {product.orderItems.totalCost}</p>
               {/* <p> Name: {item.Product.productName}</> */}
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16" onClick = {()=> this.handleClick(product.orderItems.productId)}>
                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
@@ -39,7 +55,24 @@ class Cart extends Component {
           </div>
         ))
       :  <p> Loading Cart </p>}
-     
+         _________________________________________________
+         {/* <div>
+          <p>Total: {this.cartTotalPrice()}</p>
+         </div> */}
+        <div> Total Number of Items in Cart: <CartCount/></div>
+        <div> Total Cost of Items in Cart: <CartPrice/></div>
+         <div>
+          <p>Already a member?</p>
+         <button>
+           <Link to="/checkout/login" >Checkout</Link>
+         </button>
+        <br/>
+        <p>OR</p>
+         <button>
+           <Link to="/checkout/signup" >Guest Checkout</Link>
+         </button>
+          </div>
+
 
       </div>
 
