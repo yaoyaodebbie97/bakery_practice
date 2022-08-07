@@ -7,16 +7,14 @@ class CartCount extends Component {
   }
 
   render() {
-    let count = 0;
+    let cost = 0;
     const products = this.props.cart.products;
     if (products){
       for (let i = 0; i< products.length; i++){
-        count += products[i].orderItems.totalQuantity;
+        cost += products[i].orderItems.totalCost;
       }
     }
-    console.log(products)
-    console.log(count);
-    return <>{count}</>;
+    return <>{cost}</>;
   }
 }  
 
