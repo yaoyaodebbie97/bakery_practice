@@ -68,7 +68,8 @@ class Cart extends Component {
          </button>
         <br/>
         <p>OR</p>
-         <button>
+        {console.log('am I logged in?', this.props.isLoggedIn)}
+         <button disabled = {this.props.isLoggedin}>
            <Link to="/checkout/signup" >Guest Checkout</Link>
          </button>
           </div>
@@ -84,6 +85,7 @@ class Cart extends Component {
 
 const mapState = (state) => ({
   cart: state.cart,
+  isLoggedIn: !!state.auth.id,
 });
 
 const mapDispatch = (dispatch) => ({
@@ -93,3 +95,5 @@ const mapDispatch = (dispatch) => ({
 });
 
 export default connect(mapState, mapDispatch)(Cart);
+
+
