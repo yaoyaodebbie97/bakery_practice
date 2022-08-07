@@ -1,14 +1,21 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {authenticateSignUp} from '../store'
-import {authenticateLogin} from '../store'
+import {authenticateSignUpCo} from '../store/authForm'
+import {authenticateLoginCo} from '../store/authForm'
 import {Link} from 'react-router-dom'
+import {Redirect} from 'react-router-dom';
+// import Confirmation from './ConfirmationPage';
+import { me } from '../store/authForm';
+// import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
+import Confirmation from './ConfirmationPage';
 
 
 /**
  * COMPONENT
  */
 const AuthFormSignUp_CheckOut = props => {
+  props.loadInitialData()
+
   const {name, displayName, handleSubmit, error} = props
 
   return (
@@ -50,11 +57,16 @@ const AuthFormSignUp_CheckOut = props => {
   )
 }
 const AuthFormLogIn_CheckOut = props => {
+  props.loadInitialData()
   const {name, displayName, handleSubmit, error} = props
-
+  console.log('props', props)
+ 
+  // if(props.isLoggedIn) {
+  //   return <Redirect to="/confirmation"/>
+  // } else {
   return (
     <div>
-      <form onSubmit={handleSubmit} name={name}>
+      (<form onSubmit={handleSubmit} name={name}>
         <div>
           <p>Welcome back! Sign In For Fast Checkout!</p>
           <label htmlFor="email">
@@ -67,14 +79,21 @@ const AuthFormLogIn_CheckOut = props => {
           <input name="password" type="password" />
         </div>
         <div>
-          <button type="submit">
-          <Link to="/confirmation" >{displayName}</Link>
+          <button type="submit">{displayName}
           </button>
         </div>
-      </form>
+        {(error && error.response && <div> {error.response.data} </div>)}
+        
+      </form> )
       
-    </div>
-    )
+    </div>)
+    
+  }
+
+  const checkoutRoute = () => {
+    return (
+      <div>{props.isLoggedIn ? <Redirect to="/confirmation"/> : "unauthorised"}</div>
+  )
   }
 
 
@@ -89,7 +108,9 @@ const mapLogin = state => {
   return {
     name: 'login',
     displayName: 'Checkout',
+    isLoggedIn: !!state.authForm.id,
     error: state.auth.error,
+    
   }
 }
 
@@ -101,6 +122,7 @@ const mapSignup = state => {
   }
 }
 
+
 const mapDispatchforLogIn = dispatch => {
     return {
       handleSubmit(evt) {
@@ -108,10 +130,13 @@ const mapDispatchforLogIn = dispatch => {
         const formName = evt.target.name
         const email = evt.target.email.value
         const password = evt.target.password.value
-        dispatch(authenticateLogin(email, password, formName))
+        dispatch(authenticateLoginCo(email, password, formName))
+      },
+      loadInitialData() {
+        dispatch(me());
       }
-    }
   }
+}
   
   const mapDispatchforSignUp = dispatch => {
     return {
@@ -123,10 +148,15 @@ const mapDispatchforLogIn = dispatch => {
         const firstName = evt.target.firstName.value
         const lastName =evt.target.lastName.value
         const address = evt.target.address.value
-        dispatch(authenticateSignUp(email, password, formName, firstName, lastName, address))
+        dispatch(authenticateSignUpCo(email, password, formName, firstName, lastName, address))
+      },
+      loadInitialData() {
+        dispatch(me());
       }
-    }
+      }
   }
+  
 
 export const Login_CheckOut = connect(mapLogin, mapDispatchforLogIn)(AuthFormLogIn_CheckOut)
 export const Signup_CheckOut = connect(mapSignup, mapDispatchforSignUp)(AuthFormSignUp_CheckOut)
+export const RouteForCheckOut = connect(mapLogin, mapDispatchforLogIn)(checkoutRoute)

@@ -8,11 +8,13 @@ import categoryReducer from './category';
 import singleProductReducer from './singleProduct';
 import userOrdersReducer from './userOrders';
 import cartReducer from './cart';
-import userAccountReducer from './userAccount';
+import authForm from './authForm';
+
 
 
 const reducer = combineReducers({
   auth,
+  authForm,
   category: categoryReducer,
   products,
   singleProduct: singleProductReducer,
