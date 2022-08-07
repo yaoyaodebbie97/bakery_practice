@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {emptyCart} from '../store/cart'
 
+
 class Confirmation extends Component {  
    
 
   // componentDidMount() {
   //   this.props.emptyCart(this.props.cart)
   // }
+
  
 
   render() {
@@ -15,7 +17,7 @@ class Confirmation extends Component {
     return (
         <div>
         <h3>Thank you for your order!</h3>
-        <h4>{this.props.cart.id !== undefined? ("Order #" + `${this.props.cart.id}`) : ""}</h4> 
+        <h4>Confirmation #{this.props.cart.id}</h4> 
         </div>
     )
   }
