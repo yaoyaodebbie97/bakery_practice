@@ -36,49 +36,49 @@ router.get("/", requireToken, async (req, res, next) => {
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-router.post("/", requireToken, async (req, res, next) => {
-    try {
-        let order = await Order.findOne({
-            where: {
-                userId: req.user.dataValues.id,
-                status: 'open'
-            }
-        })
-        if (!order) {
-            order = await Order.create({
-                status: 'open',
-                userId: req.user.dataValues.id
-            })
-        }
-        let itemExist = await OrderItems.findOne({
-          where:{
-            productId: req.body.productId
-          }
-        })
-        if (itemExist) return;
-        else {await OrderItems.create({
-                  orderId: order.id,
-                  productId: req.body.productId,
-                  totalQuantity: req.body.totalQuantity,
-                  totalCost: req.body.totalCost
-          })
+// router.post("/", requireToken, async (req, res, next) => {
+//     try {
+//         let order = await Order.findOne({
+//             where: {
+//                 userId: req.user.dataValues.id,
+//                 status: 'open'
+//             }
+//         })
+//         if (!order) {
+//             order = await Order.create({
+//                 status: 'open',
+//                 userId: req.user.dataValues.id
+//             })
+//         }
+//         let itemExist = await OrderItems.findOne({
+//           where:{
+//             productId: req.body.productId
+//           }
+//         })
+//         if (itemExist) return;
+//         else {await OrderItems.create({
+//                   orderId: order.id,
+//                   productId: req.body.productId,
+//                   totalQuantity: req.body.totalQuantity,
+//                   totalCost: req.body.totalCost
+//           })
 
-          res.send(
-            await Order.findOne({
-              where:{
-                id: order.id
-              },
-              include:[Product],
-              order:[[Product, 'id','desc']]
-            })
-          );
-        }
+//           res.send(
+//             await Order.findOne({
+//               where:{
+//                 id: order.id
+//               },
+//               include:[Product],
+//               order:[[Product, 'id','desc']]
+//             })
+//           );
+//         }
 
 
-    } catch (error) {
-      next(error);
-    }
-  });
+//     } catch (error) {
+//       next(error);
+//     }
+//   });
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -198,3 +198,64 @@ router.post("/", requireToken, async (req, res, next) => {
 //     next(err);
 //   }
 // });
+
+
+router.post("/", requireToken, async (req, res, next) => {
+    try {
+      // step 1: find or create the order 
+        let order = await Order.findOne({
+            where: {
+                userId: req.user.dataValues.id,
+                status: 'open'
+            }
+        })
+        if (!order) {
+            order = await Order.create({
+                status: 'open',
+                userId: req.user.dataValues.id
+            })
+        }
+
+        // step 2: check whether this item is already in the cart
+        let itemExist = await OrderItems.findOne({
+          where:{
+            orderId: order.id,
+            productId: req.body.productId
+          }
+        })
+        console.log(itemExist)
+        // allowing user to add same item multiple times 
+        if (itemExist) {
+          const newQuantity = itemExist.totalQuantity + parseInt(req.body.totalQuantity);
+          const newCost = itemExist.totalCost + req.body.totalCost;
+          await itemExist.update({
+            totalQuantity: newQuantity,
+            totalCost: newCost,
+          })
+
+        }
+        else {
+          await OrderItems.create({
+                orderId: order.id,
+                productId: req.body.productId,
+                totalQuantity: req.body.totalQuantity,
+                totalCost: req.body.totalCost
+          })
+        }
+        // step3: send back res 
+          res.send(
+            await Order.findOne({
+              where:{
+                id: order.id
+              },
+              include:[Product],
+              order:[[Product, 'id','desc']]
+            })
+          );
+        
+
+    }catch (error) {
+      next(error);
+    }
+  });
+

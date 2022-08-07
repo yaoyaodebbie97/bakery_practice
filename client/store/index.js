@@ -11,8 +11,6 @@ import cartReducer from './cart';
 import userAccountReducer from './userAccount'
 
 
-
-
 const reducer = combineReducers({
   auth,
   category: categoryReducer,

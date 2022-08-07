@@ -64,16 +64,16 @@ export const addToCart = (product, quantity) => {
               ? JSON.parse(window.localStorage.getItem('cart'))
               : {products: [] }
 
-            // for now, don't add same product twice
-            let needToAdd = true;
-            for (let i = 0; i< cart.products.length; i++){
-              if (cart.products[i].orderItems.productId === product.id) {
-                needToAdd = false;
-                break;
+            let newItem = true;
+            if (cart.products){
+              for (let i = 0; i< cart.products.length; i++){
+                if (cart.products[i].orderItems.productId === product.id) {
+                  newItem = false;
+                  break;
+                }
               }
             }
-            // console.log(needToAdd)
-            if (needToAdd){
+            if (newItem){
               cart.products.push({
                 productName: product.productName,
                 imageUrl: product.imageUrl,
@@ -82,14 +82,24 @@ export const addToCart = (product, quantity) => {
                   productId: product.id,
                   totalQuantity: parseInt(quantity),
                   totalCost: cost }
-              })
+              })}
+              // if already in the cart, just updating quantity 
+              else{
+                for (let i = 0; i< cart.products.length; i++){
+                  if (cart.products[i].orderItems.productId === product.id){
+                   cart.products[i].orderItems.totalQuantity = cart.products[i].orderItems.totalQuantity + parseInt(quantity);
+                   cart.products[i].orderItems.totalCost = cart.products[i].orderItems.totalCost + parseInt(quantity) * cart.products[i].unitPrice;
+                  }
+                }
+            }
+
              window.localStorage.setItem('cart', JSON.stringify(cart));
              dispatch(updateTheCart(cart))
 
             }
 
        }
-    } catch (err) {
+     catch (err) {
       console.log(err)
     }
   }
