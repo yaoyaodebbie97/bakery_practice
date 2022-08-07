@@ -28,8 +28,7 @@ class CartCount extends Component {
         count += products[i].orderItems.totalQuantity;
       }
     }
-    console.log(products)
-    console.log(count);
+   
     return <>{count}</>;
   }
 }  
