@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Login, Signup } from './components/AuthForm';
-import { Login_CheckOut, Signup_CheckOut, RouteForCheckOut } from './components/Checkout_AuthForm';
+import { Login_CheckOut, Signup_CheckOut} from './components/Checkout_AuthForm';
 import Home from './components/Home';
 import { me } from './store';
 import AllProducts from './components/AllProducts';
@@ -10,6 +10,7 @@ import Cart from './components/Cart';
 import Category from './components/Category';
 import SingleProduct from './components/SingleProduct';
 import OrderHistory from './components/OrderHistory';
+import UserAccount from './components/UserAccount';
 import Confirmation from './components/ConfirmationPage';
 
 /**

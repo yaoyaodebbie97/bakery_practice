@@ -34,8 +34,9 @@ router.post(`/`, requireToken, isAdmin, async (req, res, next) => {
 });
 
 // admin can update products
-router.put('/:productId', requireToken, isAdmin, async (req, res, next) => {
+router.put('/:id', requireToken, isAdmin, async (req, res, next) => {
   try {
+    console.log(req.params.id)
     const product = await Product.findByPk(req.params.id);
     await product.update(req.body);
     res.send(product);
@@ -45,7 +46,7 @@ router.put('/:productId', requireToken, isAdmin, async (req, res, next) => {
 });
 
 // admin can delete products
-router.delete('/:productId', requireToken, isAdmin, async (req, res, next) => {
+router.delete('/:id', requireToken, isAdmin, async (req, res, next) => {
   try {
     const product = await Product.findByPk(req.params.id);
     await product.destroy();
@@ -57,6 +58,7 @@ router.delete('/:productId', requireToken, isAdmin, async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
+    console.log(req.params.id)
     const product = await Product.findByPk(req.params.id, {
       attributes: [
         'id',

@@ -19,7 +19,8 @@ const reducer = combineReducers({
   products,
   singleProduct: singleProductReducer,
   orders: userOrdersReducer,
-  cart: cartReducer
+  cart: cartReducer,
+  user: userAccountReducer
 });
 
 const middleware = composeWithDevTools(

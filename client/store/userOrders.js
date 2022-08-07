@@ -7,17 +7,6 @@ export const getOrders = (orders) => ({
   orders
 });
 
-// export const fetchOrders = (id) => {
-//   return async (dispatch) => {
-//     try {
-//         const { data } = await axios.get(`/api/users/${id}/orders`)
-//         await dispatch(getOrders(data))
-//     } catch (err) {
-//       console.error('Uh oh, trouble finding User order history!');
-//     }
-//   }
-// }
-
 export const fetchOrders = () => {
   return async (dispatch) => {
     try {
@@ -38,7 +27,7 @@ export const fetchOrders = () => {
   }
 }
 
-const userOrdersReducer = (state = {}, action) => {
+const userOrdersReducer = (state = [], action) => {
   switch (action.type) {
     case GET_ORDERS:
       return action.orders

@@ -1,43 +1,52 @@
 import React from "react";
 import { connect } from "react-redux";
-// import {me} from '../store/auth'
+import {Link} from 'react-router-dom';
 import { fetchOrders } from '../store/userOrders'
 
 export class OrderHistory extends React.Component {
 
-  componentDidMount() {
-    // await this.props.getUser()
-  this.props.getOrders();
+  async componentDidMount() {
+    await this.props.getOrders();
   }
 
   render() {
-    console.log(this.props)
-    // const orders = this.props.orders
-    // console.log(this.props.orders)
-        return (
-          <h1>hello</h1>
-      //     <div className="Container">
-      //     {user.map((order => (
-      //         <div key={user.id}>
-      //         <img className="productImg"  />
-      //  <p>Product Name: </p>
-      //  <p>Price: </p>
-
-      //  </div>
-      //       ) ))}
-      //     </div>
-        )
-    }
+    const orders = this.props.orders
+    return (
+      <div>
+        <h3>Order History</h3>
+          {orders && orders.length !== 0 ? (
+            <div className="Container">
+              {orders.map((order => (
+                <div order={order} key={order.id} >
+                  <h4>Order #: {order.id}</h4>
+                  {order.products.map(item => {
+                    return (
+                      <div key={item.id}>
+                      <img className="productImg" src={item.imageUrl} />
+                      {/* <Link to={`/products/${item.id}`}> */}
+                      <p>{item.productName}</p>
+                      {/* </Link> */}
+                      <p>Price: {item.price}</p>
+                      </div>
+                    )
+                  })}
+                </div>
+              )))}
+            </div>
+          ) : (
+            <div>No recent orders found</div>
+          )}
+      </div>
+    )
   }
+}
 
 
 const mapStateToProps = state => ({
-  // user: state.user,
- orders: state.orders,
+  orders: state.orders,
 })
 
 const mapDispatchToProps = dispatch => ({
-  // getUser: () => dispatch(me()),
   getOrders: () => dispatch(fetchOrders()),
 })
 
