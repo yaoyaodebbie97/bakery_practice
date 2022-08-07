@@ -22,7 +22,7 @@ class AllProducts extends React.Component {
     this.setState({value: evt.target.value})
   }
 
-  selectCategory() {  
+  selectCategory() {
     return this.props.products.filter(product => product.category === this.state.value)
 
   }
@@ -50,26 +50,26 @@ class AllProducts extends React.Component {
                <Link to={`/products/${product.id}`}> <img className="productImg" src={product.imageUrl} />
          <p>Product Name: {product.productName}</p>
          </Link>
-         <p>Price: {product.price}</p>
+         <p>Price: ${(product.price / 100).toFixed(2)}</p>
          <button
          className='button'
-         onClick={() => this.props.addToCart(product,1)}> 
-         Add to Cart 
+         onClick={() => this.props.addToCart(product,1)}>
+         Add to Cart
          </button>
 
         </div>
             ) )) :
             (this.selectCategory().map((product) => (
                 <div key={product.id}>
-            <Link to={`/products/${product.id}`}> 
+            <Link to={`/products/${product.id}`}>
             <img className="productImg" src={product.imageUrl} />
-            <p>Product Name: {product.productName}</p> 
+            <p>Product Name: {product.productName}</p>
          </Link>
-         <p>Price: {product.price}</p>
+         <p>Price: ${(product.price / 100).toFixed(2)}</p>
          <button
          className='button'
-         onClick={() => this.props.addToCart(product,1)}> 
-         Add to Cart 
+         onClick={() => this.props.addToCart(product,1)}>
+         Add to Cart
          </button>
 
         </div>

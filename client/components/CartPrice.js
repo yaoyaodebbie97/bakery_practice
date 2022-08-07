@@ -14,9 +14,9 @@ class CartCount extends Component {
         cost += products[i].orderItems.totalCost;
       }
     }
-    return <>{cost}</>;
+    return <>${(cost / 100).toFixed(2)}</>;
   }
-}  
+}
 
 const mapState = (state) => {
   return {
