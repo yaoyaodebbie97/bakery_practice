@@ -219,6 +219,7 @@ router.post("/", requireToken, async (req, res, next) => {
         // step 2: check whether this item is already in the cart
         let itemExist = await OrderItems.findOne({
           where:{
+            orderId: order.id,
             productId: req.body.productId
           }
         })
