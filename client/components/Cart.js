@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchCart, removeFromCart, updateQuantity} from "../store/cart";
 import CartCount from './CartCount';
+import CartPrice from './CartPrice';
 import {Link} from 'react-router-dom'
 
 class Cart extends Component {
   constructor(){
     super()
     this.handleClick = this.handleClick.bind(this)
-    this.totalPrice = this.cartTotalPrice.bind(this)
+    // this.totalPrice = this.cartTotalPrice.bind(this)
   }
   componentDidMount() {
     this.props.fetchCart();
@@ -17,22 +18,21 @@ class Cart extends Component {
     this.props.removeFromCart(id)
   }
 
-  cartTotalPrice() {
-    let totalPrice = 0
-    const products = this.props.cart.products;
-    if(this.props.cart.products !== null) {
-     for(let i=0; i< products.length; i++) {
-      totalPrice += products[i].orderItems.totalCost
-      }
-    }
-    return totalPrice
-  }
+  // cartTotalPrice() {
+  //   let totalPrice = 0
+  //   const products = this.props.cart.products;
+  //   if(this.props.cart.products !== null) {
+  //    for(let i=0; i< products.length; i++) {
+  //     totalPrice += products[i].orderItems.totalCost
+  //     }
+  //   }
+  //   return totalPrice
+  // }
 
   render() {
     console.log('products',this.props.cart)
     return (
       <div>
-        <h1> Total Number of Items in Cart: <CartCount/></h1>
         {this.props.cart !== null && this.props.cart.products
         ? this.props.cart.products.map((product) => (
           <div key = {product.id}>
@@ -56,9 +56,11 @@ class Cart extends Component {
         ))
       :  <p> Loading Cart </p>}
          _________________________________________________
-         <div>
+         {/* <div>
           <p>Total: {this.cartTotalPrice()}</p>
-         </div>
+         </div> */}
+        <div> Total Number of Items in Cart: <CartCount/></div>
+        <div> Total Cost of Items in Cart: <CartPrice/></div>
          <div>
           <p>Already a member?</p>
          <button>
