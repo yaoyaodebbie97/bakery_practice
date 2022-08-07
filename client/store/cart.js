@@ -117,6 +117,33 @@ export const removeFromCart = (id) => {
   }
 };
 
+// Empty Cart after checkout
+export const emptyCart = (cart) => {
+  return async (dispatch) => {
+    try {
+      const token = window.localStorage.getItem('token'); 
+      if (token) {
+        const {data} = await axios.delete(`/api/cart/order/${cart.id}`, {
+          headers: {
+            authorization: token,
+          }
+        });
+        dispatch(updateTheCart(data))
+      } else{
+        const cart = JSON.parse(window.localStorage.getItem('cart'))
+        const newProducts= cart.products.splice(0, cart.products.length);
+        const newCart = {products: newProducts}
+        window.localStorage.setItem('cart', JSON.stringify(newCart))
+        dispatch(updateTheCart(newCart))
+      }
+    } catch (err){
+      console.log(err);
+    }
+  }
+};
+
+
+
 export const updateQuantity = (item, quantityChange) => {
   return async (dispatch) => {
     try {
