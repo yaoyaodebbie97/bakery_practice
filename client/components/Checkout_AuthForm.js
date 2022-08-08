@@ -3,12 +3,13 @@ import {connect} from 'react-redux'
 import {authenticateSignUp} from '../store'
 import {authenticateLogin} from '../store'
 import {Link} from 'react-router-dom'
-
+import {Redirect} from 'react-router-dom';
 
 /**
  * COMPONENT
  */
 const AuthFormSignUp_CheckOut = props => {
+
   const {name, displayName, handleSubmit, error} = props
 
   return (
@@ -41,7 +42,7 @@ const AuthFormSignUp_CheckOut = props => {
         </div>
         <div>
           <button type="submit">
-          <Link to="/confirmation" >{displayName}</Link>
+           {displayName}
           </button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
@@ -50,8 +51,13 @@ const AuthFormSignUp_CheckOut = props => {
   )
 }
 const AuthFormLogIn_CheckOut = props => {
+  // props.loadInitialData()
   const {name, displayName, handleSubmit, error} = props
-
+  console.log('props', props)
+ 
+  // if(props.isLoggedIn) {
+  //   return <Redirect to="/confirmation"/>
+  // } else {
   return (
     <div>
       <form onSubmit={handleSubmit} name={name}>
@@ -67,15 +73,22 @@ const AuthFormLogIn_CheckOut = props => {
           <input name="password" type="password" />
         </div>
         <div>
-          <button type="submit">
-          <Link to="/confirmation" >{displayName}</Link>
+          <button type="submit">{displayName}
           </button>
         </div>
-      </form>
+        {error && error.response && <div> {error.response.data} </div>}
+        
+      </form> 
       
-    </div>
-    )
+    </div>)
+    
   }
+
+  // const checkoutRoute = () => {
+  //   return (
+  //     <div>{props.isLoggedIn ? <Redirect to="/confirmation"/> : "unauthorised"}</div>
+  // )
+  // }
 
 
 /**
@@ -90,6 +103,7 @@ const mapLogin = state => {
     name: 'login',
     displayName: 'Checkout',
     error: state.auth.error,
+    
   }
 }
 
@@ -101,6 +115,7 @@ const mapSignup = state => {
   }
 }
 
+
 const mapDispatchforLogIn = dispatch => {
     return {
       handleSubmit(evt) {
@@ -109,9 +124,12 @@ const mapDispatchforLogIn = dispatch => {
         const email = evt.target.email.value
         const password = evt.target.password.value
         dispatch(authenticateLogin(email, password, formName))
-      }
-    }
+      },
+      // loadInitialData() {
+      //   dispatch(me());
+      // }
   }
+}
   
   const mapDispatchforSignUp = dispatch => {
     return {
@@ -124,9 +142,12 @@ const mapDispatchforLogIn = dispatch => {
         const lastName =evt.target.lastName.value
         const address = evt.target.address.value
         dispatch(authenticateSignUp(email, password, formName, firstName, lastName, address))
+      },
+      
       }
-    }
   }
+  
 
 export const Login_CheckOut = connect(mapLogin, mapDispatchforLogIn)(AuthFormLogIn_CheckOut)
 export const Signup_CheckOut = connect(mapSignup, mapDispatchforSignUp)(AuthFormSignUp_CheckOut)
+// export const RouteForCheckOut = connect(mapLogin, mapDispatchforLogIn)(checkoutRoute)

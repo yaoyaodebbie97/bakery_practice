@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
  * COMPONENT
  */
 export const Home = (props) => {
-  const { username } = props;
+  const { firstName } = props;
 
   return (
     <div id='content'>
-      {/* <h3>Welcome, {username}</h3> */}
+      <h3>Welcome, {firstName}</h3>
       <img src='' />
       <div>
         <h3>About Us</h3>
@@ -34,7 +34,7 @@ export const Home = (props) => {
  */
 const mapState = (state) => {
   return {
-    username: state.auth.username,
+    firstName: state.auth.firstName,
   };
 };
 

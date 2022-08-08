@@ -7,10 +7,15 @@ import {addToCart} from '../store/cart'
 
 
 class Category extends Component {
-
     componentDidMount() { 
         this.props.getCategory(this.props.match.params.category);
     }
+
+    handleAdd(product, quantity) {
+        this.props.addToCart(product, quantity);
+        alert('item added to cart')
+      }
+
 
     render() {
         return (
@@ -25,7 +30,7 @@ class Category extends Component {
                 <h1> Price: {product.price}</h1> 
                 <button
                  className='button'
-                 onClick={() => this.props.addToCart(product,1)}
+                 onClick={()=> this.handleAdd(product,1)}
                 > Add to Cart 
             
                 </button>
