@@ -43,10 +43,10 @@ export class OrderHistory extends React.Component {
       <div >
         <h3>Order History</h3>
           {orders && orders.length !== 0 ? (
-            <div >
+            <div className="card">
               {orders.map((order => (
-                <div className="card" order={order} key={order.id} >
-                  <h4>Order No. {order.id}</h4>
+                <div className="card-body" order={order} key={order.id} >
+                  <h4 className="card-title">Order No. {order.id}</h4>
                   {order.products.map(item => {
                     return (
                       <div key={item.id}>
