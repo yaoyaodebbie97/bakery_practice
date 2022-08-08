@@ -47,10 +47,10 @@ class AllProducts extends React.Component {
           <option value='muffins'>Muffins</option>
           <option value='cakes'>Cakes</option>
         </select>
-        <div className='row container'>
+        <div className='row'>
           {this.state.value === 'All'
             ? this.props.products.map((product) => (
-                <div key={product.id} className='card'>
+                <div key={product.id} className='card product-card'>
                   <div className='card-body .col-4'>
                     <Link to={`/products/${product.id}`}>
                       {' '}
@@ -58,7 +58,9 @@ class AllProducts extends React.Component {
                         className='productImg rounded'
                         src={product.imageUrl}
                       />
-                      <p className='card-title'>{product.productName}</p>
+                      <p className='card-title product-name'>
+                        {product.productName}
+                      </p>
                     </Link>
                     <p className='card-text'>
                       Price: ${(product.price / 100).toFixed(2)}

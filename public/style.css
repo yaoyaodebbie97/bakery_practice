@@ -124,6 +124,27 @@ Link:hover, a:hover {
   max-height: auto;
 }
 
+.product-name {
+  font-family: 'Cupcake Treats', sans-serif;
+  text-decoration: none;
+  color: #453407;
+  white-space: wrap;
+}
+
+.product-name:hover {
+  color: #42929D;
+}
+
+.product-card {
+  background-color: #F8D9D6;
+  margin: 1%;
+  font-size: 120%;
+  max-width: 253px;
+  max-height: auto;
+  width: 15em;
+  height: auto
+}
+
 @media (max-width: 767px){
   body
   {
