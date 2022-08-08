@@ -13,13 +13,13 @@ class SingleProduct extends Component {
       this.handleSelect = this.handleSelect.bind(this);
     }
 
-    componentDidMount() { 
+    componentDidMount() {
         this.props.getSingleProduct(this.props.match.params.id);
       }
 
     handleSelect(evt){
       this.setState ({totalQuantity: evt.target.value});
-    } 
+    }
 
     handleAdd() {
       this.props.addToCart(this.props.product, this.state.totalQuantity);
@@ -29,12 +29,16 @@ class SingleProduct extends Component {
     render() {
         const product = this.props.product
         return (
-        <div>
-            <img src = {product.imageUrl} ></img>  
-            <p> Product Name: {product.productName} </p>
-            <p> Description: {product.description}</p>
-         
-            <select name="quantity" id="quantity" onChange = {this.handleSelect} > 
+        <div className={"singleProductContainer"}>
+            <img className={"responsive"} src = {product.imageUrl} ></img>
+            <div className={"singleProduct"}>
+              <div className={"singleHeader"} >
+            <p> {product.productName} </p>
+            </div>
+            <p> {product.description}</p>
+            <p>${(product.price / 100).toFixed(2)}</p>
+
+            <select className={'quantity'} name="quantity" id="quantity" onChange = {this.handleSelect} >
                 <option value={1}>1</option>
                 <option value={2}>2</option>
                 <option value={3}>3</option>
@@ -48,10 +52,11 @@ class SingleProduct extends Component {
             </select>
 
             <button
-                className='button'
+                className={'addToCartButton'}
                 onClick={() => this.handleAdd()}>
-                    Add to Cart 
+                    Add to Cart
             </button>
+            </div>
 
         </div>
         )
@@ -61,11 +66,10 @@ class SingleProduct extends Component {
 const mapState = (state) => ({
     product: state.singleProduct
   });
-  
+
   const mapDispatch = (dispatch) => ({
     getSingleProduct: (id) => dispatch (fetchSingleProduct(id)),
     addToCart: (product, quantity) => dispatch (addToCart(product, quantity)),
   });
-  
+
   export default connect(mapState, mapDispatch)(SingleProduct);
-  
