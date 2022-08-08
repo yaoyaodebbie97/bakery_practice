@@ -218,10 +218,10 @@ router.post('/', requireToken, async (req, res, next) => {
   }
 });
 
-router.put('/confirmation', async (req, res, next) => {
+router.put('/confirmation', requireToken, async (req, res, next) => {
   try {
-    // logged in user
-    if (req.body.id) {
+    if (req.body.id) { // user who has been logged in the whole time 
+      console.log(1)
       let order = await Order.findOne({
         where: {
           id: req.body.id,
@@ -240,9 +240,12 @@ router.put('/confirmation', async (req, res, next) => {
           order: [[Product, 'id', 'desc']],
         })
       );
-    } else {
+    } else { // guest who just logged int 
+      console.log(2)
+      console.log(req.body);
       let guestOrder = await Order.create({
         status: 'closed',
+        userId: req.user.dataValues.id
       });
       for (let i = 0; i < req.body.products.length; i++) {
         await OrderItems.create({
