@@ -24,7 +24,6 @@ form div {
   display: inline-block;
 }
 
-<<<<<<< HEAD
 /* img{
   max-width: 100px;
   max-height: 100px;
@@ -36,7 +35,9 @@ form div {
 }
 
 .singleProduct {
-  background: #84C3C8;
+ /* background: #FEFFF6; */
+  background: #84C3C8; */ */
+/* background: #fff8dc; */ */
   border: 1px solid grey;
   height: 250px;
   width: 30rem;
@@ -61,7 +62,7 @@ form div {
 }
 
 .sectionStyle{
-  background: #84C3C8;
+  background: #fff8dc;
   box-sizing: border-box;
   position: relative;
   width: 100%;
@@ -89,7 +90,8 @@ form div {
   font-size: 14px;
   background-color: #FEFFF6;
   margin-left: 1rem;
-=======
+}
+
 #logo-div {
   display: flex;
 }
@@ -136,5 +138,4 @@ Link:hover {
 
 @media (min-width: 765px){
 
->>>>>>> e286f80102fd84079abc34b6da4a935f2cd0d5cd
 }

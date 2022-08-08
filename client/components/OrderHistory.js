@@ -3,33 +3,33 @@ import { connect } from "react-redux";
 import {Link} from 'react-router-dom';
 import { fetchOrders } from '../store/userOrders'
 
-const cardStyle = {
-  background: '#F4F4E1',
-  border: '1px solid grey',
-  height: '500px',
-  width: '20rem',
-  margin: '5px',
-  textIndent: '50px',
-  // flexFlow: 'column wrap',
-}
+// const cardStyle = {
+//   background: '#F4F4E1',
+//   border: '1px solid grey',
+//   height: '500px',
+//   width: '20rem',
+//   margin: '5px',
+//   textIndent: '50px',
+//   // flexFlow: 'column wrap',
+// }
 
-const sectionStyle = {
-  background: '#84C3C8',
-  boxSizing: 'border-box',
-  position: 'relative',
-  width: '100%',
-  overflow: 'hidden'
-}
+// const sectionStyle = {
+//   background: '#84C3C8',
+//   boxSizing: 'border-box',
+//   position: 'relative',
+//   width: '100%',
+//   overflow: 'hidden'
+// }
 
-const divStyle = {
-  margin: '10px',
-  padding: '10px',
-  display: 'flex',
-  // flexDirection: 'column',
+// const divStyle = {
+//   margin: '10px',
+//   padding: '10px',
+//   display: 'flex',
+//   // flexDirection: 'column',
 
-  // position: 'absolute',
-  left: '200px'
-}
+//   // position: 'absolute',
+//   left: '200px'
+// }
 
 export class OrderHistory extends React.Component {
 
@@ -40,12 +40,12 @@ export class OrderHistory extends React.Component {
   render() {
     const orders = this.props.orders
     return (
-      <div style={sectionStyle}>
+      <div >
         <h3>Order History</h3>
           {orders && orders.length !== 0 ? (
-            <div style={divStyle}  >
+            <div >
               {orders.map((order => (
-                <div className="card" style={cardStyle} order={order} key={order.id} >
+                <div className="card" order={order} key={order.id} >
                   <h4>Order No. {order.id}</h4>
                   {order.products.map(item => {
                     return (
