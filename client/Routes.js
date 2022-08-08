@@ -12,7 +12,9 @@ import SingleProduct from './components/SingleProduct';
 import OrderHistory from './components/OrderHistory';
 import UserAccount from './components/UserAccount';
 import Confirmation from './components/ConfirmationPage';
-import InjectedCheckoutForm from ".//components/Payment"
+import Checkout from "./components/Payment"
+
+            
 
 
 /**
@@ -74,9 +76,12 @@ class Routes extends Component {
             <Route exact path='/products/category/:category' component={Category} />
             <Route exact path='/cart' component={Cart} />
             <Route exact path='/confirmation' component={Confirmation} />
-            <Route exact path='/checkout/login' render={()=> isLoggedIn?(<Redirect to="/confirmation"/>)  : <Login_CheckOut/> } />
-            <Route exact path='/checkout/signup' render={()=> isLoggedIn?(<Redirect to="/confirmation"/>)  : <Signup_CheckOut/> } />
+            <Route exact path='/checkout/login' render={()=> isLoggedIn?(<Redirect to="/payment"/>)  : <Login_CheckOut/> } />
+            <Route exact path='/checkout/signup' render={()=> isLoggedIn?(<Redirect to="/payment"/>)  : <Signup_CheckOut/> } />
             <Route path='/users/orders' component={OrderHistory} />
+            <Route path="/payment" component={Checkout} />
+            
+
             </Switch>
 
 

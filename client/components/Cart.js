@@ -71,12 +71,12 @@ class Cart extends Component {
         <div>
             <p>Already a member?</p>
           <button>
-            <Link to="/checkout/login" >Checkout</Link>
+            <Link to="/checkout/login" >Login To Checkout</Link>
           </button>
           <br/>
           <p>OR</p>
           <button>
-            <Link to="/checkout/signup" >Guest Checkout</Link>
+            <Link to="/checkout/signup" >Signup To Checkout</Link>
           </button>
         </div>
         }
