@@ -61,20 +61,25 @@ class Cart extends Component {
          </div> */}
         <div> Total Number of Items in Cart: <CartCount/></div>
         <div> Total Cost of Items in Cart: <CartPrice/></div>
-         <div>
-          <p>Already a member?</p>
-         <button>
-           <Link to="/checkout/login" >Checkout</Link>
-         </button>
-        <br/>
-        <p>OR</p>
-        {console.log('am I logged in?', this.props.isLoggedIn)}
-         <button disabled = {this.props.isLoggedin}>
-           <Link to="/checkout/signup" >Guest Checkout</Link>
-         </button>
-          </div>
-
-
+        {this.props.isLoggedIn
+        ? <div> 
+            <button>
+            <Link to="/checkout/login" >Checkout</Link>
+          </button>
+        </div>
+        :
+        <div>
+            <p>Already a member?</p>
+          <button>
+            <Link to="/checkout/login" >Checkout</Link>
+          </button>
+          <br/>
+          <p>OR</p>
+          <button>
+            <Link to="/checkout/signup" >Guest Checkout</Link>
+          </button>
+        </div>
+        }
       </div>
 
     );
