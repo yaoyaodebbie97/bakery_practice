@@ -429,7 +429,7 @@ const mockProducts = [
     quantity: 56,
     price: 1586,
     imageUrl:
-      'https://www.pexels.com/photo/clear-glass-bottle-with-milk-3522528/',
+      'https://www.cookingclassy.com/wp-content/uploads/2012/08/red-velvet-cookies-8.jpg',
     category: 'cookies',
   },
   {
@@ -439,7 +439,7 @@ const mockProducts = [
     quantity: 46,
     price: 1774,
     imageUrl:
-      'https://images.pexels.com/photos/2418652/pexels-photo-2418652.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://littlesunnykitchen.com/wp-content/uploads/2021/06/Cherry-Muffins-6.jpg',
     category: 'muffins',
   },
   {
@@ -479,7 +479,7 @@ const mockProducts = [
     quantity: 51,
     price: 1240,
     imageUrl:
-      'https://images.pexels.com/photos/1169790/pexels-photo-1169790.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://dinnerthendessert.com/wp-content/uploads/2020/12/Pear-Bread-Originals-17.jpg',
     category: 'pastries',
   },
   {
@@ -493,23 +493,23 @@ const mockProducts = [
     category: 'cupcakes',
   },
   {
-    productName: 'Pain Au Liat Muffin',
+    productName: 'Pain Au Liat',
     description:
       'sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui',
     quantity: 86,
     price: 1964,
     imageUrl:
-      'https://images.pexels.com/photos/10509251/pexels-photo-10509251.jpeg?auto=compress&cs=tinysrgb&w=300',
-    category: 'muffins',
+      'http://atcast.typepad.com/.a/6a00d8341c9adb53ef0154365bba6d970c-pi',
+    category: 'bread',
   },
   {
-    productName: 'Lemonade - Strawberry Pastry',
+    productName: 'Red Rose Pastry',
     description:
       'non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in',
     quantity: null,
     price: 1015,
     imageUrl:
-      'https://images.pexels.com/photos/11961854/pexels-photo-11961854.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://thecafesucrefarine.com/wp-content/uploads/Glazed-Puff-Pastry-Apple-Roses-3.jpg',
     category: 'pastries',
   },
   {
@@ -527,19 +527,19 @@ const mockProducts = [
     description:
       'id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in',
     quantity: 76,
-    price: 140000,
+    price: 90000,
     imageUrl:
       'https://i.postimg.cc/sfSzyty2/0-D10-E034-F0-DD-49-A6-9329-AF624-DEC66-F5.jpg',
     category: 'cakes',
   },
   {
-    productName: 'Truffle Shells Bread',
+    productName: 'Truffle Brioche',
     description:
       'orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat',
     quantity: null,
     price: 2674,
     imageUrl:
-      'https://images.pexels.com/photos/1002322/pexels-photo-1002322.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://chezus.com/wp-content/uploads/2014/12/untitled-1-of-19.jpg',
     category: 'bread',
   },
   {
@@ -589,7 +589,7 @@ const mockProducts = [
     quantity: 3,
     price: 760,
     imageUrl:
-      'https://images.pexels.com/photos/9582686/pexels-photo-9582686.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://www.willcookforsmiles.com/wp-content/uploads/2021/12/Crab-Puffs-1.jpg',
     category: 'pastries',
   },
   {
@@ -599,7 +599,7 @@ const mockProducts = [
     quantity: 44,
     price: 1738,
     imageUrl:
-      'https://images.pexels.com/photos/3141268/pexels-photo-3141268.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://www.wholesomeyum.com/wp-content/uploads/2017/07/www.wholesomeyum.com-cauliflower-bread-recipe-low-carb-garlic-bread-img-6081.jpg',
     category: 'bread',
   },
   {
@@ -609,7 +609,7 @@ const mockProducts = [
     quantity: 74,
     price: 2912,
     imageUrl:
-      'https://images.pexels.com/photos/556829/pexels-photo-556829.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://s23209.pcdn.co/wp-content/uploads/2014/01/IMG_4851edit.jpg',
     category: 'muffins',
   },
   {
@@ -619,7 +619,7 @@ const mockProducts = [
     quantity: 0,
     price: 1623,
     imageUrl:
-      'https://images.pexels.com/photos/9295339/pexels-photo-9295339.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://urvashiroe.com/wordpress/wp-content/uploads/2011/09/copyright-urvashi-roe_sakura-cupcake1-1.jpg',
     category: 'cupcakes',
   },
   {
@@ -659,7 +659,7 @@ const mockProducts = [
     quantity: 23,
     price: 1721,
     imageUrl:
-      'https://images.pexels.com/photos/1070850/pexels-photo-1070850.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://omgchocolatedesserts.com/wp-content/uploads/2017/12/Hershey-Cheesecake-Chocolate-Cake-featured-new-copy.jpg',
     category: 'cakes',
   },
   {
@@ -703,13 +703,13 @@ const mockProducts = [
     category: 'pies',
   },
   {
-    productName: 'Pumpkin Pie (Seasonal)',
+    productName: 'Pumpkin Pie',
     description:
       'magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent',
     quantity: 89,
     price: 1500,
     imageUrl:
-      'https://images.pexels.com/photos/5706442/pexels-photo-5706442.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://tastesbetterfromscratch.com/wp-content/uploads/2015/10/Pumpkin-Pie-5.jpg',
     category: 'pies',
   },
   {
@@ -728,7 +728,8 @@ const mockProducts = [
       'enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue',
     quantity: 12,
     price: 700,
-    imageUrl: 'https://www.pexels.com/@pixabay/',
+    imageUrl:
+      'https://2.bp.blogspot.com/-IRNQvPqqW40/TYUajMO--7I/AAAAAAAAAcM/KXYJX4zOy2E/s1600/travesseiros2.jpg',
     category: 'pastries',
   },
   {
@@ -762,23 +763,23 @@ const mockProducts = [
     category: 'cupcakes',
   },
   {
-    productName: 'Cranberries Cupcakes',
+    productName: 'Cranberry Orange Cupcakes',
     description:
       'platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante',
     quantity: null,
     price: 1177,
     imageUrl:
-      'https://images.pexels.com/photos/9095910/pexels-photo-9095910.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://crumbsandcaramel.com/wp-content/uploads/2020/12/2-x-3-Cranberry-Cupcakes-Hero-2-Shot.jpg',
     category: 'cupcakes',
   },
   {
-    productName: 'Chocolate Chip Nut Muffin',
+    productName: 'Chocolate Chip Walnut Muffin',
     description:
       'nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in',
     quantity: 5,
     price: 1045,
     imageUrl:
-      'https://images.pexels.com/photos/4167157/pexels-photo-4167157.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://healthyhappylife.com/wp-content/uploads/2020/02/chocolate-chip-muffins-vegan-IMG_5606.jpg',
     category: 'muffins',
   },
   {
@@ -808,7 +809,7 @@ const mockProducts = [
     quantity: 12,
     price: 1515,
     imageUrl:
-      'https://images.pexels.com/photos/8963942/pexels-photo-8963942.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://pinabresciani.com/wp-content/uploads/2018/11/DSC04665.jpg',
     category: 'pastries',
   },
   {
@@ -838,7 +839,7 @@ const mockProducts = [
     quantity: 94,
     price: 955,
     imageUrl:
-      'https://images.pexels.com/photos/10690387/pexels-photo-10690387.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://www.cookingclassy.com/wp-content/uploads/2014/03/ice-cream-sundae-cupcakes2+srgb..jpg',
     category: 'cupcakes',
   },
   {
@@ -908,7 +909,7 @@ const mockProducts = [
     quantity: 50,
     price: 6500,
     imageUrl:
-      'https://images.pexels.com/photos/6557291/pexels-photo-6557291.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://bakerbynature.com/wp-content/uploads/2021/02/devils-food-cake-123-1-of-1.jpg',
     category: 'cakes',
   },
   {
@@ -987,7 +988,7 @@ const mockProducts = [
       'ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis',
     quantity: null,
     price: 650,
-    imageUrl: 'https://www.pexels.com/@jessbaileydesign/',
+    imageUrl: 'http://farm3.staticflickr.com/2830/12197751413_92d63b9b3f_c.jpg',
     category: 'cupcakes',
   },
   {
@@ -1087,7 +1088,7 @@ const mockProducts = [
     quantity: 82,
     price: 1105,
     imageUrl:
-      'https://images.pexels.com/photos/10509251/pexels-photo-10509251.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://momsdinner.net/wp-content/uploads/2020/05/mini-chocolate-chip-muffin-recipe-2.jpg',
     category: 'muffins',
   },
   {
@@ -1417,11 +1418,11 @@ const mockProducts = [
     quantity: 90,
     price: 700,
     imageUrl:
-      'https://images.pexels.com/photos/3141268/pexels-photo-3141268.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://homebodyeats.com/wp-content/uploads/2021/10/knotted-challah-rolls.jpg',
     category: 'bread',
   },
   {
-    productName: 'Godiva Chocolate Chip Cookeis',
+    productName: 'Godiva Chocolate Chip Cookies',
     description:
       'mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing',
     quantity: 5,
@@ -1446,7 +1447,8 @@ const mockProducts = [
       'volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus',
     quantity: 26,
     price: 515,
-    imageUrl: 'https://www.pexels.com/@pixabay/',
+    imageUrl:
+      'https://cakescottage.com/wp-content/uploads/2016/03/cream-cheese-danish-a3.jpg',
     category: 'pastries',
   },
   {
@@ -1486,7 +1488,7 @@ const mockProducts = [
     quantity: 60,
     price: 925,
     imageUrl:
-      'https://images.pexels.com/photos/3776529/pexels-photo-3776529.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://www.runningwithspoons.com/wp-content/uploads/2016/08/Chocolate-Cherry-Greek-Yogurt-Muffins3.jpg',
     category: 'muffins',
   },
   {
@@ -1697,5 +1699,4 @@ const mockOrders = [
   { status: 'closed' },
 ];
 
-module.exports = { mockUsers, mockProducts, mockOrders, mockOrderItems};
-
+module.exports = { mockUsers, mockProducts, mockOrders, mockOrderItems };

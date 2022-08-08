@@ -6,12 +6,12 @@ import CartCount from './CartCount';
 
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <>
-    <nav role='navigation' className='navbar sticky-top container col'>
+    <nav role='navigation' className='navbar sticky-top col'>
       <Link to='/home'>
-        <img id='logo' src='logos_white.png' className='col-6' />
+        <img id='logo' src='logos_white.png' className='navbar-brand' />
       </Link>
       {isLoggedIn ? (
-        <div className='navbar-div menu-toggle col-6'>
+        <div className='navbar-div menu-toggle'>
           {/* The navbar will show these links after you log in */}
           <Link to='/home'>Home</Link>
           <Link to='/products'>All Products</Link>
@@ -34,7 +34,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           </Link>
         </div>
       ) : (
-        <div className='navbar-div menu-toggle col-6'>
+        <div className='navbar-div menu-toggle'>
           {/* The navbar will show these links before you log in */}
           <Link to='/home'>Home</Link>
           <Link to='/products'>All Products</Link>
