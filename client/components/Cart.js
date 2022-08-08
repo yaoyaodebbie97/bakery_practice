@@ -41,7 +41,7 @@ class Cart extends Component {
               <p> Product Name: {product.productName} </p>
               <img src=  {product.imageUrl}/>
               <p> Quantity: {product.orderItems.totalQuantity} </p>
-              <p> Unit Price: ${(product.unitPrice / 100).toFixed(2)}</p>
+              <p> Unit Price: ${(product.price / 100).toFixed(2)}</p>
               <p> Total Price: ${(product.orderItems.totalCost / 100).toFixed(2)}</p>
               {/* <p> Name: {item.Product.productName}</> */}
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16" onClick = {()=> this.handleClick(product.orderItems.productId)}>
@@ -69,18 +69,42 @@ class Cart extends Component {
         </div>
         :
         <div>
-            <p>Already a member?</p>
-          <button>
-            <Link to="/checkout/login" >Login To Checkout</Link>
-          </button>
-          <br/>
-          <p>OR</p>
-          <button>
-            <Link to="/checkout/signup" >Signup To Checkout</Link>
-          </button>
-        </div>
-        }
-      </div>
+        <p>Already a member?</p>
+      <button>
+        <Link to="/checkout/login" >Login To Checkout</Link>
+      </button>
+      <br/>
+      <p> </p>
+      <p>Or Checkout as a guest</p>
+      {/* <button>
+        <Link to="/checkout/signup" >Signup To Checkout</Link>
+      </button> */}
+                <label htmlFor="firstName">
+                  <small>First Name</small>
+                </label>
+                <input name="firstName" type="text" />
+
+                <label htmlFor="lastName">
+                  <small>Last Name</small>
+                </label>
+                <input name="lastName" type="text" />
+
+                <label htmlFor="email">
+                  <small>Email</small>
+                </label>
+                <input name="email" type="text" />
+
+                 <label htmlFor="Address">
+                  <small>Address</small>
+                </label>
+                <input name="Address" type="text" />
+      <p> </p>
+      <button>
+        <Link to="payment" > Confirm Checkout</Link>
+      </button>
+    </div>
+    }
+  </div>
 
     );
   }
