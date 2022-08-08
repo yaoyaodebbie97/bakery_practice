@@ -26,20 +26,20 @@ class Routes extends Component {
   render() {
     const { isLoggedIn } = this.props;
     // let history = useHistory()
-   
+
     return (
-     
+
       <div>
-        {/* {isLoggedIn ? 
-           
+        {/* {isLoggedIn ?
+
           (  <Switch>
-        
+
              <Route exact path='/home' component={Home} />
-             
+
             <Route exact path='/home' render={()=> (<Redirect to="/home" />)} />
-            
+
             <Route exact path='/products' component={AllProducts} />
-          
+
             <Route exact path='/products/:id' component={SingleProduct} />
             <Route exact path='/products/category/:category' component={Category} />
             <Route exact path='/cart' component={Cart} />
@@ -59,15 +59,16 @@ class Routes extends Component {
             <Route exact path='/checkout/login' component={Login_CheckOut} />
             <Route exact path='/checkout/signup' component={Signup_CheckOut} />
             <Route exact path='/confirmation' component={Confirmation} />
-           
-           
+
+
           </Switch>
-        )} */} 
+        )} */}
             <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/home' component={Home} />
             <Route exact path='/login' render={()=> isLoggedIn?(<Redirect to="/home" />) : <Login/>} />
             <Route exact path='/signup' render={()=> isLoggedIn?(<Redirect to="/home" />) : <Signup/>} />
+            <Route path='/users/account' component={UserAccount} />
             <Route exact path='/products' component={AllProducts} />
             <Route exact path='/products/:id' component={SingleProduct} />
             <Route exact path='/products/category/:category' component={Category} />
@@ -77,7 +78,7 @@ class Routes extends Component {
             <Route exact path='/checkout/signup' render={()=> isLoggedIn?(<Redirect to="/confirmation"/>)  : <Signup_CheckOut/> } />
             <Route path='/users/orders' component={OrderHistory} />
             </Switch>
-    
+
 
       </div>
     );
