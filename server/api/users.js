@@ -34,8 +34,8 @@ router.post(`/`, requireToken, isAdmin, async (req, res, next) => {
 router.put('/:userId', requireToken, isAdmin, async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id);
-    await user.update(req.body)
-    res.send(user)
+    await user.update(req.body);
+    res.send(user);
   } catch (error) {
     next(error);
   }
@@ -45,23 +45,18 @@ router.put('/:userId', requireToken, isAdmin, async (req, res, next) => {
 router.delete('/:userId', requireToken, isAdmin, async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id);
-      await user.destroy();
-      res.send(user)
+    await user.destroy();
+    res.send(user);
   } catch (err) {
     next(err);
   }
 });
 
-
 // get logged in user
 router.get('/account', requireToken, async (req, res, next) => {
   try {
     const user = await User.findByPk(req.user.dataValues.id, {
-      attributes: [
-        'firstName',
-        'lastName',
-        'address',
-      ],
+      attributes: ['firstName', 'lastName', 'address'],
     });
     res.send(user);
   } catch (err) {
@@ -73,34 +68,28 @@ router.get('/account', requireToken, async (req, res, next) => {
 router.put('/account', requireToken, async (req, res, next) => {
   try {
     const user = await User.findByPk(req.user.dataValues.id, {
-      attributes: [
-        'firstName',
-        'lastName',
-        'address',
-      ],
+      attributes: ['firstName', 'lastName', 'address'],
     });
-    await user.update(req.body)
-    res.send(user)
+    await user.update(req.body);
+    res.send(user);
   } catch (error) {
     next(error);
   }
 });
 
-
 router.get('/orders', requireToken, async (req, res, next) => {
   try {
     const userOrder = await Order.findAll({
-      // include: [Product],
       where: {
         userId: req.user.dataValues.id,
         status: 'closed'
       },
-           include: [
+      include: [
         {
           model: Product,
           attributes: ['productName', 'price', 'imageUrl', 'category'],
         },
-      ]
+      ],
     });
     res.send(userOrder);
   } catch (err) {

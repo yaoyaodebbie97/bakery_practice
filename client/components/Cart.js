@@ -61,19 +61,25 @@ class Cart extends Component {
          </div> */}
         <div> Total Number of Items in Cart: <CartCount/></div>
         <div> Total Cost of Items in Cart: <CartPrice/></div>
-         <div>
-          <p>Already a member?</p>
-         <button>
-           <Link to="/checkout/login" >Checkout</Link>
-         </button>
-        <br/>
-        <p>OR</p>
-         <button>
-           <Link to="/checkout/signup" >Guest Checkout</Link>
-         </button>
-          </div>
-
-
+        {this.props.isLoggedIn
+        ? <div> 
+            <button>
+            <Link to="/checkout/login" >Checkout</Link>
+          </button>
+        </div>
+        :
+        <div>
+            <p>Already a member?</p>
+          <button>
+            <Link to="/checkout/login" >Checkout</Link>
+          </button>
+          <br/>
+          <p>OR</p>
+          <button>
+            <Link to="/checkout/signup" >Guest Checkout</Link>
+          </button>
+        </div>
+        }
       </div>
 
     );
@@ -84,6 +90,7 @@ class Cart extends Component {
 
 const mapState = (state) => ({
   cart: state.cart,
+  isLoggedIn: !!state.auth.id,
 });
 
 const mapDispatch = (dispatch) => ({
@@ -93,3 +100,5 @@ const mapDispatch = (dispatch) => ({
 });
 
 export default connect(mapState, mapDispatch)(Cart);
+
+

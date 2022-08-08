@@ -6,13 +6,14 @@ import {emptyCart} from '../store/cart'
 class Confirmation extends Component {  
    
 
-  // componentDidMount() {
-  //   this.props.emptyCart(this.props.cart)
-  // }
+  componentDidMount() {
+    this.props.emptyCart(this.props.cart)
+  }
 
  
 
   render() {
+    // console.log('confirmation page, this is my cart', this.props.cart)
   
     return (
         <div>
@@ -29,9 +30,9 @@ const mapState = (state) => {
     }
   };
 
-// const mapDispatch = (dispatch) => ({
-//   emptyCart: (cart) => dispatch(emptyCart(cart)),
-// });
+const mapDispatch = (dispatch) => ({
+  emptyCart: (cart) => dispatch(emptyCart(cart)),
+});
 
 
-export default connect(mapState)(Confirmation)
+export default connect(mapState, mapDispatch)(Confirmation)
