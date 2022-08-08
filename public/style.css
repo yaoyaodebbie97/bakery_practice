@@ -13,7 +13,7 @@ label {
 }
 
 nav a {
-  display: inline-block;
+  /* display: inline-block; */
   margin: 1em;
   color: #fff8dc
   /* font-family: "Saira Extra Condensed"; */
@@ -36,8 +36,8 @@ form div {
 
 .singleProduct {
  /* background: #FEFFF6; */
-  background: #84C3C8; */ */
-/* background: #fff8dc; */ */
+  background: #84C3C8;
+/* background: #fff8dc; */
   border: 1px solid grey;
   height: 250px;
   width: 30rem;
@@ -98,18 +98,18 @@ form div {
 
 nav {
   background-color: #8b6914;
-  display: flex;
+  /* display: flex;
   align-items: center;
   text-decoration: none;
   color: white;
   justify-content: space-between;
   position: fixed;
-  margin: 0 2% 0.5% 0;
+  margin: 0 2% 0.5% 0; */
 }
 
 #logo {
   padding: 0.5%;
-  display: block;
+  /* display: block; */
   width: 20%;
   height: auto;
   justify-content: left;
@@ -119,20 +119,20 @@ nav {
   margin-top: 10%;
 }
 
-Link:hover {
+Link:hover, a:hover {
+  text-decoration: none;
   color: #453407;
+}
+
+.productImg {
+  max-width: 250px;
+  max-height: auto;
 }
 
 @media (max-width: 767px){
   body
   {
     background: #fff8dc;
-    overflow-x: hidden; /* needed because hiding the menu on the right side is not perfect,  */
   }
-
-
-}
-
-@media (min-width: 765px){
 
 }
