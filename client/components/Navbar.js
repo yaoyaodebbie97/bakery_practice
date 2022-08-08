@@ -7,7 +7,9 @@ import CartCount from './CartCount';
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <div id='logo-div'>
     <nav role='navigation'>
-      <img id='logo' src='logos_white.png' />
+      <Link to='/home'>
+        <img id='logo' src='logos_white.png' />
+      </Link>
       {isLoggedIn ? (
         <div className='navbar-div menu-toggle'>
           <input type='checkbox' />

@@ -10,7 +10,6 @@ export const Home = (props) => {
 
   return (
     <div id='content'>
-      <h3>Welcome, {firstName}</h3>
       <img src='' />
       <div>
         <h3>About Us</h3>
