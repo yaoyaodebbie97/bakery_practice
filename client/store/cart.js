@@ -77,7 +77,7 @@ export const addToCart = (product, quantity) => {
               cart.products.push({
                 productName: product.productName,
                 imageUrl: product.imageUrl,
-                unitPrice: product.price,
+                price: product.price,
                 orderItems: {
                   productId: product.id,
                   totalQuantity: parseInt(quantity),
@@ -88,7 +88,7 @@ export const addToCart = (product, quantity) => {
                 for (let i = 0; i< cart.products.length; i++){
                   if (cart.products[i].orderItems.productId === product.id){
                    cart.products[i].orderItems.totalQuantity = cart.products[i].orderItems.totalQuantity + parseInt(quantity);
-                   cart.products[i].orderItems.totalCost = cart.products[i].orderItems.totalCost + parseInt(quantity) * cart.products[i].unitPrice;
+                   cart.products[i].orderItems.totalCost = cart.products[i].orderItems.totalCost + parseInt(quantity) * cart.products[i].price;
                   }
                 }
             }
@@ -133,22 +133,32 @@ export const removeFromCart = (id) => {
 export const emptyCart = (cart) => {
   return async (dispatch) => {
     try {
-      const token = window.localStorage.getItem('token') // will always have token 
-      if (cart.id) { // a user who have been logged in the whole time 
-        const {data} = await axios.put(`/api/cart/confirmation`, cart, {
-          headers: {
-            authorization: token,
+      const token = window.localStorage.getItem('token') 
+      if (token){
+          if (cart.id) { // a user who have been logged in the whole time 
+            const {data} = await axios.put(`/api/cart/confirmation`, cart, {
+              headers: {
+                authorization: token,
+              }
+            });
+            dispatch(updateTheCart(data));
+          } else{  // guest who  logged in just now 
+            window.localStorage.setItem('cart', JSON.stringify({products: []}))
+            const {data} = await axios.put(`/api/cart/confirmation`, cart,{
+              headers: {
+                authorization: token,
+              }
+            });
+            dispatch(updateTheCart(data));
           }
-        });
-        dispatch(updateTheCart(data))
-      } else{  // guest who signed up/ logged in just now 
-        window.localStorage.setItem('cart', JSON.stringify({products: []}))
-        const {data} = await axios.put(`/api/cart/confirmation`, cart,{
-          headers: {
-            authorization: token,
-          }
-        });
-        dispatch(updateTheCart(data))
+      } else {
+          window.localStorage.setItem('cart', JSON.stringify({products: []}))
+          const {data} = await axios.put(`/api/cart/confirmation`, cart,{
+            headers: {
+              authorization: 'guest',
+            }
+          });
+          dispatch(updateTheCart(data))
       }
     } catch (err){
       console.log(err);
@@ -156,6 +166,17 @@ export const emptyCart = (cart) => {
   }
 };
 
+
+// export const clearCartCount = (cart) => {
+//   return async (dispatch) => {
+//     try {
+//       dispatch(updateTheCart({}))
+//     } 
+//     catch (err){
+//       console.log(err);
+//     }
+//   }
+// }
 
 
 export const updateQuantity = (item, quantityChange) => {
@@ -177,8 +198,9 @@ export const updateQuantity = (item, quantityChange) => {
            const cart = JSON.parse(window.localStorage.getItem('cart'))
            for (let i = 0; i< cart.products.length; i++){
              if (cart.products[i].orderItems.productId === item.productId){
-              cart.products[i].orderItems.totalQuantity = cart.products[i].orderItems.totalQuantity +  quantityChange;
-              cart.products[i].orderItems.totalCost = cart.products[i].orderItems.totalCost + quantityChange * cart.products[i].unitPrice;
+                if (cart.products[i].orderItems.totalQuantity + quantityChange <= 0) return;
+                cart.products[i].orderItems.totalQuantity = cart.products[i].orderItems.totalQuantity +  quantityChange;
+                cart.products[i].orderItems.totalCost = cart.products[i].orderItems.totalCost + quantityChange * cart.products[i].price;
              }
            }
            window.localStorage.setItem('cart', JSON.stringify(cart));

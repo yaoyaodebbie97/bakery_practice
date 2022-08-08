@@ -218,34 +218,58 @@ router.post('/', requireToken, async (req, res, next) => {
   }
 });
 
-router.put('/confirmation', requireToken, async (req, res, next) => {
+router.put('/confirmation', async (req, res, next) => {
   try {
-    if (req.body.id) { // user who has been logged in the whole time 
-      console.log(1)
-      let order = await Order.findOne({
-        where: {
-          id: req.body.id,
-          status: 'open',
-        },
-      });
-      order.update({
-        status: 'closed',
-      });
-      res.send(
-        await Order.findOne({
-          where: {
-            id: order.id,
-          },
-          include: [Product],
-          order: [[Product, 'id', 'desc']],
-        })
-      );
-    } else { // guest who just logged int 
-      console.log(2)
-      console.log(req.body);
+    if (req.headers.authorization !== 'guest'){
+        if (req.body.id) { // user who has been logged in the whole time 
+          console.log('user has been logged in the whole time')
+          let order = await Order.findOne({
+            where: {
+              id: req.body.id,
+              status: 'open',
+            },
+          });
+          order.update({
+            status: 'closed',
+          });
+          res.send(
+            await Order.findOne({
+              where: {
+                id: order.id,
+              },
+              include: [Product],
+              order: [[Product, 'id', 'desc']],
+            })
+          );
+        } else { 
+          console.log('guest decided to log in')
+          const user = await User.findByToken(req.headers.authorization)
+          let order = await Order.create({
+            status: 'closed',
+            userId: user.id
+          });
+          for (let i = 0; i < req.body.products.length; i++) {
+            await OrderItems.create({
+              orderId: order.id,
+              productId: req.body.products[i].orderItems.productId,
+              totalQuantity: req.body.products[i].orderItems.totalQuantity,
+              totalCost: req.body.products[i].orderItems.totalCost,
+            });
+          }
+          res.send(
+            await Order.findOne({
+              where: {
+                id: order.id,
+              },
+              include: [Product],
+              order: [[Product, 'id', 'desc']],
+            })
+          );
+        }
+    } else { // guest check out 
+      console.log('guest checkout')
       let guestOrder = await Order.create({
         status: 'closed',
-        userId: req.user.dataValues.id
       });
       for (let i = 0; i < req.body.products.length; i++) {
         await OrderItems.create({
