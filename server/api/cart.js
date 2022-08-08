@@ -217,3 +217,60 @@ router.post('/', requireToken, async (req, res, next) => {
     next(error);
   }
 });
+  });
+
+
+  router.put("/confirmation", async (req, res, next) => {
+    try {
+      // logged in user
+      if (req.body.id){
+        let order = await Order.findOne({
+          where: {
+              id: req.body.id,
+              status: 'open'
+          }
+        })
+        order.update({
+          status: 'closed'
+        })
+        res.send(
+          await Order.findOne({
+            where:{
+              id: order.id
+            },
+            include:[Product],
+            order:[[Product, 'id','desc']]
+          })
+        );
+
+      } else {
+        let guestOrder = await Order.create({
+          status: 'closed'
+        })
+        for (let i = 0; i< req.body.products.length; i++){
+          await OrderItems.create({
+            orderId: guestOrder.id,
+            productId: req.body.products[i].orderItems.productId,
+            totalQuantity: req.body.products[i].orderItems.totalQuantity,
+            totalCost: req.body.products[i].orderItems.totalCost,
+          })
+        }
+        res.send(
+          await Order.findOne({
+            where:{
+              id: guestOrder.id
+            },
+            include:[Product],
+            order:[[Product, 'id','desc']]
+          })
+        );
+      }
+
+
+
+
+
+    } catch (err) {
+      next(err);
+    }
+  });
