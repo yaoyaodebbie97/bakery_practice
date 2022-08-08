@@ -133,15 +133,21 @@ export const removeFromCart = (id) => {
 export const emptyCart = (cart) => {
   return async (dispatch) => {
     try {
-      const token = window.localStorage.getItem('token'); 
-      if (token) {
-        const {data} = await axios.put(`/api/cart/confirmation`, cart);
+      const token = window.localStorage.getItem('token') // will always have token 
+      if (cart.id) { // a user who have been logged in the whole time 
+        const {data} = await axios.put(`/api/cart/confirmation`, cart, {
+          headers: {
+            authorization: token,
+          }
+        });
         dispatch(updateTheCart(data))
-      } else{
-        const cart = window.localStorage.getItem('cart');
-        const {data} = await axios.put(`/api/cart/confirmaion`, cart);
-        const newCart = {products: []}
-        window.localStorage.setItem('cart', JSON.stringify(newCart))
+      } else{  // guest who signed up/ logged in just now 
+        window.localStorage.setItem('cart', JSON.stringify({products: []}))
+        const {data} = await axios.put(`/api/cart/confirmation`, cart,{
+          headers: {
+            authorization: token,
+          }
+        });
         dispatch(updateTheCart(data))
       }
     } catch (err){

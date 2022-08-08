@@ -5,17 +5,13 @@ import { logout } from '../store';
 import CartCount from './CartCount';
 
 const Navbar = ({ handleClick, isLoggedIn }) => (
-  <div id='logo-div'>
-    <nav role='navigation'>
+  <>
+    <nav role='navigation' className='navbar sticky-top container col'>
       <Link to='/home'>
-        <img id='logo' src='logos_white.png' />
+        <img id='logo' src='logos_white.png' className='col-6' />
       </Link>
       {isLoggedIn ? (
-        <div className='navbar-div menu-toggle'>
-          <input type='checkbox' />
-          <span></span>
-          <span></span>
-          <span></span>
+        <div className='navbar-div menu-toggle col-6'>
           {/* The navbar will show these links after you log in */}
           <Link to='/home'>Home</Link>
           <Link to='/products'>All Products</Link>
@@ -38,11 +34,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           </Link>
         </div>
       ) : (
-        <div className='navbar-div menu-toggle'>
-          <input type='checkbox' />
-          <span></span>
-          <span></span>
-          <span></span>
+        <div className='navbar-div menu-toggle col-6'>
           {/* The navbar will show these links before you log in */}
           <Link to='/home'>Home</Link>
           <Link to='/products'>All Products</Link>
@@ -65,8 +57,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
         </div>
       )}
     </nav>
-    <hr />
-  </div>
+  </>
 );
 
 /**
