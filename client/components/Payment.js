@@ -29,12 +29,12 @@ class Checkout extends React.Component {
         cost += products[i].orderItems.totalCost;
       }
     }
-    return <>{cost}</>;
+    return cost;
   }
  
   async handleToken(token) {
     const response = await axios.post('/api/payment',
-      {token, product: {price:15, name:"bakery goods"}}
+      {token, product: {price:this.totalAmount(), name:"bakery goods"}}
     )
     const { status } = response.data;
     console.log("Response:", response.data);
@@ -61,14 +61,14 @@ class Checkout extends React.Component {
     <Route path='/payment' render={() => this.state.status === "Success! Check email for details"? <Redirect to="/confirmation"/> : 
     (<div className="container">
       <div className="product">
-        <h1>Bakery</h1>
-        <h3>Total Amount: ${15}</h3>
+        <h1>Payment</h1>
+        <h3>Total Amount: ${this.totalAmount()}</h3>
       </div>
       <StripeCheckout
         stripeKey="pk_test_51LUR1EARbh2upnk3SvfbZZxz8LsK9G1zI8CjR4mcHAzDZUVq6x0Vj19ic6x5g1Lhq4JN8tKBguKKcLEtso1ITR8q00gGR8VTmx"
         token={this.handleToken}
-        amount={15*100}
-        name="Bakery"
+        amount={this.totalAmount()*100}
+        name="Payment"
         billingAddress
         shippingAddress
       />
