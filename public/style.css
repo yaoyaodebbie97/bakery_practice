@@ -62,9 +62,6 @@ Link:hover {
     overflow-x: hidden; /* needed because hiding the menu on the right side is not perfect,  */
   }
 
-  nav-div > Link {
-    transition: color 0.3s ease;
-  }
 
 }
 
