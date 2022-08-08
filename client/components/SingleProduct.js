@@ -29,13 +29,16 @@ class SingleProduct extends Component {
     render() {
         const product = this.props.product
         return (
-        <div>
-            <img src = {product.imageUrl} ></img>
-            <p> Product Name: {product.productName} </p>
-            <p> Description: {product.description}</p>
-            <p>Price: ${(product.price / 100).toFixed(2)}</p>
+        <div className={"singleProductContainer"}>
+            <img className={"responsive"} src = {product.imageUrl} ></img>
+            <div className={"singleProduct"}>
+              <div className={"singleHeader"} >
+            <p> {product.productName} </p>
+            </div>
+            <p> {product.description}</p>
+            <p>${(product.price / 100).toFixed(2)}</p>
 
-            <select name="quantity" id="quantity" onChange = {this.handleSelect} >
+            <select className={'quantity'} name="quantity" id="quantity" onChange = {this.handleSelect} >
                 <option value={1}>1</option>
                 <option value={2}>2</option>
                 <option value={3}>3</option>
@@ -49,10 +52,11 @@ class SingleProduct extends Component {
             </select>
 
             <button
-                className='button'
+                className={'addToCartButton'}
                 onClick={() => this.handleAdd()}>
                     Add to Cart
             </button>
+            </div>
 
         </div>
         )
