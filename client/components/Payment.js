@@ -1,55 +1,92 @@
-// import {ElementsConsumer, PaymentElement} from '@stripe/react-stripe-js'
-// import React, { Component, Fragment } from 'react';
+import React from "react";
+import StripeCheckout from "react-stripe-checkout";
+import axios from "axios";
+//import { toast } from "react-toastify";
+import { connect } from "react-redux";
+import {Route, Redirect} from 'react-router-dom';
 
-// export class CheckoutForm extends React.Component {
-//     handleSubmit = async (event) => {
-//       // We don't want to let default form submission happen here,
-//       // which would refresh the page.
-//       event.preventDefault();
+//import "react-toastify/dist/ReactToastify.css";
+//import "./styles.css";
+
+
+//toast.configure();
+
+class Checkout extends React.Component {
+    constructor() {
+      super()
+    this.state = {status: ""}
+    
+    this.handleToken = this.handleToken.bind(this)
+    this.totalAmount = this.totalAmount.bind(this)
+    }
+
+
+  totalAmount() {
+    let cost = 0;
+    const products = this.props.cart.products;
+    if (products){
+      for (let i = 0; i< products.length; i++){
+        cost += products[i].orderItems.totalCost;
+      }
+    }
+    return cost;
+  }
+ 
+  async handleToken(token) {
+    const response = await axios.post('/api/payment',
+      {token, product: {price:this.totalAmount(), name:"bakery goods"}}
+    )
+    const { status } = response.data;
+    console.log("Response:", response.data);
+    if (status === "success") {
+      console.log("Success! Check email for details");
+
+      this.setState({status: "Success! Check email for details"})
   
-//       const {stripe, elements} = this.props;
+    } else {
+      console.log("Something went wrong");
+    
+      this.setState({status: "Something went wrong"})
+
+    }
+  }
+
   
-//       if (!stripe || !elements) {
-//         // Stripe.js has not yet loaded.
-//         // Make sure to disable form submission until Stripe.js has loaded.
-//         return;
-//       }
+  render() {
+    console.log(this.props.cart)
+
+  return (
+    <div>
   
-//       const result = await stripe.confirmPayment({
-//         //`Elements` instance that was used to create the Payment Element
-//         elements,
-//         confirmParams: {
-//           return_url: "https://example.com/order/123/complete",
-//         },
-//       });
+    <Route path='/payment' render={() => this.state.status === "Success! Check email for details"? <Redirect to="/confirmation"/> : 
+    (<div className="container">
+      <div className="product">
+        <h1>Payment</h1>
+        <h3>Total Amount: ${this.totalAmount()}</h3>
+      </div>
+      <StripeCheckout
+        stripeKey="pk_test_51LUR1EARbh2upnk3SvfbZZxz8LsK9G1zI8CjR4mcHAzDZUVq6x0Vj19ic6x5g1Lhq4JN8tKBguKKcLEtso1ITR8q00gGR8VTmx"
+        token={this.handleToken}
+        amount={this.totalAmount()*100}
+        name="Payment"
+        billingAddress
+        shippingAddress
+      />
+    </div>)
+    } />
+    </div>
   
-//       if (result.error) {
-//         // Show error to your customer (for example, payment details incomplete)
-//         console.log(result.error.message);
-//       } else {
-//         // Your customer will be redirected to your `return_url`. For some payment
-//         // methods like iDEAL, your customer will be redirected to an intermediate
-//         // site first to authorize the payment, then redirected to the `return_url`.
-//       }
-//     };
-  
-//     render() {
-//       return (
-//         <form onSubmit={this.handleSubmit}>
-//           <PaymentElement />
-//           <button disabled={!this.props.stripe}>Submit</button>
-//         </form>
-//       );
-//     }
-//   }
-  
-//   export default function InjectedCheckoutForm() {
-//     return (
-//       <ElementsConsumer>
-//         {({stripe, elements}) => (
-//           <CheckoutForm stripe={stripe} elements={elements} />
-//         )}
-//       </ElementsConsumer>
-//     )
-//   }
-  
+  )
+  }
+}
+
+const mapState = (state) => {
+    return {
+        cart: state.cart
+    }
+}
+
+export default connect(mapState)(Checkout)
+
+// const rootElement = document.getElementById("root");
+// ReactDOM.render(<App />, rootElement);
