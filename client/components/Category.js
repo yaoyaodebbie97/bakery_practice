@@ -7,7 +7,7 @@ import {addToCart} from '../store/cart'
 
 
 class Category extends Component {
-    componentDidMount() { 
+    componentDidMount() {
         this.props.getCategory(this.props.match.params.category);
     }
 
@@ -19,20 +19,20 @@ class Category extends Component {
 
     render() {
         return (
-        <div> 
-            {this.props.category.length > 0 
+        <div>
+            {this.props.category.length > 0
             ? this.props.category.map ((product) => (
-            <div key = {product.id}> 
-                <Link to = {`/products/${product.id}`} > 
-                <img src = {product.imageUrl}></img>  
-                <h1> Product Name: {product.productName}</h1> 
+            <div key = {product.id}>
+                <Link to = {`/products/${product.id}`} >
+                <img src = {product.imageUrl}></img>
+                <h1> Product Name: {product.productName}</h1>
                 </Link>
-                <h1> Price: {product.price}</h1> 
+                <h1> Price: ${(product.price / 100).toFixed(2)}</h1>
                 <button
                  className='button'
                  onClick={()=> this.handleAdd(product,1)}
-                > Add to Cart 
-            
+                > Add to Cart
+
                 </button>
             </div>
             ))
@@ -46,11 +46,10 @@ class Category extends Component {
 const mapState = (state) => ({
     category: state.category
   });
-  
+
   const mapDispatch = (dispatch) => ({
     getCategory: (category) => dispatch (fetchCategory(category)),
     addToCart: (product, quantity) => dispatch (addToCart(product, quantity)),
   });
-  
+
   export default connect(mapState, mapDispatch)(Category);
-  

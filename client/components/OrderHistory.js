@@ -10,7 +10,6 @@ const cardStyle = {
   width: '20rem',
   margin: '5px',
   textIndent: '50px',
-  display: 'flex-wrap'
   // flexFlow: 'column wrap',
 }
 
@@ -55,7 +54,7 @@ export class OrderHistory extends React.Component {
                       {/* <Link to={`/products/${item.id}`}> */}
                       <p>{item.productName}</p>
                       {/* </Link> */}
-                      <p>Price: {item.price}</p>
+                      <p>Price: ${(item.price / 100).toFixed(2)}</p>
                       </div>
                     )
                   })}
