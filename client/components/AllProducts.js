@@ -29,7 +29,7 @@ class AllProducts extends React.Component {
   render() {
     const { products } = this.props;
     return (
-      <div>
+      <>
         <h1 className=''>{this.state.value}</h1>
         <label htmlFor='category'>Filter By Category:</label>
         <select
@@ -47,47 +47,50 @@ class AllProducts extends React.Component {
           <option value='muffins'>Muffins</option>
           <option value='cakes'>Cakes</option>
         </select>
-        <div className='container all-products'>
-          {this.state.value === 'All'
-            ? this.props.products.map((product) => (
-                <div key={product.id} className='card'>
-                  <div className='card-body'>
-                    <Link to={`/products/${product.id}`}>
-                      {' '}
-                      <img className='productImg' src={product.imageUrl} />
-                      <p className='card-title'>
-                        Product Name: {product.productName}
+        <div className='all-products'>
+          <div className='row'>
+            {this.state.value === 'All'
+              ? this.props.products.map((product) => (
+                  <div key={product.id} className='card'>
+                    <div className='card-body .col-4'>
+                      <Link to={`/products/${product.id}`}>
+                        {' '}
+                        <img
+                          className='productImg rounded'
+                          src={product.imageUrl}
+                        />
+                        <p className='card-title'>{product.productName}</p>
+                      </Link>
+                      <p className='card-text'>
+                        Price: ${(product.price / 100).toFixed(2)}
                       </p>
+                      <button
+                        className='button btn btn-primary'
+                        onClick={() => this.props.addToCart(product, 1)}
+                      >
+                        Add to Cart
+                      </button>
+                    </div>
+                  </div>
+                ))
+              : this.selectCategory().map((product) => (
+                  <div key={product.id}>
+                    <Link to={`/products/${product.id}`}>
+                      <img className='productImg' src={product.imageUrl} />
+                      <p>Product Name: {product.productName}</p>
                     </Link>
-                    <p className='card-text'>
-                      Price: ${(product.price / 100).toFixed(2)}
-                    </p>
+                    <p>Price: ${(product.price / 100).toFixed(2)}</p>
                     <button
-                      className='button btn btn-primary'
+                      className='button'
                       onClick={() => this.props.addToCart(product, 1)}
                     >
                       Add to Cart
                     </button>
                   </div>
-                </div>
-              ))
-            : this.selectCategory().map((product) => (
-                <div key={product.id}>
-                  <Link to={`/products/${product.id}`}>
-                    <img className='productImg' src={product.imageUrl} />
-                    <p>Product Name: {product.productName}</p>
-                  </Link>
-                  <p>Price: ${(product.price / 100).toFixed(2)}</p>
-                  <button
-                    className='button'
-                    onClick={() => this.props.addToCart(product, 1)}
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              ))}
+                ))}
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }
