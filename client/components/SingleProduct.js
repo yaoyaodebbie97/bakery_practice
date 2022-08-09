@@ -40,9 +40,10 @@ class SingleProduct extends Component {
     render() {
         const product = this.props.product
         return (
-        <div className="card container">
-            <img className="responsive rounded" alt="..."src = {product.imageUrl} ></img>
-            <div className={"singleProduct"}>
+        <div className="card mb-3">
+          <div class="row g-0">
+            <img className="responsive rounded center" alt="..."src = {product.imageUrl} ></img>
+            <div className='card-body .col-8'>
               <div className={"singleHeader"} >
             <p> {product.productName} </p>
             </div>
@@ -68,7 +69,7 @@ class SingleProduct extends Component {
                     Add to Cart
             </button>
             </div>
-
+            </div>
         </div>
         )
   }

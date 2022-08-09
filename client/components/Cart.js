@@ -41,7 +41,7 @@ class Cart extends Component {
               <p> Product Name: {product.productName} </p>
               <img src=  {product.imageUrl}/>
               <p> Quantity: {product.orderItems.totalQuantity} </p>
-              <p> Unit Price: ${(product.unitPrice / 100).toFixed(2)}</p>
+              <p> Unit Price: ${(product.price / 100).toFixed(2)}</p>
               <p> Total Price: ${(product.orderItems.totalCost / 100).toFixed(2)}</p>
               {/* <p> Name: {item.Product.productName}</> */}
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16" onClick = {()=> this.handleClick(product.orderItems.productId)}>
@@ -62,7 +62,7 @@ class Cart extends Component {
         <div> Total Number of Items in Cart: <CartCount/></div>
         <div> Total Cost of Items in Cart: <CartPrice/></div>
         {this.props.isLoggedIn
-        ? <div> 
+        ? <div>
             <button>
             <Link to="/checkout/login" >Checkout</Link>
           </button>
