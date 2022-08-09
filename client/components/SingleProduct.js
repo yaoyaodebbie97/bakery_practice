@@ -52,13 +52,12 @@ class SingleProduct extends Component {
                 <option value={9}>9</option>
                 <option value={10}>10</option>
             </select>
-
-            <button
-                className={'addToCartButton'}
-                onClick={() => this.handleAdd()}>
-                    Add to Cart
-            </button>
-            </div>
+              <button
+                  className={'addToCartButton'}
+                  onClick={() => this.handleAdd()}>
+                      Add to Cart
+              </button>
+              </div>
             </div>
         </div>
         )
