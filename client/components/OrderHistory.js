@@ -40,18 +40,18 @@ export class OrderHistory extends React.Component {
   render() {
     const orders = this.props.orders
     return (
-      <div className="container">
+      <div className='my-4'>
         <h3>Order History</h3>
         <div className="row">
           {orders && orders.length !== 0 ? (
-            <div style={divStyle}  >
+            <div className='card col-8'style={divStyle}  >
               {orders.map((order => (
-                <div className='col-8 p-2' order={order} key={order.id} >
-                  <h4 className='card-header order-header'>Order No. {order.id}</h4>
+                <div className='card' order={order} key={order.id} >
+                  <h4 className='card-header order-header'>Order No. {order.id}    Total: ${(order.totalCost/100).toFixed(2)}</h4>
                   {order.products.map(item => {
                     return (
-                      <div className=' list-group-item card-body' key={item.id}>
-                      <img className="orderImg rounded float-left" src={item.imageUrl} />
+                      <div className=' list-group-item my-1 card-body' key={item.id}>
+                      <img className="responsive rounded float-left" src={item.imageUrl} />
                       <p className='card-title order product-name'>{item.productName}</p>
                       <p className='card-text order'>Price: ${(item.price / 100).toFixed(2)}</p>
                       </div>
