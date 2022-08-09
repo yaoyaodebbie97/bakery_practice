@@ -1,15 +1,9 @@
 import React from "react";
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
-//import { toast } from "react-toastify";
 import { connect } from "react-redux";
 import {Route, Redirect} from 'react-router-dom';
-
-//import "react-toastify/dist/ReactToastify.css";
-//import "./styles.css";
-
-
-//toast.configure();
+import {emptyCart} from '../store/cart'
 
 class Checkout extends React.Component {
     constructor() {
@@ -51,14 +45,20 @@ class Checkout extends React.Component {
     }
   }
 
+  success () {
+    this.props.emptyCart(this.props.cart) 
+    return  <Route path='/payment' render={() => <Redirect to="/confirmation"/>} />
+
+  }
+
   
   render() {
-    console.log(this.props.cart)
+    console.log('cart', this.props.cart)
 
   return (
     <div>
   
-    <Route path='/payment' render={() => this.state.status === "Success! Check email for details"? <Redirect to="/confirmation"/> : 
+    {this.state.status === "Success! Check email for details"? this.success() : 
     (<div className="container">
       <div className="product">
         <h1>Payment</h1>
@@ -67,13 +67,13 @@ class Checkout extends React.Component {
       <StripeCheckout
         stripeKey="pk_test_51LUR1EARbh2upnk3SvfbZZxz8LsK9G1zI8CjR4mcHAzDZUVq6x0Vj19ic6x5g1Lhq4JN8tKBguKKcLEtso1ITR8q00gGR8VTmx"
         token={this.handleToken}
-        amount={this.totalAmount()*100}
+        amount={this.totalAmount()}
         name="Payment"
         billingAddress
         shippingAddress
       />
     </div>)
-    } />
+    } 
     </div>
   
   )
@@ -86,7 +86,9 @@ const mapState = (state) => {
     }
 }
 
-export default connect(mapState)(Checkout)
+const mapDispatch = (dispatch) => ({
+  emptyCart: (cart) => dispatch(emptyCart(cart)),
+});
 
-// const rootElement = document.getElementById("root");
-// ReactDOM.render(<App />, rootElement);
+
+export default connect(mapState, mapDispatch)(Checkout)

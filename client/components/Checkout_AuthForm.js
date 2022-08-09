@@ -51,13 +51,9 @@ const AuthFormSignUp_CheckOut = props => {
   )
 }
 const AuthFormLogIn_CheckOut = props => {
-  // props.loadInitialData()
   const {name, displayName, handleSubmit, error} = props
-  console.log('props', props)
+
  
-  // if(props.isLoggedIn) {
-  //   return <Redirect to="/confirmation"/>
-  // } else {
   return (
     <div>
       <form onSubmit={handleSubmit} name={name}>
@@ -83,12 +79,6 @@ const AuthFormLogIn_CheckOut = props => {
     </div>)
     
   }
-
-  // const checkoutRoute = () => {
-  //   return (
-  //     <div>{props.isLoggedIn ? <Redirect to="/confirmation"/> : "unauthorised"}</div>
-  // )
-  // }
 
 
 /**
@@ -125,9 +115,6 @@ const mapDispatchforLogIn = dispatch => {
         const password = evt.target.password.value
         dispatch(authenticateLogin(email, password, formName))
       },
-      // loadInitialData() {
-      //   dispatch(me());
-      // }
   }
 }
   
@@ -150,4 +137,3 @@ const mapDispatchforLogIn = dispatch => {
 
 export const Login_CheckOut = connect(mapLogin, mapDispatchforLogIn)(AuthFormLogIn_CheckOut)
 export const Signup_CheckOut = connect(mapSignup, mapDispatchforSignUp)(AuthFormSignUp_CheckOut)
-// export const RouteForCheckOut = connect(mapLogin, mapDispatchforLogIn)(checkoutRoute)
