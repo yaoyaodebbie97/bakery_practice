@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { v4: uuid } = require('uuid');
-const {BACKENDKEY} = require('../../webkeys');
-const stripe = require('stripe')(BACKENDKEY);
+// const {BACKENDKEY} = require('../../webkeys');
+// require('dotenv').config()
+const stripe = require('stripe')('sk_test_51LUggcEDM1jLSigPykdrJmiJgDiSluBg0C7qKG4STLFqVb1EKd7yWUT9mYe7Kou707yFQw1iTp6VLbrVJVwLgLFT00TLqiOL2C');
 
 router.post('/', async (req, res) => {
   console.log('Request:', req.body);
