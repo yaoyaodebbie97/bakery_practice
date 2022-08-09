@@ -8,7 +8,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
   <>
     <nav role='navigation' className='navbar sticky-top col'>
       <Link to='/home'>
-        <img id='logo' src='logos_white.png' className='navbar-brand' />
+        <img id='logo' src='logos_black.png' className='navbar-brand' />
       </Link>
       {isLoggedIn ? (
         <div className='navbar-div menu-toggle'>

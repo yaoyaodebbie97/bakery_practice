@@ -30,7 +30,7 @@ class Cart extends Component {
               <p> Product Name: {product.productName} </p>
               <img src=  {product.imageUrl}/>
               <p> Quantity: {product.orderItems.totalQuantity} </p>
-              <p> Unit Price: ${(product.unitPrice / 100).toFixed(2)}</p>
+              <p> Unit Price: ${(product.price / 100).toFixed(2)}</p>
               <p> Total Price: ${(product.orderItems.totalCost / 100).toFixed(2)}</p>
            
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16" onClick = {()=> this.handleClick(product.orderItems.productId)}>
@@ -56,18 +56,24 @@ class Cart extends Component {
         </div>
         :
         <div>
-            <p>Already a member?</p>
           <button>
-            <Link to="/checkout/login" >Login To Checkout</Link>
+            <Link to="/checkout/login" >Log In To Checkout</Link>
           </button>
           <br/>
-          <p>OR</p>
+          <br/>
+
           <button>
-            <Link to="/checkout/signup" >Signup To Checkout</Link>
+            <Link to="/checkout/signup" >Sign Up To Checkout</Link>
           </button>
-        </div>
-        }
-      </div>
+          <br/>
+          <br/>   
+
+          <button>
+            <Link to="/payment" > Proceed To Checkout As A Guest</Link>
+          </button>
+    </div>
+    }
+  </div>
 
     );
   }

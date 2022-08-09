@@ -44,7 +44,7 @@ const AuthFormSignUp = props => {
         <div>
           <button type="submit">{displayName}</button>
         </div>
-        {/* {error && error.response && <div> {error.response.data} </div>} */}
+        {error && error.response && <div> {error.response.data} </div>}
       </form>
     </div>
   )
@@ -71,7 +71,7 @@ const AuthFormLogIn = props => {
         <div>
           <button type="submit">{displayName}</button>
         </div>
-        {error && error.response && <div> {error.response.data} </div>}
+        {/* {error && error.response && <div> {error.response.data} </div>} */}
       </form>
     </div>
     )

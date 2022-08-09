@@ -83,7 +83,7 @@ export const addToCart = (product, quantity) => {
               cart.products.push({
                 productName: product.productName,
                 imageUrl: product.imageUrl,
-                unitPrice: product.price,
+                price: product.price,
                 orderItems: {
                   productId: product.id,
                   totalQuantity: parseInt(quantity),
@@ -94,7 +94,7 @@ export const addToCart = (product, quantity) => {
                 for (let i = 0; i< cart.products.length; i++){
                   if (cart.products[i].orderItems.productId === product.id){
                    cart.products[i].orderItems.totalQuantity = cart.products[i].orderItems.totalQuantity + parseInt(quantity);
-                   cart.products[i].orderItems.totalCost = cart.products[i].orderItems.totalCost + parseInt(quantity) * cart.products[i].unitPrice;
+                   cart.products[i].orderItems.totalCost = cart.products[i].orderItems.totalCost + parseInt(quantity) * cart.products[i].price;
                   }
                 }
             }
@@ -163,6 +163,17 @@ export const emptyCart = (cart) => {
 };
 
 
+// export const clearCartCount = (cart) => {
+//   return async (dispatch) => {
+//     try {
+//       dispatch(updateTheCart({}))
+//     } 
+//     catch (err){
+//       console.log(err);
+//     }
+//   }
+// }
+
 
 export const updateQuantity = (item, quantityChange) => {
   return async (dispatch) => {
@@ -183,8 +194,9 @@ export const updateQuantity = (item, quantityChange) => {
            const cart = JSON.parse(window.localStorage.getItem('cart'))
            for (let i = 0; i< cart.products.length; i++){
              if (cart.products[i].orderItems.productId === item.productId){
-              cart.products[i].orderItems.totalQuantity = cart.products[i].orderItems.totalQuantity +  quantityChange;
-              cart.products[i].orderItems.totalCost = cart.products[i].orderItems.totalCost + quantityChange * cart.products[i].unitPrice;
+                if (cart.products[i].orderItems.totalQuantity + quantityChange <= 0) return;
+                cart.products[i].orderItems.totalQuantity = cart.products[i].orderItems.totalQuantity +  quantityChange;
+                cart.products[i].orderItems.totalCost = cart.products[i].orderItems.totalCost + quantityChange * cart.products[i].price;
              }
            }
            window.localStorage.setItem('cart', JSON.stringify(cart));

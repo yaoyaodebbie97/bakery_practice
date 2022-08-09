@@ -46,24 +46,25 @@ class AllProducts extends React.Component {
           <option value='muffins'>Muffins</option>
           <option value='cakes'>Cakes</option>
         </select>
-        <div className='row container'>
+        <div className='row product'>
           {this.state.value === 'All'
             ? this.props.products.map((product) => (
-                <div key={product.id} className='card'>
+                <div key={product.id} className='card product-card shadow-lg'>
                   <div className='card-body .col-4'>
                     <Link to={`/products/${product.id}`}>
-                      {' '}
                       <img
                         className='productImg rounded'
                         src={product.imageUrl}
                       />
-                      <p className='card-title'>{product.productName}</p>
+                      <p className='card-title product-name'>
+                        {product.productName}
+                      </p>
                     </Link>
-                    <p className='card-text'>
+                    <p className='card-text baseline product-price'>
                       Price: ${(product.price / 100).toFixed(2)}
                     </p>
                     <button
-                      className='btn btn-primary'
+                      className='btn btn-primary baseline'
                       onClick={() => this.props.addToCart(product, 1)}
                     >
                       Add to Cart
@@ -72,18 +73,27 @@ class AllProducts extends React.Component {
                 </div>
               ))
             : this.selectCategory().map((product) => (
-                <div key={product.id}>
-                  <Link to={`/products/${product.id}`}>
-                    <img className='productImg' src={product.imageUrl} />
-                    <p>Product Name: {product.productName}</p>
-                  </Link>
-                  <p>Price: ${(product.price / 100).toFixed(2)}</p>
-                  <button
-                    className='btn btn-primary'
-                    onClick={() => this.props.addToCart(product, 1)}
-                  >
-                    Add to Cart
-                  </button>
+                <div key={product.id} className='card product-card shadow-lg'>
+                  <div className='card-body .col-4'>
+                    <Link to={`/products/${product.id}`}>
+                      <img
+                        className='productImg rounded'
+                        src={product.imageUrl}
+                      />
+                      <p className='card-title product-name'>
+                        {product.productName}
+                      </p>
+                    </Link>
+                    <p className='card-text baseline'>
+                      Price: ${(product.price / 100).toFixed(2)}
+                    </p>
+                    <button
+                      className='btn btn-primary baseline'
+                      onClick={() => this.props.addToCart(product, 1)}
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
                 </div>
               ))}
         </div>
