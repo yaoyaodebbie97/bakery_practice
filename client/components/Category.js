@@ -16,11 +16,11 @@ class Category extends Component {
 
   render() {
     return (
-      <div className='row product'>
+      <div className='row col-12 col-4-sm product'>
         {this.props.category.length > 0 ? (
           this.props.category.map((product) => (
             <div key={product.id} className='card product-card shadow-lg'>
-              <div className='card-body .col-4'>
+              <div className='card-body'>
                 <Link to={`/products/${product.id}`}>
                   <img
                     src={product.imageUrl}
@@ -44,7 +44,14 @@ class Category extends Component {
             </div>
           ))
         ) : (
-          <h1> Still Loading </h1>
+          <>
+            <h1 className='align-items-center'> Still Loading </h1>
+            <img
+              src={
+                'https://i.pinimg.com/originals/da/08/2c/da082c176aea0f8e5ab294ff7a0f90d1.gif'
+              }
+            />
+          </>
         )}
       </div>
     );

@@ -27,31 +27,31 @@ form div {
 .responsive{
   width: 25%;
   height: auto;
+  max-width: 210px;
+  max-height: auto;
+  min-height: 10em;
+  min-width: 10em
 }
 
 .singleProduct {
- /* background: #FEFFF6; */
   background: #84C3C8;
-/* background: #fff8dc; */
   border: 1px solid grey;
-  height: 250px;
-  width: 30rem;
-  margin: 10%;
-  /* padding: 10px 15%; */
-  /* text-Indent: 50px; */
+  width: 10rem;
+  max-width: 120em;
+  max-height: auto;
+  margin: 2%;
   text-align: center;
 }
 
 .singleHeader {
   background: #F8D9D6;
   border: 1px solid grey;
-  height: 20%;
+  height: 12%;
   width: 95%;
   margin: 2%;
   font-family: 'Cupcake Treats', sans-serif;
   font-weight: bold;
-  font-size: 20px;
-  /* text-Indent: 50px; */
+  font-size: 130%;
   text-align: center;
   box-align: center
 }
@@ -65,10 +65,13 @@ form div {
 }
 
 .singleProductContainer {
-  margin: 10px;
-  padding: 10px;
-  display: flex;
-  left: 200px;
+  margin: 1%;
+  border: none;
+  box-align: center;
+  padding: 60px;
+  width: 80%;
+  height: auto;
+  background: #fff8dc;
 }
 
 .addToCartButton {
@@ -156,8 +159,38 @@ Link:hover, a:hover {
   padding-right: 5%;
 }
 
+.featured-items {
+  margin: auto;
+}
+
+footer {
+  background-color: #42929d71;
+}
 
 @media (max-width: 767px){
 
 
 }
+
+.card-columns {
+  width: 100%
+  }
+
+.orderImg {
+  width: 4%;
+  height: 4%;
+}
+
+.order-header {
+  background-color:#badae2
+}
+.order {
+  text-indent: 1em;
+}
+
+/* .card {
+  width: 100%;
+  height: 25%;
+  object-fit: contain;
+  margin: 2%;
+} */
