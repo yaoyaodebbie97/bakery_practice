@@ -50,10 +50,9 @@ class AllProducts extends React.Component {
         <div className='row'>
           {this.state.value === 'All'
             ? this.props.products.map((product) => (
-                <div key={product.id} className='card product-card'>
+                <div key={product.id} className='card product-card shadow-lg'>
                   <div className='card-body .col-4'>
                     <Link to={`/products/${product.id}`}>
-                      {' '}
                       <img
                         className='productImg rounded'
                         src={product.imageUrl}
@@ -80,7 +79,9 @@ class AllProducts extends React.Component {
                     <img className='productImg' src={product.imageUrl} />
                     <p>Product Name: {product.productName}</p>
                   </Link>
-                  <p>Price: ${(product.price / 100).toFixed(2)}</p>
+                  <p className='product-price'>
+                    Price: ${(product.price / 100).toFixed(2)}
+                  </p>
                   <button
                     className='btn btn-primary'
                     onClick={() => this.props.addToCart(product, 1)}

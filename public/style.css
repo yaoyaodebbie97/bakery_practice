@@ -1,6 +1,6 @@
 body {
   font-family: sans-serif;
-  background: #fff8dc;
+  background: #fafafa;
   color: #281d02
 }
 
@@ -15,7 +15,7 @@ label {
 nav a {
   /* display: inline-block; */
   margin: 1em;
-  color: #fff8dc
+  color: #8b6914;
   /* font-family: "Saira Extra Condensed"; */
 }
 
@@ -97,7 +97,7 @@ form div {
 }
 
 nav {
-  background-color: #8b6914;
+  background-color: #F8D9D6;
   text-decoration: none;
   margin: 0 5% 2% 5%;
 }
@@ -122,6 +122,8 @@ Link:hover, a:hover {
 .productImg {
   max-width: 210px;
   max-height: auto;
+  width: 15em;
+  height: auto
 }
 
 .product-name {
@@ -136,13 +138,19 @@ Link:hover, a:hover {
 }
 
 .product-card {
-  background-color: #F8D9D6;
+  background-color: #f8d9d629;
   margin: 1%;
-  font-size: 120%;
+  font-size: 145%;
   max-width: 253px;
   max-height: auto;
   width: 15em;
   height: auto
+}
+
+.product-price {
+  font-size: 300%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white
 }
 
 @media (max-width: 767px){
