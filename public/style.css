@@ -156,6 +156,13 @@ Link:hover, a:hover {
   padding-right: 5%;
 }
 
+.featured-items {
+  margin: auto;
+}
+
+footer {
+  background-color: #42929d71;
+}
 
 @media (max-width: 767px){
 

@@ -47,14 +47,14 @@ class AllProducts extends React.Component {
           <option value='muffins'>Muffins</option>
           <option value='cakes'>Cakes</option>
         </select>
-        <div className='row product'>
+        <div className='row col-12 col-4-sm product'>
           {this.state.value === 'All'
             ? this.props.products.map((product) => (
                 <div key={product.id} className='card product-card shadow-lg'>
-                  <div className='card-body .col-4'>
+                  <div className='card-body'>
                     <Link to={`/products/${product.id}`}>
                       <img
-                        className='productImg rounded'
+                        className='.img-fluid productImg rounded'
                         src={product.imageUrl}
                       />
                       <p className='card-title product-name'>
@@ -75,7 +75,7 @@ class AllProducts extends React.Component {
               ))
             : this.selectCategory().map((product) => (
                 <div key={product.id} className='card product-card shadow-lg'>
-                  <div className='card-body .col-4'>
+                  <div className='card-body'>
                     <Link to={`/products/${product.id}`}>
                       <img
                         className='productImg rounded'
