@@ -33,60 +33,27 @@ form div {
   min-width: 10em
 }
 
-.singleProduct {
-  background: #84C3C8;
-  border: 1px solid grey;
-  width: 10rem;
-  max-width: 120em;
-  max-height: auto;
-  margin: 2%;
-  text-align: center;
-}
-
 .singleHeader {
-  background: #F8D9D6;
+  background: #f8d9d63b;
   border: 1px solid grey;
-  height: 12%;
-  width: 95%;
-  margin: 2%;
   font-family: 'Cupcake Treats', sans-serif;
   font-weight: bold;
   font-size: 130%;
-  text-align: center;
-  box-align: center
 }
 
 .sectionStyle{
-  background: #fff8dc;
+  /* background: #fff8dc; */
   box-sizing: border-box;
   position: relative;
   width: 100%;
   overflow: hidden;
 }
 
-.singleProductContainer {
-  margin: 1%;
-  border: none;
-  box-align: center;
-  padding: 60px;
-  width: 80%;
-  height: auto;
-  background: #fff8dc;
-}
-
-.addToCartButton {
-  border-radius: 4px;
-  padding: 8px 10px;
-  font-size: 14px;
-  background-color: #FFEDB3;
-  margin-left: 1rem;
-}
-
 .quantity {
   border-radius: 4px;
   padding: 8px 10px;
   font-size: 14px;
-  background-color: #FEFFF6;
+  background-color: #fafafa;
   margin-left: 1rem;
 }
 
@@ -175,11 +142,11 @@ footer {
 .card-columns {
   width: 100%
   }
-
+/*
 .orderImg {
-  width: 4%;
-  height: 4%;
-}
+  width: 10%;
+  height: 10%;
+} */
 
 .order-header {
   background-color:#badae2
@@ -188,9 +155,15 @@ footer {
   text-indent: 1em;
 }
 
-/* .card {
-  width: 100%;
-  height: 25%;
-  object-fit: contain;
-  margin: 2%;
-} */
+.singleCard {
+  background: #fafafa;
+}
+
+.orderCard {
+  width: 20em
+}
+
+.orderImg {
+  width: auto;
+  height: auto
+}

@@ -39,19 +39,21 @@ export class UserAccount extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='my-4'>
         <h4>Welcome {this.props.user.firstName}!</h4>
-        <form onSubmit={this.handleSubmit}>
-          <label>Update First Name: </label>
+        <form className='my-4' onSubmit={this.handleSubmit}>
+          <label>Edit First Name: </label>
           <input id="firstName" name='firstName' type='text' onChange={this.handleChange} value={this.firstName} />
+          <button className='btn btn-primary mx-2' type='submit'>Submit</button>
 
-          <label>Update Last Name: </label>
+          <label>Edit Last Name: </label>
           <input id="lastName" name='lastName' type='text' onChange={this.handleChange} value={this.lastName} />
+          <button className='btn btn-primary mx-2' type='submit'>Submit</button>
 
-          <label>Update Address: </label>
+          <label>Edit Address: </label>
           <input id="address" name='address' type='text' onChange={this.handleChange} value={this.address} />
 
-          <button type='submit'>Submit</button>
+          <button className='btn btn-primary mx-2' type='submit'>Submit</button>
         </form>
 
         <div className="Container">

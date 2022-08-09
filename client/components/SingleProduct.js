@@ -30,12 +30,12 @@ class SingleProduct extends Component {
     render() {
         const product = this.props.product
         return (
-        <div className="card mb-3 singleProductContainer">
-          <div class="row g-0">
+        <div className="card mx-4 my-4 border-0">
+          <div className="row singleCard">
             <img className="responsive rounded center" alt="..."src = {product.imageUrl} ></img>
-            <div className='card-body .col-8 singleProduct'>
-              <div className={"singleHeader"} >
-                <p className="card-header rounded"> {product.productName} </p>
+            <div className='card-body col-8 singleProduct'>
+              <div className='card-title text-center' >
+                <p className="card-header rounded singleHeader "> {product.productName} </p>
               </div>
             <p> {product.description}</p>
             <p>${(product.price / 100).toFixed(2)}</p>
@@ -52,12 +52,22 @@ class SingleProduct extends Component {
                 <option value={9}>9</option>
                 <option value={10}>10</option>
             </select>
+<<<<<<< HEAD
+
+            <button
+                className='btn btn-primary mx-2'
+                onClick={() => this.handleAdd()}>
+                    Add to Cart
+            </button>
+            </div>
+=======
               <button
                   className={'addToCartButton'}
                   onClick={() => this.handleAdd()}>
                       Add to Cart
               </button>
               </div>
+>>>>>>> c824ec547cfe510640168a14b2cbd79c08266e44
             </div>
         </div>
         )

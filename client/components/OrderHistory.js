@@ -3,32 +3,11 @@ import { connect } from "react-redux";
 import {Link} from 'react-router-dom';
 import { fetchOrders } from '../store/userOrders'
 
-const cardStyle = {
-  background: '#F4F4E1',
-  border: '1px solid grey',
-  height: '500px',
-  width: '20rem',
-  margin: '5px',
-  textIndent: '50px',
-  // flexFlow: 'column wrap',
-}
-
-const sectionStyle = {
-  background: '#84C3C8',
-  boxSizing: 'border-box',
-  position: 'relative',
-  width: '100%',
-  overflow: 'hidden'
-}
-
 const divStyle = {
   margin: '10px',
   padding: '10px',
-  display: 'flex',
-  // flexDirection: 'column',
-
-  // position: 'absolute',
-  left: '200px'
+  // display: 'flex',
+  left: '1em'
 }
 
 export class OrderHistory extends React.Component {
@@ -40,18 +19,18 @@ export class OrderHistory extends React.Component {
   render() {
     const orders = this.props.orders
     return (
-      <div className="container">
+      <div className='my-4'>
         <h3>Order History</h3>
         <div className="row">
           {orders && orders.length !== 0 ? (
-            <div style={divStyle}  >
+            <div className='card col-8'style={divStyle}  >
               {orders.map((order => (
-                <div className='col-8 p-2' order={order} key={order.id} >
+                <div className='card' order={order} key={order.id} >
                   <h4 className='card-header order-header'>Order No. {order.id}</h4>
                   {order.products.map(item => {
                     return (
-                      <div className=' list-group-item card-body' key={item.id}>
-                      <img className="orderImg rounded float-left" src={item.imageUrl} />
+                      <div className=' list-group-item my-1 card-body' key={item.id}>
+                      <img className="responsive rounded float-left" src={item.imageUrl} />
                       <p className='card-title order product-name'>{item.productName}</p>
                       <p className='card-text order'>Price: ${(item.price / 100).toFixed(2)}</p>
                       </div>
