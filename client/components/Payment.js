@@ -4,7 +4,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import {Route, Redirect} from 'react-router-dom';
 import {emptyCart} from '../store/cart'
-import {FRONTENDKEY} from '../../webkeys';
+// import {FRONTENDKEY} from '../../webkeys';
 
 class Checkout extends React.Component {
   constructor() {
@@ -45,26 +45,26 @@ class Checkout extends React.Component {
   }
 
   success () {
-    this.props.emptyCart(this.props.cart) 
+    this.props.emptyCart(this.props.cart)
     return  <Route path='/payment' render={() => <Redirect to="/confirmation"/>} />
 
   }
 
-  
+
   render() {
     console.log('cart', this.props.cart)
 
   return (
     <div>
-  
-    {this.state.status === "Success! Check email for details"? this.success() : 
+
+    {this.state.status === "Success! Check email for details"? this.success() :
     (<div className="container">
       <div className="product">
         <h1>Payment</h1>
         <h3>Total Amount: ${this.totalAmount()}</h3>
       </div>
       <StripeCheckout
-        stripeKey={FRONTENDKEY}
+        stripeKey={'pk_test_51LUggcEDM1jLSigPlTK0iDNlZX5Q45IuDbk3yNzOPONgGsaIO94ID3KKPCpa7w7C32wABVlYL42cKyQgxzzYkWK900YBYcQzgU'}
         token={this.handleToken}
         amount={this.totalAmount()*100}
         name="Payment"
@@ -72,9 +72,9 @@ class Checkout extends React.Component {
         shippingAddress
       />
     </div>)
-    } 
+    }
     </div>
-  
+
   )
   }
 }

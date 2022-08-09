@@ -52,7 +52,6 @@ class SingleProduct extends Component {
                 <option value={9}>9</option>
                 <option value={10}>10</option>
             </select>
-<<<<<<< HEAD
 
             <button
                 className='btn btn-primary mx-2'
@@ -60,14 +59,6 @@ class SingleProduct extends Component {
                     Add to Cart
             </button>
             </div>
-=======
-              <button
-                  className={'addToCartButton'}
-                  onClick={() => this.handleAdd()}>
-                      Add to Cart
-              </button>
-              </div>
->>>>>>> c824ec547cfe510640168a14b2cbd79c08266e44
             </div>
         </div>
         )
