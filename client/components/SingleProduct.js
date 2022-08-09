@@ -3,16 +3,6 @@ import { connect } from "react-redux";
 import {fetchSingleProduct} from '../store/singleProduct'
 import {addToCart} from '../store/cart'
 
-const cardStyle = {
-  background: '#F4F4E1',
-  border: '1px solid grey',
-  height: '500px',
-  width: '20rem',
-  margin: '5px',
-  textIndent: '50px',
-  // flexFlow: 'column wrap',
-}
-
 
 class SingleProduct extends Component {
     constructor(){
@@ -40,13 +30,13 @@ class SingleProduct extends Component {
     render() {
         const product = this.props.product
         return (
-        <div className="card mb-3">
+        <div className="card mb-3 singleProductContainer">
           <div class="row g-0">
             <img className="responsive rounded center" alt="..."src = {product.imageUrl} ></img>
-            <div className='card-body .col-8'>
+            <div className='card-body .col-8 singleProduct'>
               <div className={"singleHeader"} >
-            <p> {product.productName} </p>
-            </div>
+                <p className="card-header rounded"> {product.productName} </p>
+              </div>
             <p> {product.description}</p>
             <p>${(product.price / 100).toFixed(2)}</p>
 
