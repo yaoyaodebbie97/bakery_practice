@@ -100,7 +100,7 @@ class Cart extends Component {
                 <input name="Address" type="text" />
       <p> </p>
       <button>
-        <Link to="payment" > Confirm Checkout</Link>
+        <Link to="/payment" > Confirm Checkout</Link>
       </button>
     </div>
     }
