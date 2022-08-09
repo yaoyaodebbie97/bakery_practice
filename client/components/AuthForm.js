@@ -9,42 +9,46 @@ const AuthFormSignUp = (props) => {
   const { name, displayName, handleSubmit, error } = props;
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <p>Become a member today!</p>
-          <p>Sign Up</p>
-          <label htmlFor='firstName'>
-            <small>First Name</small>
-          </label>
+    <div className='py-5'>
+      <h2 className='my-2 align-middle text-center'>Become a member today!</h2>
+      <h3 className='my-2 align-middle text-center'>Sign Up</h3>
+      <form
+        className='my-5 justify-content-center text-center'
+        onSubmit={handleSubmit}
+        name={name}
+      >
+        <div className='form-group align-middle'>
+          <label htmlFor='firstName'>First Name</label>
           <input name='firstName' type='text' />
 
-          <label htmlFor='lastName'>
-            <small>Last Name</small>
-          </label>
+          <label htmlFor='lastName'>Last Name</label>
           <input name='lastName' type='text' />
 
-          <label htmlFor='email'>
-            <small>Email</small>
-          </label>
-          <input name='email' type='text' />
-        </div>
-        <div>
-          <label htmlFor='password'>
-            <small>Password</small>
-          </label>
-          <input name='password' type='password' />
-        </div>
-        <div>
-          <label htmlFor='address'>
-            <small>Address</small>
-          </label>
+          <label htmlFor='address'>Address</label>
           <input name='address' type='text' />
         </div>
         <div>
-          <button type='submit'>{displayName}</button>
+          <div className='form-group align-middle'>
+            <label htmlFor='email'>Email</label>
+            <input name='email' type='text' />
+          </div>
+
+          <div className='form-group align-middle'>
+            <label className='mx-3' htmlFor='password'>
+              Password
+            </label>
+            <input name='password' type='password' />
+          </div>
+          <div className='form-group'>
+            <button className='mt-4 btn btn-primary align-middle' type='submit'>
+              {displayName}
+            </button>
+          </div>
         </div>
-        {error && error.response && <div> {error.response.data} </div>}
+
+        {error && error.response && (
+          <div>Please fill out all fields before submitting!</div>
+        )}
       </form>
     </div>
   );
@@ -53,32 +57,33 @@ const AuthFormLogIn = (props) => {
   const { name, displayName, handleSubmit, error } = props;
 
   return (
-    <>
-      <form className='my-5' onSubmit={handleSubmit} name={name}>
-        <div className='mb-3'>
-          <h2 className='my-5'>Already a member? Log In!</h2>
-          <label htmlFor='email'>
-            <p>Email</p>
+    <div className='py-5'>
+      <h2 className='my-5 align-middle text-center'>
+        Already a member? Log In!
+      </h2>
+      <form
+        className='my-5 justify-content-center form-inline'
+        onSubmit={handleSubmit}
+        name={name}
+      >
+        <div className='form-group'>
+          <label className='mx-2' htmlFor='email'>
+            Email
           </label>
           <input name='email' type='text' />
-          <div id='emailHelp' className='form-text'>
-            We&apos;ll never share your email with anyone else.
-          </div>
-        </div>
-        <div className='mb-3 my-5'>
-          <label htmlFor='password'>
-            <p>Password</p>
+          <label className='mx-2' htmlFor='password'>
+            Password
           </label>
           <input name='password' type='password' />
+          <div className='mb-3'>
+            <button className='btn btn-primary' type='submit'>
+              {displayName}
+            </button>
+          </div>
+          {error && error.response && <div> {error.response.data} </div>}
         </div>
-        <div className='mb-3'>
-          <button className='btn btn-primary' type='submit'>
-            {displayName}
-          </button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
       </form>
-    </>
+    </div>
   );
 };
 
