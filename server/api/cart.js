@@ -143,6 +143,8 @@ router.put('/', requireToken, async (req, res, next) => {
     const newQuantity = item.totalQuantity + req.body.quantityChange;
     const newCost = (item.totalCost * newQuantity) / item.totalQuantity;
 
+    if (newQuantity <= 0) return;
+
     await item.update({
       totalQuantity: newQuantity,
       totalCost: newCost,
