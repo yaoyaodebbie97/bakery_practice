@@ -3,6 +3,7 @@ import axios from "axios";
 
 const GET_CART = 'GET_CART'
 const UPDATE_CART = 'UPDATE_CART'
+const EMPTY_CART = 'EMPTY_CART'
 
 export const getCart = (cart) => ({
   type: GET_CART,
@@ -11,6 +12,11 @@ export const getCart = (cart) => ({
 
 export const updateTheCart = (cart) =>({ // either adding a new item, removing a item, updating the quantity of the item
   type: UPDATE_CART,
+  cart,
+})
+
+export const emptyTheCart = (cart) =>({ // either adding a new item, removing a item, updating the quantity of the item
+  type: EMPTY_CART,
   cart,
 })
 
@@ -141,7 +147,7 @@ export const emptyCart = (cart) => {
                 authorization: token,
               }
             });
-            dispatch(updateTheCart(data));
+            dispatch(emptyTheCart(data));
           } else{  // guest who  logged in just now 
             window.localStorage.setItem('cart', JSON.stringify({products: []}))
             const {data} = await axios.put(`/api/cart/confirmation`, cart,{
@@ -149,7 +155,7 @@ export const emptyCart = (cart) => {
                 authorization: token,
               }
             });
-            dispatch(updateTheCart(data));
+            dispatch(emptyTheCart(data));
           }
       } else {
           window.localStorage.setItem('cart', JSON.stringify({products: []}))
@@ -158,14 +164,13 @@ export const emptyCart = (cart) => {
               authorization: 'guest',
             }
           });
-          dispatch(updateTheCart(data))
+          dispatch(emptyTheCart(data))
       }
     } catch (err){
       console.log(err);
     }
   }
 };
-
 
 // export const clearCartCount = (cart) => {
 //   return async (dispatch) => {
@@ -222,6 +227,10 @@ export const updateQuantity = (item, quantityChange) => {
 
       case UPDATE_CART:
         return action.cart;
+
+      case EMPTY_CART:
+        return {...action.cart, products:[]}
+
 
       default:
         return state

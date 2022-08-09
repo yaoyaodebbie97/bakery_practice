@@ -27,7 +27,6 @@ class AllProducts extends React.Component {
   }
 
   render() {
-    const { products } = this.props;
     return (
       <>
         <h1 className=''>{this.state.value}</h1>
@@ -49,31 +48,49 @@ class AllProducts extends React.Component {
         </select>
         <div className='row col-12 col-4-sm product'>
           {this.state.value === 'All'
-            ? this.props.products.map((product) => (
-                <div key={product.id} className='card product-card shadow-lg'>
-                  <div className='card-body'>
-                    <Link to={`/products/${product.id}`}>
+            ? this.props.products.length === 0
+                ?   <>
+                      <h1 className='align-items-center'> Still Loading </h1>
                       <img
-                        className='.img-fluid productImg rounded'
-                        src={product.imageUrl}
+                        src={
+                          'https://i.pinimg.com/originals/da/08/2c/da082c176aea0f8e5ab294ff7a0f90d1.gif'
+                        }
                       />
-                      <p className='card-title product-name'>
-                        {product.productName}
+                    </>
+                : this.props.products.map((product) => (
+                  <div key={product.id} className='card product-card shadow-lg'>
+                    <div className='card-body'>
+                      <Link to={`/products/${product.id}`}>
+                        <img
+                          className='.img-fluid productImg rounded'
+                          src={product.imageUrl}
+                        />
+                        <p className='card-title product-name'>
+                          {product.productName}
+                        </p>
+                      </Link>
+                      <p className='card-text baseline product-price'>
+                        Price: ${(product.price / 100).toFixed(2)}
                       </p>
-                    </Link>
-                    <p className='card-text baseline product-price'>
-                      Price: ${(product.price / 100).toFixed(2)}
-                    </p>
-                    <button
-                      className='btn btn-primary baseline'
-                      onClick={() => this.props.addToCart(product, 1)}
-                    >
-                      Add to Cart
-                    </button>
+                      <button
+                        className='btn btn-primary baseline'
+                        onClick={() => this.props.addToCart(product, 1)}
+                      >
+                        Add to Cart
+                      </button>
+                    </div>
                   </div>
-                </div>
-              ))
-            : this.selectCategory().map((product) => (
+                ))
+            : this.props.products.length === 0
+              ? <>
+                <h1 className='align-items-center'> Still Loading </h1>
+                <img
+                  src={
+                    'https://i.pinimg.com/originals/da/08/2c/da082c176aea0f8e5ab294ff7a0f90d1.gif'
+                  }
+                />
+              </>
+              : this.selectCategory().map((product) => (
                 <div key={product.id} className='card product-card shadow-lg'>
                   <div className='card-body'>
                     <Link to={`/products/${product.id}`}>

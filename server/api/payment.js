@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { v4: uuid } = require('uuid');
-const BACKENDKEY = require('../../webkeys');
+const {BACKENDKEY} = require('../../webkeys');
 const stripe = require('stripe')(BACKENDKEY);
 
 router.post('/', async (req, res) => {
