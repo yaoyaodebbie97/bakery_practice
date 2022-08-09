@@ -18,22 +18,27 @@ class Cart extends Component {
     this.props.removeFromCart(id)
   }
 
-  // cartTotalPrice() {
-  //   let totalPrice = 0
-  //   const products = this.props.cart.products;
-  //   if(this.props.cart.products !== null) {
-  //    for(let i=0; i< products.length; i++) {
-  //     totalPrice += products[i].orderItems.totalCost
-  //     }
-  //   }
-  //   return totalPrice
-  // }
-
   render() {
     console.log('products',this.props.cart)
     return (
       <div>
         {this.props.cart !== null && this.props.cart.products
+<<<<<<< HEAD
+        ? this.props.cart.products.map((product) => (
+          <div key = {product.id}>
+            {console.log(product)}
+              <p> -----------------------</p>
+              <p> Product Name: {product.productName} </p>
+              <img src=  {product.imageUrl}/>
+              <p> Quantity: {product.orderItems.totalQuantity} </p>
+              <p> Unit Price: ${(product.price / 100).toFixed(2)}</p>
+              <p> Total Price: ${(product.orderItems.totalCost / 100).toFixed(2)}</p>
+           
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16" onClick = {()=> this.handleClick(product.orderItems.productId)}>
+                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                <path fillRule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+              </svg>
+=======
         ? this.props.cart.products.length === 0
             ? <p>Your Cart is Empty </p> 
             : this.props.cart.products.map((product) => (
@@ -50,6 +55,7 @@ class Cart extends Component {
                     <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                     <path fillRule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
                   </svg>
+>>>>>>> af41fba466199c8cfc32b6ec804b97bf9f48a1ab
 
                   <button onClick = {() => this.props.updateQuantity(product.orderItems, 1)}> + </button>
 
@@ -58,9 +64,7 @@ class Cart extends Component {
             ))
       :  <p> Loading Cart </p>}
          _________________________________________________
-         {/* <div>
-          <p>Total: {this.cartTotalPrice()}</p>
-         </div> */}
+        
         <div> Total Number of Items in Cart: <CartCount/></div>
         <div> Total Cost of Items in Cart: <CartPrice/></div>
         {this.props.isLoggedIn

@@ -27,7 +27,6 @@ class AllProducts extends React.Component {
   }
 
   render() {
-    const { products } = this.props;
     return (
       <>
         <h1 className=''>{this.state.value}</h1>
