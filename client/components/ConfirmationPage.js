@@ -1,26 +1,26 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import {emptyCart} from '../store/cart'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { emptyCart } from '../store/cart';
 
-
-class Confirmation extends Component {  
-  
-
+class Confirmation extends Component {
   render() {
     return (
-        <div>
-        <h3>Thank you for your order!</h3>
-        <h4>Confirmation #{this.props.cart.id}</h4> 
+      <div className='py-5 my-5 h-100 d-flex justify-content-center align-items-center'>
+        <div className='py-5 my-5'>
+          <h3 className='py-5 text-center'>Thank you for your order!</h3>
+          <h4 className='py-3 align-items-center text-center'>
+            Confirmation #{this.props.cart.id}
+          </h4>
         </div>
-    )
+      </div>
+    );
   }
-}  
+}
 
 const mapState = (state) => {
-    return {
-      cart: state.cart
-    }
+  return {
+    cart: state.cart,
+  };
 };
 
-
-export default connect(mapState)(Confirmation)
+export default connect(mapState)(Confirmation);

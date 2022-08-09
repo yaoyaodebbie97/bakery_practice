@@ -1,3 +1,4 @@
+
 import React from "react";
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
@@ -23,7 +24,7 @@ class Checkout extends React.Component {
         cost += products[i].orderItems.totalCost;
       }
     }
-    return (parseInt(cost) /100).toFixed(2);
+    return (parseInt(cost) / 100).toFixed(2);
   }
 
   async handleToken(token) {
@@ -44,38 +45,39 @@ class Checkout extends React.Component {
     }
   }
 
-  success () {
-    this.props.emptyCart(this.props.cart)
-    return  <Route path='/payment' render={() => <Redirect to="/confirmation"/>} />
 
+  success() {
+    this.props.emptyCart(this.props.cart);
+    return (
+      <Route path='/payment' render={() => <Redirect to='/confirmation' />} />
+    );
   }
-
-
+  
   render() {
-    console.log('cart', this.props.cart)
+    return (
+      <div className='my-5 py-5'>
+        {this.state.status === 'Success! Check email for details' ? (
+          this.success()
+        ) : (
+          <div className='my-5 py-5 align-middle text-center'>
+            <div className='mt-5 my-5 product justify-content-center'>
+              <h3 className='my-4'>Payment</h3>
+              <h4 className='mb-3'>Total Amount: ${this.totalAmount()}</h4>
+            </div>
 
-  return (
-    <div>
 
-    {this.state.status === "Success! Check email for details"? this.success() :
-    (<div className="container">
-      <div className="product">
-        <h1>Payment</h1>
-        <h3>Total Amount: ${this.totalAmount()}</h3>
+            <StripeCheckout
+              stripeKey={'pk_test_51LUggcEDM1jLSigPlTK0iDNlZX5Q45IuDbk3yNzOPONgGsaIO94ID3KKPCpa7w7C32wABVlYL42cKyQgxzzYkWK900YBYcQzgU'}
+              token={this.handleToken}
+              amount={this.totalAmount() * 100}
+              name='Payment'
+              billingAddress
+              shippingAddress
+            />
+          </div>
+        )}
       </div>
-      <StripeCheckout
-        stripeKey={'pk_test_51LUggcEDM1jLSigPlTK0iDNlZX5Q45IuDbk3yNzOPONgGsaIO94ID3KKPCpa7w7C32wABVlYL42cKyQgxzzYkWK900YBYcQzgU'}
-        token={this.handleToken}
-        amount={this.totalAmount()*100}
-        name="Payment"
-        billingAddress
-        shippingAddress
-      />
-    </div>)
-    }
-    </div>
-
-  )
+    );
   }
 }
 
@@ -89,5 +91,4 @@ const mapDispatch = (dispatch) => ({
   emptyCart: (cart) => dispatch(emptyCart(cart)),
 });
 
-
-export default connect(mapState, mapDispatch)(Checkout)
+export default connect(mapState, mapDispatch)(Checkout);

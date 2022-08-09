@@ -1,8 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { withRouter, Route, Switch, Redirect} from 'react-router-dom';
+import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Login, Signup } from './components/AuthForm';
-import { Login_CheckOut, Signup_CheckOut} from './components/Checkout_AuthForm';
+import {
+  Login_CheckOut,
+  Signup_CheckOut,
+} from './components/Checkout_AuthForm';
 import Home from './components/Home';
 import { me } from './store';
 import AllProducts from './components/AllProducts';
@@ -12,10 +15,7 @@ import SingleProduct from './components/SingleProduct';
 import OrderHistory from './components/OrderHistory';
 import UserAccount from './components/UserAccount';
 import Confirmation from './components/ConfirmationPage';
-import Checkout from "./components/Payment"
-
-            
-
+import Checkout from './components/Payment';
 
 /**
  * COMPONENT
@@ -30,8 +30,7 @@ class Routes extends Component {
     // let history = useHistory()
 
     return (
-
-      <div>
+      <div className='root'>
         {/* {isLoggedIn ?
 
           (  <Switch>
@@ -51,7 +50,7 @@ class Routes extends Component {
         ): (
           <Switch>
             {/* <Route exact path='/' component={Home} /> */}
-            {/* <Route exact path='/home' component={Home} />
+        {/* <Route exact path='/home' component={Home} />
             <Route path='/login' component={Login} />
             <Route path='/signup' component={Signup} />
             <Route exact path='/products' component={AllProducts} />
@@ -65,31 +64,50 @@ class Routes extends Component {
 
           </Switch>
         )} */}
-            <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/home' component={Home} />
-            <Route exact path='/login' render={()=> isLoggedIn?(<Redirect to="/home" />) : <Login/>} />
-            <Route exact path='/signup' render={()=> isLoggedIn?(<Redirect to="/home" />) : <Signup/>} />
-            <Route path='/users/account' component={UserAccount} />
-            <Route exact path='/products' component={AllProducts} />
-            <Route exact path='/products/:id' component={SingleProduct} />
-            <Route exact path='/products/category/:category' component={Category} />
-            <Route exact path='/cart' component={Cart} />
-            <Route exact path='/confirmation' component={Confirmation} />
-            <Route exact path='/checkout/login' render={()=> isLoggedIn?(<Redirect to="/payment"/>)  : <Login_CheckOut/> } />
-            <Route exact path='/checkout/signup' render={()=> isLoggedIn?(<Redirect to="/payment"/>)  : <Signup_CheckOut/> } />
-            <Route path='/users/orders' component={OrderHistory} />
-            <Route path="/payment" component={Checkout} />
-            
-
-            </Switch>
-
-
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/home' component={Home} />
+          <Route
+            exact
+            path='/login'
+            render={() => (isLoggedIn ? <Redirect to='/home' /> : <Login />)}
+          />
+          <Route
+            exact
+            path='/signup'
+            render={() => (isLoggedIn ? <Redirect to='/home' /> : <Signup />)}
+          />
+          <Route path='/users/account' component={UserAccount} />
+          <Route exact path='/products' component={AllProducts} />
+          <Route exact path='/products/:id' component={SingleProduct} />
+          <Route
+            exact
+            path='/products/category/:category'
+            component={Category}
+          />
+          <Route exact path='/cart' component={Cart} />
+          <Route exact path='/confirmation' component={Confirmation} />
+          <Route
+            exact
+            path='/checkout/login'
+            render={() =>
+              isLoggedIn ? <Redirect to='/payment' /> : <Login_CheckOut />
+            }
+          />
+          <Route
+            exact
+            path='/checkout/signup'
+            render={() =>
+              isLoggedIn ? <Redirect to='/payment' /> : <Signup_CheckOut />
+            }
+          />
+          <Route path='/users/orders' component={OrderHistory} />
+          <Route path='/payment' component={Checkout} />
+        </Switch>
       </div>
     );
   }
 }
-
 
 /**
  * CONTAINER

@@ -38,7 +38,8 @@ form div {
   border: 1px solid grey;
   font-family: 'Cupcake Treats', sans-serif;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 150%;
+  max-width: 1300px;
 }
 
 .sectionStyle{
@@ -132,11 +133,19 @@ Link:hover, a:hover {
 
 footer {
   background-color: #42929d71;
+  position: absolute;
+  left: 0;
+  right: 0;
+  color: #4f3b07;
 }
 
-@media (max-width: 767px){
+.root {
+  padding-bottom: 10%;
+}
 
-
+.contact-info {
+  text-decoration: none;
+  color: #4f3b07;
 }
 
 .card-columns {

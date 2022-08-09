@@ -37,51 +37,6 @@ router.get('/', requireToken, async (req, res, next) => {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// router.post("/", requireToken, async (req, res, next) => {
-//     try {
-//         let order = await Order.findOne({
-//             where: {
-//                 userId: req.user.dataValues.id,
-//                 status: 'open'
-//             }
-//         })
-//         if (!order) {
-//             order = await Order.create({
-//                 status: 'open',
-//                 userId: req.user.dataValues.id
-//             })
-//         }
-//         let itemExist = await OrderItems.findOne({
-//           where:{
-//             productId: req.body.productId
-//           }
-//         })
-//         if (itemExist) return;
-//         else {await OrderItems.create({
-//                   orderId: order.id,
-//                   productId: req.body.productId,
-//                   totalQuantity: req.body.totalQuantity,
-//                   totalCost: req.body.totalCost
-//           })
-
-//           res.send(
-//             await Order.findOne({
-//               where:{
-//                 id: order.id
-//               },
-//               include:[Product],
-//               order:[[Product, 'id','desc']]
-//             })
-//           );
-//         }
-
-//     } catch (error) {
-//       next(error);
-//     }
-//   });
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-
 // for delete, no need things in request body, so just make it /id
 router.delete('/:id', requireToken, async (req, res, next) => {
   try {
@@ -187,7 +142,6 @@ router.post('/', requireToken, async (req, res, next) => {
         productId: req.body.productId,
       },
     });
-    console.log(itemExist);
     // allowing user to add same item multiple times
     if (itemExist) {
       const newQuantity =
@@ -222,54 +176,56 @@ router.post('/', requireToken, async (req, res, next) => {
 
 router.put('/confirmation', async (req, res, next) => {
   try {
-    if (req.headers.authorization !== 'guest'){
-        if (req.body.id) { // user who has been logged in the whole time 
-          console.log('user has been logged in the whole time')
-          let order = await Order.findOne({
+    if (req.headers.authorization !== 'guest') {
+      if (req.body.id) {
+        // user who has been logged in the whole time
+        console.log('user has been logged in the whole time');
+        let order = await Order.findOne({
+          where: {
+            id: req.body.id,
+            status: 'open',
+          },
+        });
+        order.update({
+          status: 'closed',
+        });
+        res.send(
+          await Order.findOne({
             where: {
-              id: req.body.id,
-              status: 'open',
+              id: order.id,
             },
+            include: [Product],
+            order: [[Product, 'id', 'desc']],
+          })
+        );
+      } else {
+        console.log('guest decided to log in');
+        const user = await User.findByToken(req.headers.authorization);
+        let order = await Order.create({
+          status: 'closed',
+          userId: user.id,
+        });
+        for (let i = 0; i < req.body.products.length; i++) {
+          await OrderItems.create({
+            orderId: order.id,
+            productId: req.body.products[i].orderItems.productId,
+            totalQuantity: req.body.products[i].orderItems.totalQuantity,
+            totalCost: req.body.products[i].orderItems.totalCost,
           });
-          order.update({
-            status: 'closed',
-          });
-          res.send(
-            await Order.findOne({
-              where: {
-                id: order.id,
-              },
-              include: [Product],
-              order: [[Product, 'id', 'desc']],
-            })
-          );
-        } else { 
-          console.log('guest decided to log in')
-          const user = await User.findByToken(req.headers.authorization)
-          let order = await Order.create({
-            status: 'closed',
-            userId: user.id
-          });
-          for (let i = 0; i < req.body.products.length; i++) {
-            await OrderItems.create({
-              orderId: order.id,
-              productId: req.body.products[i].orderItems.productId,
-              totalQuantity: req.body.products[i].orderItems.totalQuantity,
-              totalCost: req.body.products[i].orderItems.totalCost,
-            });
-          }
-          res.send(
-            await Order.findOne({
-              where: {
-                id: order.id,
-              },
-              include: [Product],
-              order: [[Product, 'id', 'desc']],
-            })
-          );
         }
-    } else { // guest check out 
-      console.log('guest checkout')
+        res.send(
+          await Order.findOne({
+            where: {
+              id: order.id,
+            },
+            include: [Product],
+            order: [[Product, 'id', 'desc']],
+          })
+        );
+      }
+    } else {
+      // guest check out
+      console.log('guest checkout');
       let guestOrder = await Order.create({
         status: 'closed',
       });
