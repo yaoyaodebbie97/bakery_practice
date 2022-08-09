@@ -16,8 +16,7 @@ class Category extends Component {
 
   render() {
     return (
-      <div className='row'>
-        <h2>hehy</h2>
+      <div className='row product'>
         {this.props.category.length > 0 ? (
           this.props.category.map((product) => (
             <div key={product.id} className='card product-card shadow-lg'>
@@ -31,11 +30,11 @@ class Category extends Component {
                     {product.productName}
                   </p>
                 </Link>
-                <p className='card-text'>
+                <p className='card-text baseline'>
                   Price: ${(product.price / 100).toFixed(2)}
                 </p>
                 <button
-                  className='btn btn-primary'
+                  className='btn btn-primary baseline'
                   onClick={() => this.handleAdd(product, 1)}
                 >
                   {' '}

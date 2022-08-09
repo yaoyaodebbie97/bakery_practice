@@ -1,7 +1,9 @@
 body {
   font-family: sans-serif;
   background: #fafafa;
-  color: #281d02
+  color: #281d02;
+  margin-left: 3%;
+  margin-right: 3%;
 }
 
 a, Link{
@@ -13,21 +15,14 @@ label {
 }
 
 nav a {
-  /* display: inline-block; */
   margin: 1em;
   color: #8b6914;
-  /* font-family: "Saira Extra Condensed"; */
 }
 
 form div {
   margin: 1em;
   display: inline-block;
 }
-
-/* img{
-  max-width: 100px;
-  max-height: 100px;
-} */
 
 .responsive{
   width: 25%;
@@ -99,13 +94,13 @@ form div {
 nav {
   background-color: #F8D9D6;
   text-decoration: none;
-  margin: 0 5% 2% 5%;
+  font-size: 120%;
 }
 
 #logo {
   padding: 0.5%;
   /* display: block; */
-  width: 20%;
+  width: 30%;
   height: auto;
   justify-content: left;
 }
@@ -148,15 +143,21 @@ Link:hover, a:hover {
 }
 
 .product-price {
-  font-size: 300%;
+  font-size: 90%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: white
 }
 
+.baseline {
+  align-items: baseline;
+}
+
+.product {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+
 @media (max-width: 767px){
-  body
-  {
-    background: #fff8dc;
-  }
+
 
 }
