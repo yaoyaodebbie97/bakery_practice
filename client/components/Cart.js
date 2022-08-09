@@ -69,39 +69,21 @@ class Cart extends Component {
         </div>
         :
         <div>
-        <p>Already a member?</p>
-      <button>
-        <Link to="/checkout/login" >Login To Checkout</Link>
-      </button>
-      <br/>
-      <p> </p>
-      <p>Or Checkout as a guest</p>
-      {/* <button>
-        <Link to="/checkout/signup" >Signup To Checkout</Link>
-      </button> */}
-                <label htmlFor="firstName">
-                  <small>First Name</small>
-                </label>
-                <input name="firstName" type="text" />
+          <button>
+            <Link to="/checkout/login" >Log In To Checkout</Link>
+          </button>
+          <br/>
+          <br/>
 
-                <label htmlFor="lastName">
-                  <small>Last Name</small>
-                </label>
-                <input name="lastName" type="text" />
+          <button>
+            <Link to="/checkout/signup" >Sign Up To Checkout</Link>
+          </button>
+          <br/>
+          <br/>   
 
-                <label htmlFor="email">
-                  <small>Email</small>
-                </label>
-                <input name="email" type="text" />
-
-                 <label htmlFor="Address">
-                  <small>Address</small>
-                </label>
-                <input name="Address" type="text" />
-      <p> </p>
-      <button>
-        <Link to="payment" > Confirm Checkout</Link>
-      </button>
+          <button>
+            <Link to="/payment" > Proceed To Checkout As A Guest</Link>
+          </button>
     </div>
     }
   </div>

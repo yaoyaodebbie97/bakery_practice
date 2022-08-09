@@ -437,17 +437,17 @@ const mockProducts = [
     description:
       'ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede',
     quantity: 46,
-    price: 1774,
+    price: 1075,
     imageUrl:
       'https://littlesunnykitchen.com/wp-content/uploads/2021/06/Cherry-Muffins-6.jpg',
     category: 'muffins',
   },
   {
-    productName: 'Fresh Blueberry Muffin',
+    productName: 'Dark Chocolate Muffin',
     description:
       'nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed',
     quantity: 0,
-    price: 1616,
+    price: 1200,
     imageUrl:
       'https://images.pexels.com/photos/131899/pexels-photo-131899.jpeg?auto=compress&cs=tinysrgb&w=300',
     category: 'muffins',
@@ -553,7 +553,7 @@ const mockProducts = [
     category: 'pastries',
   },
   {
-    productName: 'White Wine Pie',
+    productName: 'Mulberry Pie',
     description:
       'vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam',
     quantity: 94,
@@ -623,13 +623,13 @@ const mockProducts = [
     category: 'cupcakes',
   },
   {
-    productName: 'Kidney Cookie',
+    productName: 'Cheesecake Cookie',
     description:
       'augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna',
     quantity: 52,
     price: 2737,
     imageUrl:
-      'https://images.pexels.com/photos/5634612/pexels-photo-5634612.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/1998636/pexels-photo-1998636.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'cookies',
   },
   {
@@ -639,7 +639,7 @@ const mockProducts = [
     quantity: 7,
     price: 2086,
     imageUrl:
-      'https://images.pexels.com/photos/10319189/pexels-photo-10319189.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/2525682/pexels-photo-2525682.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'cupcakes',
   },
   {
@@ -659,7 +659,7 @@ const mockProducts = [
     quantity: 23,
     price: 1721,
     imageUrl:
-      'https://omgchocolatedesserts.com/wp-content/uploads/2017/12/Hershey-Cheesecake-Chocolate-Cake-featured-new-copy.jpg',
+      'https://images.pexels.com/photos/4109998/pexels-photo-4109998.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'cakes',
   },
   {
@@ -723,23 +723,23 @@ const mockProducts = [
     category: 'pies',
   },
   {
-    productName: 'Periguita',
+    productName: 'Almond Brownie',
     description:
       'enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue',
     quantity: 12,
     price: 700,
     imageUrl:
-      'https://2.bp.blogspot.com/-IRNQvPqqW40/TYUajMO--7I/AAAAAAAAAcM/KXYJX4zOy2E/s1600/travesseiros2.jpg',
+      'https://images.pexels.com/photos/2373520/pexels-photo-2373520.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'pastries',
   },
   {
-    productName: 'Black Tower Cookie',
+    productName: 'Red Velvet Cookie',
     description:
       'nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi',
     quantity: 69,
     price: 450,
     imageUrl:
-      'https://images.pexels.com/photos/7180590/pexels-photo-7180590.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/10613854/pexels-photo-10613854.jpeg?auto=compress&cs=tinysrgb&w=600',
     category: 'cookies',
   },
   {
@@ -749,7 +749,7 @@ const mockProducts = [
     quantity: 14,
     price: 780,
     imageUrl:
-      'https://images.pexels.com/photos/3776529/pexels-photo-3776529.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/4792402/pexels-photo-4792402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'muffins',
   },
   {
@@ -863,24 +863,24 @@ const mockProducts = [
     category: 'cookies',
   },
   {
-    productName: 'Harddough Bread',
+    productName: 'Angel Biscuits',
     description:
       'orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi',
     quantity: 4,
-    price: 2400,
+    price: 2200,
     imageUrl:
-      'https://images.pexels.com/photos/6608542/pexels-photo-6608542.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/4197987/pexels-photo-4197987.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'bread',
   },
   {
-    productName: 'Fruitylicious',
+    productName: 'Strawberry Bread',
     description:
       'in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi',
     quantity: 75,
     price: 855,
     imageUrl:
-      'https://images.pexels.com/photos/8250338/pexels-photo-8250338.jpeg?auto=compress&cs=tinysrgb&w=300',
-    category: 'pastries',
+      'https://images.pexels.com/photos/8024533/pexels-photo-8024533.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    category: 'bread',
   },
   {
     productName: 'Blueberry Muffin',
@@ -893,13 +893,13 @@ const mockProducts = [
     category: 'muffins',
   },
   {
-    productName: 'Mini Fruit Tart',
+    productName: 'Fruit Tart',
     description:
       'sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus',
     quantity: null,
     price: 899,
     imageUrl:
-      'https://images.pexels.com/photos/1157835/pexels-photo-1157835.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/8165189/pexels-photo-8165189.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'pastries',
   },
   {
@@ -939,17 +939,17 @@ const mockProducts = [
     quantity: 4,
     price: 800,
     imageUrl:
-      'https://images.pexels.com/photos/267308/pexels-photo-267308.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/4915600/pexels-photo-4915600.jpeg',
     category: 'pastries',
   },
   {
-    productName: 'Blood Orange Pie',
+    productName: 'Bartlett Pear Pie',
     description:
       'sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat',
     quantity: 12,
     price: 4000,
     imageUrl:
-      'https://images.pexels.com/photos/5419095/pexels-photo-5419095.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/6607415/pexels-photo-6607415.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'pies',
   },
   {
@@ -979,7 +979,7 @@ const mockProducts = [
     quantity: 4,
     price: 1200,
     imageUrl:
-      'https://images.pexels.com/photos/7525144/pexels-photo-7525144.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'https://images.pexels.com/photos/5846345/pexels-photo-5846345.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'cupcakes',
   },
   {
@@ -1008,7 +1008,7 @@ const mockProducts = [
     quantity: 20,
     price: 985,
     imageUrl:
-      'https://images.pexels.com/photos/1657343/pexels-photo-1657343.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/4286646/pexels-photo-4286646.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'muffins',
   },
   {
@@ -1018,7 +1018,7 @@ const mockProducts = [
     quantity: 56,
     price: 650,
     imageUrl:
-      'https://images.pexels.com/photos/3309805/pexels-photo-3309805.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://www.gimmesomeoven.com/wp-content/uploads/2010/12/Classic-Gingerbread-Cookies-Recipe-1.jpg',
     category: 'cookies',
   },
   {
@@ -1042,7 +1042,7 @@ const mockProducts = [
     category: 'cakes',
   },
   {
-    productName: 'Mini Cherry Pie',
+    productName: 'Mini Cherry Pies',
     description:
       'at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate',
     quantity: null,
@@ -1058,7 +1058,7 @@ const mockProducts = [
     quantity: 11,
     price: 2500,
     imageUrl:
-      'https://images.pexels.com/photos/1169790/pexels-photo-1169790.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/10311446/pexels-photo-10311446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'pastries',
   },
   {
@@ -1068,7 +1068,7 @@ const mockProducts = [
     quantity: 51,
     price: 900,
     imageUrl:
-      'https://images.pexels.com/photos/11961854/pexels-photo-11961854.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/10281101/pexels-photo-10281101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'pastries',
   },
   {
@@ -1098,18 +1098,18 @@ const mockProducts = [
     quantity: 36,
     price: 1000,
     imageUrl:
-      'https://images.pexels.com/photos/556829/pexels-photo-556829.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/4792393/pexels-photo-4792393.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'muffins',
   },
   {
-    productName: 'Spooky Boo Mega Cookie',
+    productName: 'Pomegranate Cake',
     description:
       'id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac',
     quantity: 72,
-    price: 1500,
+    price: 7500,
     imageUrl:
-      'https://images.pexels.com/photos/5634612/pexels-photo-5634612.jpeg?auto=compress&cs=tinysrgb&w=300',
-    category: 'cookies',
+      'https://images.pexels.com/photos/8101692/pexels-photo-8101692.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    category: 'cakes',
   },
   {
     productName: 'Braided Poppy Seed Pie',
@@ -1138,7 +1138,7 @@ const mockProducts = [
     quantity: 93,
     price: 1100,
     imageUrl:
-      'https://images.pexels.com/photos/9295339/pexels-photo-9295339.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/6341577/pexels-photo-6341577.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'cupcakes',
   },
   {
@@ -1147,8 +1147,7 @@ const mockProducts = [
       'orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh',
     quantity: 37,
     price: 1520,
-    imageUrl:
-      'https://images.pexels.com/photos/8250338/pexels-photo-8250338.jpeg?auto=compress&cs=tinysrgb&w=300',
+    imageUrl: 'http://farm9.staticflickr.com/8509/8452587462_fd4f656ca7.jpg',
     category: 'pastries',
   },
   {
@@ -1172,14 +1171,14 @@ const mockProducts = [
     category: 'muffins',
   },
   {
-    productName: 'Lemon Meringue Torte',
+    productName: 'Lime Meringue Layer Cake',
     description:
       'fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris',
     quantity: 56,
     price: 1255,
     imageUrl:
-      'https://images.pexels.com/photos/8250338/pexels-photo-8250338.jpeg?auto=compress&cs=tinysrgb&w=300',
-    category: 'pastries',
+      'https://images.pexels.com/photos/264939/pexels-photo-264939.jpeg',
+    category: 'cakes',
   },
   {
     productName: 'Spiked Heart Cookies (conatins alcohol)',
@@ -1188,7 +1187,7 @@ const mockProducts = [
     quantity: null,
     price: 1200,
     imageUrl:
-      'https://images.pexels.com/photos/7180590/pexels-photo-7180590.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/6946745/pexels-photo-6946745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'cookies',
   },
   {
@@ -1208,7 +1207,7 @@ const mockProducts = [
     quantity: 48,
     price: 3015,
     imageUrl:
-      'https://images.pexels.com/photos/6574741/pexels-photo-6574741.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://therecipecritic.com/wp-content/uploads/2019/06/freshstrawberrypie_hero.jpg',
     category: 'pies',
   },
   {
@@ -1238,7 +1237,7 @@ const mockProducts = [
     quantity: 21,
     price: 850,
     imageUrl:
-      'https://images.pexels.com/photos/2418652/pexels-photo-2418652.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/4792397/pexels-photo-4792397.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'muffins',
   },
   {
@@ -1278,7 +1277,7 @@ const mockProducts = [
     quantity: 26,
     price: 3500,
     imageUrl:
-      'https://images.pexels.com/photos/8105063/pexels-photo-8105063.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://www.bibbyskitchenat36.com/wp-content/uploads/2017/11/Nectarine-tart-with-thyme-and-honey-butter-drizzle_06-.jpg?x69959',
     category: 'pies',
   },
   {
@@ -1298,7 +1297,7 @@ const mockProducts = [
     quantity: 74,
     price: 600,
     imageUrl:
-      'https://images.pexels.com/photos/2418652/pexels-photo-2418652.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://foodnessgracious.com/wp-content/uploads/2018/08/mini-blueberry-muffins-03.jpg',
     category: 'muffins',
   },
   {
@@ -1318,7 +1317,7 @@ const mockProducts = [
     quantity: 90,
     price: 70000,
     imageUrl:
-      'https://i.postimg.cc/sfSzyty2/0-D10-E034-F0-DD-49-A6-9329-AF624-DEC66-F5.jpg',
+      'https://images.pexels.com/photos/4639525/pexels-photo-4639525.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'cakes',
   },
   {
@@ -1338,17 +1337,17 @@ const mockProducts = [
     quantity: 10,
     price: 6500,
     imageUrl:
-      'https://images.pexels.com/photos/1070850/pexels-photo-1070850.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://www.biggerbolderbaking.com/wp-content/uploads/2021/03/Lemon-Cake1-scaled.jpg',
     category: 'cakes',
   },
   {
-    productName: 'Mini Fruit Tortes',
+    productName: 'Nawlins Beignets',
     description:
       'lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere',
     quantity: 89,
     price: 770,
     imageUrl:
-      'https://images.pexels.com/photos/9582686/pexels-photo-9582686.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/6794172/pexels-photo-6794172.jpeg',
     category: 'pastries',
   },
   {
@@ -1358,17 +1357,17 @@ const mockProducts = [
     quantity: 51,
     price: 890,
     imageUrl:
-      'https://images.pexels.com/photos/2418652/pexels-photo-2418652.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/4051606/pexels-photo-4051606.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'muffins',
   },
   {
-    productName: 'Mini Meringues',
+    productName: 'Fruit Eclairs',
     description:
       'morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie',
     quantity: 59,
     price: 800,
     imageUrl:
-      'https://images.pexels.com/photos/8250338/pexels-photo-8250338.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/1247670/pexels-photo-1247670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'pastries',
   },
   {
@@ -1378,7 +1377,7 @@ const mockProducts = [
     quantity: 95,
     price: 780,
     imageUrl:
-      'https://images.pexels.com/photos/3141268/pexels-photo-3141268.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://img.freepik.com/premium-photo/freshly-baked-buttery-whole-wheat-croissants-with-sesame-seeds-weathered-barn_76014-16.jpg?w=2000',
     category: 'bread',
   },
   {
@@ -1388,7 +1387,7 @@ const mockProducts = [
     quantity: 38,
     price: 2700,
     imageUrl:
-      'https://images.pexels.com/photos/9008662/pexels-photo-9008662.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://i2.wp.com/nourish-and-fete.com/wp-content/uploads/2020/06/mixed-berry-galette-1360px-5.jpg',
     category: 'pies',
   },
   {
@@ -1398,7 +1397,7 @@ const mockProducts = [
     quantity: 74,
     price: 1500,
     imageUrl:
-      'https://images.pexels.com/photos/8963942/pexels-photo-8963942.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://i.pinimg.com/originals/2a/56/6d/2a566d7d5dbfcefdd5b57c7aea5fec2d.jpg',
     category: 'pastries',
   },
   {
@@ -1438,7 +1437,7 @@ const mockProducts = [
     quantity: 59,
     price: 4500,
     imageUrl:
-      'https://images.pexels.com/photos/6557291/pexels-photo-6557291.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/4110008/pexels-photo-4110008.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'cakes',
   },
   {
@@ -1452,13 +1451,13 @@ const mockProducts = [
     category: 'pastries',
   },
   {
-    productName: 'Ginger Snap Cookies Sets',
+    productName: 'Ginger Snap Cookies',
     description:
       'venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar',
     quantity: 48,
     price: 1000,
     imageUrl:
-      'https://images.pexels.com/photos/12959868/pexels-photo-12959868.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/2377477/pexels-photo-2377477.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'cookies',
   },
   {
@@ -1478,7 +1477,7 @@ const mockProducts = [
     quantity: 63,
     price: 660,
     imageUrl:
-      'https://images.pexels.com/photos/556829/pexels-photo-556829.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/4792391/pexels-photo-4792391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'muffins',
   },
   {
@@ -1502,13 +1501,13 @@ const mockProducts = [
     category: 'cupcakes',
   },
   {
-    productName: 'Sweet Potato Pie',
+    productName: 'Southern Sweet Potato Pie',
     description:
       'montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent',
     quantity: 73,
     price: 3045,
     imageUrl:
-      'https://images.pexels.com/photos/9813069/pexels-photo-9813069.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://addapinch.com/wp-content/uploads/2011/10/Sweet-Potato-Pie-Recipe-12.jpg',
     category: 'pies',
   },
   {
@@ -1518,7 +1517,7 @@ const mockProducts = [
     quantity: 59,
     price: 2045,
     imageUrl:
-      'https://images.pexels.com/photos/1002322/pexels-photo-1002322.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/4047217/pexels-photo-4047217.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'bread',
   },
   {
@@ -1528,7 +1527,7 @@ const mockProducts = [
     quantity: 38,
     price: 655,
     imageUrl:
-      'https://www.pexels.com/photo/clear-glass-bottle-with-milk-3522528/',
+      'https://images.pexels.com/photos/2067397/pexels-photo-2067397.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'cookies',
   },
   {
@@ -1562,33 +1561,33 @@ const mockProducts = [
     category: 'cupcakes',
   },
   {
-    productName: 'Halloween Cookies (kids)',
+    productName: 'Artisan Bread',
     description:
       'amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non',
     quantity: 47,
     price: 475,
     imageUrl:
-      'https://images.pexels.com/photos/5634612/pexels-photo-5634612.jpeg?auto=compress&cs=tinysrgb&w=300',
-    category: 'cookies',
+      'https://images.pexels.com/photos/6605301/pexels-photo-6605301.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    category: 'bread',
   },
   {
-    productName: 'Chocolate Eclairs',
+    productName: 'Ube Pie',
     description:
       'mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui',
     quantity: 80,
     price: 2535,
     imageUrl:
-      'https://images.pexels.com/photos/5706442/pexels-photo-5706442.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://assets.epicurious.com/photos/616072f2d29cc913ce5c3143/4:6/w_3087,h_4631,c_limit/UbePie_RECIPE_093021_21402.jpg',
     category: 'pies',
   },
   {
-    productName: 'Flour - Corn, Fine',
+    productName: 'Pink Macaroons',
     description:
       'rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel',
     quantity: 15,
     price: 1015,
     imageUrl:
-      'https://images.pexels.com/photos/9582686/pexels-photo-9582686.jpeg?auto=compress&cs=tinysrgb&w=300',
+      'https://images.pexels.com/photos/7474290/pexels-photo-7474290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     category: 'pastries',
   },
   {
