@@ -62,7 +62,7 @@ class Cart extends Component {
         <div> Total Number of Items in Cart: <CartCount/></div>
         <div> Total Cost of Items in Cart: <CartPrice/></div>
         {this.props.isLoggedIn
-        ? <div> 
+        ? <div>
             <button>
             <Link to="/checkout/login" >Checkout</Link>
           </button>

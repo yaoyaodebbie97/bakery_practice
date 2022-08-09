@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import {fetchSingleProduct} from '../store/singleProduct'
 import {addToCart} from '../store/cart'
 
+
 class SingleProduct extends Component {
     constructor(){
       super()
@@ -29,12 +30,13 @@ class SingleProduct extends Component {
     render() {
         const product = this.props.product
         return (
-        <div className={"singleProductContainer"}>
-            <img className={"responsive"} src = {product.imageUrl} ></img>
-            <div className={"singleProduct"}>
+        <div className="card mb-3 singleProductContainer">
+          <div class="row g-0">
+            <img className="responsive rounded center" alt="..."src = {product.imageUrl} ></img>
+            <div className='card-body .col-8 singleProduct'>
               <div className={"singleHeader"} >
-            <p> {product.productName} </p>
-            </div>
+                <p className="card-header rounded"> {product.productName} </p>
+              </div>
             <p> {product.description}</p>
             <p>${(product.price / 100).toFixed(2)}</p>
 
@@ -57,7 +59,7 @@ class SingleProduct extends Component {
                     Add to Cart
             </button>
             </div>
-
+            </div>
         </div>
         )
   }
