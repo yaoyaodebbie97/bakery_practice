@@ -16,7 +16,7 @@ const AuthFormSignUp_CheckOut = props => {
     <div>
       <form onSubmit={handleSubmit} name={name}>
         <div>
-          <p>Guest Checkout</p>
+          <p>SIGN UP</p>
           <label htmlFor="firstName">
             <small>First Name</small>
           </label>
