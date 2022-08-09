@@ -88,10 +88,7 @@ router.get('/orders', requireToken, async (req, res, next) => {
         {
           model: Product,
           attributes: ['id', 'productName', 'price', 'imageUrl', 'category'],
-        },
-        {
-          model: Product,
-          attributes: ['id', 'productName', 'price', 'imageUrl', 'category'],
+
         },
       ],
     });

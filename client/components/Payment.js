@@ -1,10 +1,11 @@
-import React from 'react';
-import StripeCheckout from 'react-stripe-checkout';
-import axios from 'axios';
-import { connect } from 'react-redux';
-import { Route, Redirect } from 'react-router-dom';
-import { emptyCart } from '../store/cart';
-import { FRONTENDKEY } from '../../webkeys';
+
+import React from "react";
+import StripeCheckout from "react-stripe-checkout";
+import axios from "axios";
+import { connect } from "react-redux";
+import {Route, Redirect} from 'react-router-dom';
+import {emptyCart} from '../store/cart'
+// import {FRONTENDKEY} from '../../webkeys';
 
 class Checkout extends React.Component {
   constructor() {
@@ -44,13 +45,14 @@ class Checkout extends React.Component {
     }
   }
 
+
   success() {
     this.props.emptyCart(this.props.cart);
     return (
       <Route path='/payment' render={() => <Redirect to='/confirmation' />} />
     );
   }
-
+  
   render() {
     return (
       <div className='my-5 py-5'>
@@ -63,8 +65,9 @@ class Checkout extends React.Component {
               <h4 className='mb-3'>Total Amount: ${this.totalAmount()}</h4>
             </div>
 
+
             <StripeCheckout
-              stripeKey={FRONTENDKEY}
+              stripeKey={'pk_test_51LUggcEDM1jLSigPlTK0iDNlZX5Q45IuDbk3yNzOPONgGsaIO94ID3KKPCpa7w7C32wABVlYL42cKyQgxzzYkWK900YBYcQzgU'}
               token={this.handleToken}
               amount={this.totalAmount() * 100}
               name='Payment'
