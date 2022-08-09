@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import {fetchSingleProduct} from '../store/singleProduct'
 import {addToCart} from '../store/cart'
 
+
 class SingleProduct extends Component {
     constructor(){
       super()
@@ -29,38 +30,28 @@ class SingleProduct extends Component {
     render() {
         const product = this.props.product
         return (
-        <div className={"singleProductContainer"}>
-            {isNaN(product.price/100)
-            ?  <>
-                <h1 className='align-items-center'> Still Loading </h1>
-                <img
-                  src={
-                    'https://i.pinimg.com/originals/da/08/2c/da082c176aea0f8e5ab294ff7a0f90d1.gif'
-                  }
-                />
-              </>
-            :
-            <div> 
-              <img className={"responsive"} src = {product.imageUrl} ></img>
-              <div className={"singleProduct"}>
-                <div className={"singleHeader"} >
-              <p> {product.productName} </p>
+        <div className="card mb-3 singleProductContainer">
+          <div class="row g-0">
+            <img className="responsive rounded center" alt="..."src = {product.imageUrl} ></img>
+            <div className='card-body .col-8 singleProduct'>
+              <div className={"singleHeader"} >
+                <p className="card-header rounded"> {product.productName} </p>
               </div>
-              <p> {product.description}</p>
-              <p>${(product.price / 100).toFixed(2)}</p>
+            <p> {product.description}</p>
+            <p>${(product.price / 100).toFixed(2)}</p>
 
-              <select className={'quantity'} name="quantity" id="quantity" onChange = {this.handleSelect} >
-                  <option value={1}>1</option>
-                  <option value={2}>2</option>
-                  <option value={3}>3</option>
-                  <option value={4}>4</option>
-                  <option value={5}>5</option>
-                  <option value={6}>6</option>
-                  <option value={7}>7</option>
-                  <option value={8}>8</option>
-                  <option value={9}>9</option>
-                  <option value={10}>10</option>
-              </select>
+            <select className={'quantity'} name="quantity" id="quantity" onChange = {this.handleSelect} >
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+                <option value={6}>6</option>
+                <option value={7}>7</option>
+                <option value={8}>8</option>
+                <option value={9}>9</option>
+                <option value={10}>10</option>
+            </select>
               <button
                   className={'addToCartButton'}
                   onClick={() => this.handleAdd()}>
@@ -68,7 +59,6 @@ class SingleProduct extends Component {
               </button>
               </div>
             </div>
-    }
         </div>
         )
   }

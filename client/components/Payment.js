@@ -63,12 +63,12 @@ class Checkout extends React.Component {
               <div className='container'>
                 <div className='product'>
                   <h1>Payment</h1>
-                  <h3>Total Amount: ${this.totalAmount()}</h3>
+                  <h3>Total Amount: ${(this.totalAmount()/ 100).toFixed(2)}</h3>
                 </div>
                 <StripeCheckout
                   stripeKey={FRONTENDKEY}
                   token={this.handleToken}
-                  amount={this.totalAmount() * 100}
+                  amount={this.totalAmount() / 100}
                   name='Payment'
                   billingAddress
                   shippingAddress
