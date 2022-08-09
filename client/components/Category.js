@@ -45,8 +45,9 @@ class Category extends Component {
           ))
         ) : (
           <>
-            <h1 className='align-items-center'> Still Loading </h1>
+            <h1 className='align-items-center align-middle'> Still Loading </h1>
             <img
+              className='align-middle productImg'
               src={
                 'https://i.pinimg.com/originals/da/08/2c/da082c176aea0f8e5ab294ff7a0f90d1.gif'
               }
