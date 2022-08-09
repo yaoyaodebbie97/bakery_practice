@@ -1,8 +1,11 @@
 const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
+const cors = require("cors");
 const app = express()
 module.exports = app
+
+app.use(cors());
 
 // logging middleware
 app.use(morgan('dev'))
@@ -15,7 +18,9 @@ app.use('/auth', require('./auth'))
 app.use('/api', require('./api'))
 
 app.get('/', (req, res)=> res.sendFile(path.join(__dirname, '..', 'public/index.html')));
-
+app.get("/", (req, res) => {
+  res.send("Add your Stripe Secret Key to the .require('stripe') statement!");
+});
 // static file-serving middleware
 app.use(express.static(path.join(__dirname, '..', 'public')))
 
