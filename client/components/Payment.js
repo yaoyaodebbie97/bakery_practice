@@ -88,7 +88,7 @@ const mapState = (state) => {
   };
 };
 
-// export default connect(mapState)(Checkout)
+export default connect(mapState)(Checkout);
 
 // const rootElement = document.getElementById("root");
 // ReactDOM.render(<App />, rootElement);
