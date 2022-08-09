@@ -1,15 +1,10 @@
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import axios from 'axios';
-//import { toast } from "react-toastify";
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
+import { emptyCart } from '../store/cart';
 import { FRONTENDKEY } from '../../webkeys';
-
-//import "react-toastify/dist/ReactToastify.css";
-//import "./styles.css";
-
-//toast.configure();
 
 class Checkout extends React.Component {
   constructor() {
@@ -28,7 +23,7 @@ class Checkout extends React.Component {
         cost += products[i].orderItems.totalCost;
       }
     }
-    return cost;
+    return (parseInt(cost) / 100).toFixed(2);
   }
 
   async handleToken(token) {
@@ -49,34 +44,35 @@ class Checkout extends React.Component {
     }
   }
 
-  render() {
-    console.log(this.props.cart);
-
+  success() {
+    this.props.emptyCart(this.props.cart);
     return (
-      <div>
-        <Route
-          path='/payment'
-          render={() =>
-            this.state.status === 'Success! Check email for details' ? (
-              <Redirect to='/confirmation' />
-            ) : (
-              <div className='container'>
-                <div className='product'>
-                  <h1>Payment</h1>
-                  <h3>Total Amount: ${this.totalAmount()}</h3>
-                </div>
-                <StripeCheckout
-                  stripeKey={FRONTENDKEY}
-                  token={this.handleToken}
-                  amount={this.totalAmount() * 100}
-                  name='Payment'
-                  billingAddress
-                  shippingAddress
-                />
-              </div>
-            )
-          }
-        />
+      <Route path='/payment' render={() => <Redirect to='/confirmation' />} />
+    );
+  }
+
+  render() {
+    return (
+      <div className='my-5 py-5'>
+        {this.state.status === 'Success! Check email for details' ? (
+          this.success()
+        ) : (
+          <div className='my-5 py-5 align-middle text-center'>
+            <div className='mt-5 my-5 product justify-content-center'>
+              <h3 className='my-4'>Payment</h3>
+              <h4 className='mb-3'>Total Amount: ${this.totalAmount()}</h4>
+            </div>
+
+            <StripeCheckout
+              stripeKey={FRONTENDKEY}
+              token={this.handleToken}
+              amount={this.totalAmount() * 100}
+              name='Payment'
+              billingAddress
+              shippingAddress
+            />
+          </div>
+        )}
       </div>
     );
   }
@@ -88,7 +84,8 @@ const mapState = (state) => {
   };
 };
 
-export default connect(mapState)(Checkout);
+const mapDispatch = (dispatch) => ({
+  emptyCart: (cart) => dispatch(emptyCart(cart)),
+});
 
-// const rootElement = document.getElementById("root");
-// ReactDOM.render(<App />, rootElement);
+export default connect(mapState, mapDispatch)(Checkout);

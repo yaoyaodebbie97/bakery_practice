@@ -9,11 +9,11 @@ const AuthFormSignUp = (props) => {
   const { name, displayName, handleSubmit, error } = props;
 
   return (
-    <div className='py-5'>
+    <div className='py-5 my-5'>
       <h2 className='my-2 align-middle text-center'>Become a member today!</h2>
       <h3 className='my-2 align-middle text-center'>Sign Up</h3>
       <form
-        className='my-5 justify-content-center text-center'
+        className='my-5 justify-content-center text-center py-3'
         onSubmit={handleSubmit}
         name={name}
       >
@@ -57,16 +57,16 @@ const AuthFormLogIn = (props) => {
   const { name, displayName, handleSubmit, error } = props;
 
   return (
-    <div className='py-5'>
+    <div className='py-5 my-5'>
       <h2 className='my-5 align-middle text-center'>
         Already a member? Log In!
       </h2>
       <form
-        className='my-5 justify-content-center form-inline'
+        className='my-5 justify-content-center form-inline py-5'
         onSubmit={handleSubmit}
         name={name}
       >
-        <div className='form-group'>
+        <div className='form-group py-4'>
           <label className='mx-2' htmlFor='email'>
             Email
           </label>
@@ -80,7 +80,9 @@ const AuthFormLogIn = (props) => {
               {displayName}
             </button>
           </div>
-          {error && error.response && <div> {error.response.data} </div>}
+          {error && error.response && (
+            <div>Please fill out all fields before submitting!</div>
+          )}
         </div>
       </form>
     </div>

@@ -20,44 +20,40 @@ const AuthFormSignUp_CheckOut = props => {
           <label htmlFor="firstName">
             <small>First Name</small>
           </label>
-          <input name="firstName" type="text" />
+          <input name="firstName" type="text" required />
           <label htmlFor="lastName">
             <small>Last Name</small>
           </label>
-          <input name="lastName" type="text" />
+          <input name="lastName" type="text" required  />
           <label htmlFor="email">
             <small>Email</small>
           </label>
-          <input name="email" type="text" />
+          <input name="email" type="text" required />
           <label htmlFor="password">
             <small>Password</small>
           </label>
-          <input name="password" type="password" />
+          <input name="password" type="password" required/>
         </div>
         <div>
           <label htmlFor="address">
             <small>Address</small>
           </label>
-          <input name="address" type="text" />
+          <input name="address" type="text" required />
         </div>
         <div>
           <button type="submit">
            {displayName}
           </button>
         </div>
-        {error && error.response && <div> {error.response.data} </div>}
+        {/* {error && error.response && <div> {error.response.data} </div>} */}
       </form>
     </div>
   )
 }
 const AuthFormLogIn_CheckOut = props => {
-  // props.loadInitialData()
   const {name, displayName, handleSubmit, error} = props
-  console.log('props', props)
+
  
-  // if(props.isLoggedIn) {
-  //   return <Redirect to="/confirmation"/>
-  // } else {
   return (
     <div>
       <form onSubmit={handleSubmit} name={name}>
@@ -66,29 +62,23 @@ const AuthFormLogIn_CheckOut = props => {
           <label htmlFor="email">
             <small>Email</small>
           </label>
-          <input name="email" type="text" />
+          <input name="email" type="text" required/>
           <label htmlFor="password">
             <small>Password</small>
           </label>
-          <input name="password" type="password" />
+          <input name="password" type="password" required/>
         </div>
         <div>
           <button type="submit">{displayName}
           </button>
         </div>
-        {error && error.response && <div> {error.response.data} </div>}
+        {/* {error && error.response && <div> {error.response.data} </div>} */}
         
       </form> 
       
     </div>)
     
   }
-
-  // const checkoutRoute = () => {
-  //   return (
-  //     <div>{props.isLoggedIn ? <Redirect to="/confirmation"/> : "unauthorised"}</div>
-  // )
-  // }
 
 
 /**
@@ -125,9 +115,6 @@ const mapDispatchforLogIn = dispatch => {
         const password = evt.target.password.value
         dispatch(authenticateLogin(email, password, formName))
       },
-      // loadInitialData() {
-      //   dispatch(me());
-      // }
   }
 }
   
@@ -150,4 +137,3 @@ const mapDispatchforLogIn = dispatch => {
 
 export const Login_CheckOut = connect(mapLogin, mapDispatchforLogIn)(AuthFormLogIn_CheckOut)
 export const Signup_CheckOut = connect(mapSignup, mapDispatchforSignUp)(AuthFormSignUp_CheckOut)
-// export const RouteForCheckOut = connect(mapLogin, mapDispatchforLogIn)(checkoutRoute)

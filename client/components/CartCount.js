@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class CartCount extends Component {
-  constructor() {
-    super();
-  }
 
   render() {
     let count = 0;
@@ -14,7 +11,6 @@ class CartCount extends Component {
         count += products[i].orderItems.totalQuantity;
       }
     }
-   
     return <>{count}</>;
   }
 }  

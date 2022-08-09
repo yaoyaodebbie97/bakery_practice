@@ -87,7 +87,11 @@ router.get('/orders', requireToken, async (req, res, next) => {
       include: [
         {
           model: Product,
-          attributes: ['productName', 'price', 'imageUrl', 'category'],
+          attributes: ['id', 'productName', 'price', 'imageUrl', 'category'],
+        },
+        {
+          model: Product,
+          attributes: ['id', 'productName', 'price', 'imageUrl', 'category'],
         },
       ],
     });
