@@ -162,6 +162,9 @@ Link:hover, a:hover {
 
 footer {
   background-color: #42929d71;
+  /* position: absolute; */
+  /* bottom: 0; */
+  /*width: 100%; */
 }
 
 @media (max-width: 767px){

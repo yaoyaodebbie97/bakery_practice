@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Footer = () => {
   return (
-    <footer className='text-center mx-auto my-5 py-3 px-3 sticky-bottom mw-100'>
+    <footer className='text-center mx-auto my-5 py-3 px-3 absolute-bottom mw-100 fixed-bottom'>
       <div>
         <h3>Have a question?</h3>
         <p>We&apos;re always here to lend a helping hand.</p>
