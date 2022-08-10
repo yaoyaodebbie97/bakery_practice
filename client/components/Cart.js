@@ -19,7 +19,7 @@ class Cart extends Component {
 
   render() {
     return (
-      <div className='my-5 container-fluid'>
+      <div className='mt-3 container-fluid'>
         {this.props.cart !== null && this.props.cart.products ? (
           this.props.cart.products.length === 0 || this.props.cart === null ? (
             <>
@@ -38,62 +38,66 @@ class Cart extends Component {
             </>
           ) : (
             this.props.cart.products.map((product) => (
-              <div className='card' key={product.id}>
-                <div className='row col-12 mt-3'>
-                  <div className='card-horizontal'>
-                    <img
-                      className='img-square-wrapper img-thumbnail'
-                      src={product.imageUrl}
-                    />
-                    <h4 className='card-title'>
-                      {' '}
-                      Product Name: {product.productName}{' '}
-                    </h4>
-                    <p className='card-body'>
-                      {' '}
-                      Quantity: {product.orderItems.totalQuantity}{' '}
-                    </p>
-                    <p className='card-body'>
-                      {' '}
-                      Unit Price: ${(product.price / 100).toFixed(2)}
-                    </p>
-                    <p className='card-footer'>
-                      {' '}
-                      Total Price: $
-                      {(product.orderItems.totalCost / 100).toFixed(2)}
-                    </p>
-
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      width='16'
-                      height='16'
-                      fill='currentColor'
-                      className='bi bi-trash'
-                      viewBox='0 0 16 16'
-                      onClick={() =>
-                        this.handleClick(product.orderItems.productId)
-                      }>
-                      <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z' />
-                      <path
-                        fillRule='evenodd'
-                        d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'
+              <div className='card container col-4' key={product.id}>
+                <div className='row my-1 width:18rem'>
+                  <div className='card-horizontal border-secondary'>
+                    <div className='img-square-wrapper p-0'>
+                      <img
+                        className='img-thumbnail productImg-sm mb-0'
+                        src={product.imageUrl}
                       />
-                    </svg>
-                    <div>
-                      <button
-                        onClick={() =>
-                          this.props.updateQuantity(product.orderItems, -1)
-                        }>
+                    </div>
+                    <div className='card-body m-0'>
+                      <h4 className='card-title cupcake-font my-0'>
+                        {product.productName}{' '}
+                      </h4>
+                      <p className='card-body my-0 px-3'>
                         {' '}
-                        -{' '}
-                      </button>
-                      <button
-                        onClick={() =>
-                          this.props.updateQuantity(product.orderItems, 1)
-                        }>
+                        Quantity: {product.orderItems.totalQuantity}{' '}
+                      </p>
+                      <div className='px-4'>
+                        <button
+                          className='mx-1'
+                          onClick={() =>
+                            this.props.updateQuantity(product.orderItems, -1)
+                          }>
+                          {' '}
+                          -{' '}
+                        </button>
+                        <button
+                          onClick={() =>
+                            this.props.updateQuantity(product.orderItems, 1)
+                          }>
+                          {' '}
+                          +{' '}
+                        </button>
+
+                        <svg
+                          xmlns='http://www.w3.org/2000/svg'
+                          width='16'
+                          height='16'
+                          fill='currentColor'
+                          className='bi bi-trash'
+                          viewBox='0 0 16 16'
+                          onClick={() =>
+                            this.handleClick(product.orderItems.productId)
+                          }>
+                          <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z' />
+                          <path
+                            fillRule='evenodd'
+                            d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'
+                          />
+                        </svg>
+                      </div>
+                      <p className='card-body'>
                         {' '}
-                        +{' '}
-                      </button>
+                        Price: ${(product.price / 100).toFixed(2)}
+                      </p>
+                      <p className='card-footer bg-white'>
+                        {' '}
+                        Item Subtotal: $
+                        {(product.orderItems.totalCost / 100).toFixed(2)}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -114,7 +118,7 @@ class Cart extends Component {
           {this.props.cart !== null &&
           this.props.cart.products &&
           this.props.cart.products.length > 0 ? (
-            <>
+            <div className='mx-3'>
               <div>
                 {' '}
                 Total Number of Items in Cart: <CartCount />
@@ -123,16 +127,14 @@ class Cart extends Component {
                 {' '}
                 Total Cost of Items in Cart: <CartPrice />
               </div>
-            </>
+            </div>
           ) : (
             <></>
           )}
         </div>
         {this.props.isLoggedIn ? (
-          <div>
-            <Link
-              to='/checkout/login'
-              className='btn btn-secondary mx-3 btn-sm'>
+          <div className='my-3'>
+            <Link to='/checkout/login' className='btn btn-primary mx-3 btn-sm'>
               Checkout
             </Link>
           </div>

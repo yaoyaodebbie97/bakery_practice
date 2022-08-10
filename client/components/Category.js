@@ -15,46 +15,53 @@ class Category extends Component {
   }
 
   render() {
+    let { category } = this.props.match.params;
     return (
-      <div className='row col-12 col-4-sm product'>
-        {this.props.category.length > 0 ? (
-          this.props.category.map((product) => (
-            <div key={product.id} className='card product-card shadow-lg'>
-              <div className='card-body'>
-                <Link to={`/products/${product.id}`}>
-                  <img
-                    src={product.imageUrl}
-                    className='productImg rounded'
-                  ></img>
-                  <p className='card-title product-name'>
-                    {product.productName}
+      <>
+        <h3 className='my-4 mt-4 cupcake-font'>
+          Category: <u>{category}</u>
+        </h3>
+        <div className='row col-12 col-4-sm product'>
+          {this.props.category.length > 0 ? (
+            this.props.category.map((product) => (
+              <div key={product.id} className='card product-card shadow-lg'>
+                <div className='card-body'>
+                  <Link to={`/products/${product.id}`}>
+                    <img
+                      src={product.imageUrl}
+                      className='productImg rounded'></img>
+                    <p className='card-title product-name'>
+                      {product.productName}
+                    </p>
+                  </Link>
+                  <p className='card-text baseline product-price'>
+                    Price: ${(product.price / 100).toFixed(2)}
                   </p>
-                </Link>
-                <p className='card-text baseline'>
-                  Price: ${(product.price / 100).toFixed(2)}
-                </p>
-                <button
-                  className='btn btn-primary baseline'
-                  onClick={() => this.handleAdd(product, 1)}
-                >
-                  {' '}
-                  Add to Cart
-                </button>
+                  <button
+                    className='btn btn-primary baseline'
+                    onClick={() => this.handleAdd(product, 1)}>
+                    {' '}
+                    Add to Cart
+                  </button>
+                </div>
               </div>
-            </div>
-          ))
-        ) : (
-          <>
-            <h1 className='align-items-center align-middle'> Still Loading </h1>
-            <img
-              className='align-middle productImg'
-              src={
-                'https://i.pinimg.com/originals/da/08/2c/da082c176aea0f8e5ab294ff7a0f90d1.gif'
-              }
-            />
-          </>
-        )}
-      </div>
+            ))
+          ) : (
+            <>
+              <h1 className='align-items-center align-middle'>
+                {' '}
+                Still Loading{' '}
+              </h1>
+              <img
+                className='align-middle productImg'
+                src={
+                  'https://i.pinimg.com/originals/da/08/2c/da082c176aea0f8e5ab294ff7a0f90d1.gif'
+                }
+              />
+            </>
+          )}
+        </div>
+      </>
     );
   }
 }
