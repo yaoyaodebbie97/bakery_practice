@@ -118,6 +118,11 @@ Link:hover, a:hover {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.user-font {
+  font-size: 75%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .baseline {
   align-items: baseline;
 }

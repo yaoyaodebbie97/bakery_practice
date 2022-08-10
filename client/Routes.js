@@ -12,6 +12,7 @@ import OrderHistory from './components/OrderHistory';
 import UserAccount from './components/UserAccount';
 import Confirmation from './components/ConfirmationPage';
 import Checkout from './components/Payment';
+import AdminAccount from './components/AdminAccount';
 
 /**
  * COMPONENT
@@ -40,6 +41,7 @@ class Routes extends Component {
             render={() => (isLoggedIn ? <Redirect to='/home' /> : <Signup />)}
           />
           <Route path='/users/account' component={UserAccount} />
+
           <Route exact path='/products' component={AllProducts} />
           <Route exact path='/products/:id' component={SingleProduct} />
           <Route
@@ -62,6 +64,7 @@ class Routes extends Component {
             }
           />
           <Route path='/users/orders' component={OrderHistory} />
+          <Route path='/users/all' component={AdminAccount} />
           <Route path='/payment' component={Checkout} />
         </Switch>
       </div>
