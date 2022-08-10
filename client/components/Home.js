@@ -6,9 +6,8 @@ export const Home = () => {
     <div>
       <div
         id='home-carousel'
-        className='carousel slide'
-        data-bs-ride='carousel'
-      >
+        className='carousel slide carousel-fade'
+        data-bs-ride='carousel'>
         <div className='carousel-indicators'>
           <button
             type='button'
@@ -16,28 +15,25 @@ export const Home = () => {
             data-bs-slide-to='0'
             className='active'
             aria-current='true'
-            aria-label='Slide 1'
-          ></button>
+            aria-label='Slide 1'></button>
           <button
             type='button'
             data-bs-target='#home-carousel'
             data-bs-slide-to='1'
-            aria-label='Slide 2'
-          ></button>
+            aria-label='Slide 2'></button>
           <button
             type='button'
             data-bs-target='#home-carousel'
             data-bs-slide-to='2'
-            aria-label='Slide 3'
-          ></button>
+            aria-label='Slide 3'></button>
         </div>
         <div className='carousel-inner'>
-          <div className='carousel-item active' data-bs-interval='5000'>
+          <div className='carousel-item active' data-bs-interval='4000'>
             <img
               src={
                 'https://images.pexels.com/photos/3586778/pexels-photo-3586778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
               }
-              className='d-block w-100'
+              className='d-block w-100 img-fluid'
               alt='bakery picture'
             />
             <div className='carousel-caption d-none d-md-block'>
@@ -51,6 +47,7 @@ export const Home = () => {
               </p>
             </div>
           </div>
+
           <div className='carousel-item' data-bs-interval='4000'>
             <img
               src={
@@ -64,6 +61,7 @@ export const Home = () => {
               <p>Get birthday discounts and other special discounts!</p>
             </div>
           </div>
+
           <div className='carousel-item' data-bs-interval='4000'>
             <img
               src={
@@ -78,25 +76,26 @@ export const Home = () => {
             </div>
           </div>
         </div>
+
         <button
           className='carousel-control-prev'
           type='button'
           data-bs-target='#home-carousel'
-          data-bs-slide='prev'
-        >
-          <span v='carousel-control-prev-icon' aria-hidden='true'></span>
+          data-bs-slide='prev'>
+          <span
+            className='carousel-control-prev-icon'
+            aria-hidden='true'></span>
           <span className='visually-hidden'>Previous</span>
         </button>
+
         <button
           className='carousel-control-next'
           type='button'
           data-bs-target='#home-carousel'
-          data-bs-slide='next'
-        >
+          data-bs-slide='next'>
           <span
             className='carousel-control-next-icon'
-            aria-hidden='true'
-          ></span>
+            aria-hidden='true'></span>
           <span className='visually-hidden'>Next</span>
         </button>
       </div>
@@ -106,8 +105,7 @@ export const Home = () => {
         <div className='featured-items d-flex justify-content-center row col-md-8'>
           <Link
             className='btn btn-light btn-outline-secondary shadow mx-2 my-2'
-            to='/products/category/bread'
-          >
+            to='/products/category/bread'>
             Breads{' '}
             <img
               className='productImg img-thumbnail'
@@ -118,8 +116,7 @@ export const Home = () => {
           </Link>
           <Link
             className='btn btn-light btn-outline-secondary mx-1 my-2'
-            to='/products/category/cupcakes'
-          >
+            to='/products/category/cupcakes'>
             Cupcakes{' '}
             <img
               className='productImg img-thumbnail'
@@ -130,8 +127,7 @@ export const Home = () => {
           </Link>
           <Link
             className='btn btn-light btn-outline-secondary mx-1 my-2'
-            to='/products/category/cookies'
-          >
+            to='/products/category/cookies'>
             Cookies{' '}
             <img
               className='productImg img-thumbnail'
@@ -142,8 +138,7 @@ export const Home = () => {
           </Link>
           <Link
             className='btn btn-light btn-outline-secondary mx-1 my-2'
-            to='/products/category/pies'
-          >
+            to='/products/category/pies'>
             Pies{' '}
             <img
               className='productImg img-thumbnail'
@@ -154,8 +149,7 @@ export const Home = () => {
           </Link>
           <Link
             className='btn btn-light btn-outline-secondary mx-1 my-2'
-            to='/products/category/pastries'
-          >
+            to='/products/category/pastries'>
             Pastries{' '}
             <img
               className='productImg img-thumbnail'
@@ -166,8 +160,7 @@ export const Home = () => {
           </Link>
           <Link
             className='btn btn-light btn-outline-secondary mx-1 my-2'
-            to='/products/category/muffins'
-          >
+            to='/products/category/muffins'>
             Muffins{' '}
             <img
               className='productImg img-thumbnail'
@@ -178,8 +171,7 @@ export const Home = () => {
           </Link>
           <Link
             className='btn btn-light btn-outline-secondary mx-1 my-2'
-            to='/products/category/cakes'
-          >
+            to='/products/category/cakes'>
             Cakes{' '}
             <img
               className='productImg img-thumbnail'

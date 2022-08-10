@@ -65,13 +65,13 @@ form div {
 nav {
   background-color: #F8D9D6;
   text-decoration: none;
-  font-size: 120%;
+  font-size: 1em;
 }
 
 #logo {
   padding: 0.5%;
   /* display: block; */
-  width: 30%;
+  width: 9em;
   height: auto;
   justify-content: left;
 }
@@ -107,9 +107,9 @@ Link:hover, a:hover {
   background-color: #f8d9d629;
   margin: 1%;
   font-size: 145%;
-  max-width: 12em;
+  max-width: 9em;
   max-height: auto;
-  width: 15em;
+  width: 9em;
   height: auto
 }
 
@@ -187,10 +187,10 @@ footer {
 }
 
 .productImg-sm {
-  max-width: 40%;
+  max-width: 8em;
   max-height: auto;
-  width: 15em;
-  height: auto
+  /* width: 15em;
+  height: auto */
 }
 
 .card-horizontal {
@@ -201,3 +201,9 @@ footer {
 .cupcake-font {
   font-family: 'Cupcake Treats', sans-serif;
 }
+
+.clear-padding {
+  padding: 0
+}
+
+

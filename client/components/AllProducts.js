@@ -30,7 +30,7 @@ class AllProducts extends React.Component {
     console.log(this.state.value);
     return (
       <>
-        <h1 className='cupcake-font my-5'>
+        <h1 className='cupcake-font my-5 text-center'>
           <u>{this.state.value}</u>
         </h1>
         <label htmlFor='category'>Filter By Category:</label>
@@ -48,7 +48,7 @@ class AllProducts extends React.Component {
           <option value='muffins'>Muffins</option>
           <option value='cakes'>Cakes</option>
         </select>
-        <div className='row col-12 col-4-sm product'>
+        <div className='row col-12 col-4-sm product justify-content-center'>
           {this.state.value === 'All' ? (
             this.props.products.length === 0 ? (
               <>
@@ -72,11 +72,11 @@ class AllProducts extends React.Component {
                         {product.productName}
                       </p>
                     </Link>
-                    <p className='card-text baseline product-price'>
+                    <p className='card-text product-price'>
                       Price: ${(product.price / 100).toFixed(2)}
                     </p>
                     <button
-                      className='btn btn-primary baseline'
+                      className='btn btn-primary'
                       onClick={() => this.props.addToCart(product, 1)}>
                       Add to Cart
                     </button>
