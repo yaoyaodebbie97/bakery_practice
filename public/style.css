@@ -58,9 +58,9 @@ form div {
   margin-left: 1rem;
 }
 
-#logo-div {
+/* #logo-div {
   display: flex;
-}
+} */
 
 nav {
   background-color: #F8D9D6;
@@ -216,5 +216,3 @@ footer {
 .clear-padding {
   padding: 0
 }
-
-
