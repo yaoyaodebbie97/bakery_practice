@@ -7,9 +7,6 @@ export class UserAccount extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      // firstName: "",
-      // lastName: "",
-      // address: "",
     }
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
