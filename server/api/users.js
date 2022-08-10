@@ -36,8 +36,6 @@ router.put('/account', requireToken, async (req, res, next) => {
     const user = await User.findByPk(req.user.dataValues.id, {
       attributes: ['id', 'firstName', 'lastName', 'address'],
     });
-    console.log(req.user.dataValues.id)
-    console.log(user)
     await user.update(req.body);
     res.send(user);
   } catch (error) {
@@ -48,7 +46,10 @@ router.put('/account', requireToken, async (req, res, next) => {
 // admin can update users
 router.put('/:userId', requireToken, isAdmin, async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.params.id);
+    console.log(req.params.userId)
+    const user = await User.findByPk(req.params.userId, {
+      attributes: ['id', 'firstName', 'lastName', 'address'],
+    });
     await user.update(req.body);
     res.send(user);
   } catch (error) {
@@ -70,18 +71,14 @@ router.delete('/:userId', requireToken, isAdmin, async (req, res, next) => {
 // get logged in user
 router.get('/account', requireToken, async (req, res, next) => {
   try {
-
     const user = await User.findByPk(req.user.dataValues.id, {
       attributes: ['firstName', 'lastName', 'address'],
-
     });
     res.send(user);
   } catch (err) {
     next(err);
   }
 });
-
-
 
 router.get('/orders', requireToken, async (req, res, next) => {
   try {
