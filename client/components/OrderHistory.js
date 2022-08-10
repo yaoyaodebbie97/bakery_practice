@@ -31,7 +31,9 @@ export class OrderHistory extends React.Component {
                     return (
                       <div className=' list-group-item my-1 card-body' key={item.id}>
                       <img className="responsive rounded float-left" src={item.imageUrl} />
+                      <Link to={`/products/${item.id}`}>
                       <p className='card-title order_Name product-name'>{item.productName}</p>
+                      </Link>
                       <p className='card-text order'>Price: ${(item.price / 100).toFixed(2)}</p>
                          <p className='card-text order'>Quantity: {item.orderItems.totalQuantity}</p>
                         <p className='card-text order font-weight-bold'>Total Cost: ${(item.orderItems.totalCost / 100).toFixed(2)}</p>
