@@ -86,7 +86,7 @@ Link:hover, a:hover {
 }
 
 .productImg {
-  max-width: 210px;
+  max-width: 100%;
   max-height: auto;
   width: 15em;
   height: auto
@@ -107,14 +107,14 @@ Link:hover, a:hover {
   background-color: #f8d9d629;
   margin: 1%;
   font-size: 145%;
-  max-width: 253px;
+  max-width: 12em;
   max-height: auto;
   width: 15em;
   height: auto
 }
 
 .product-price {
-  font-size: 90%;
+  font-size: 65%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -184,4 +184,20 @@ footer {
 
 .cart-buttons:hover {
   color: white;
+}
+
+.productImg-sm {
+  max-width: 40%;
+  max-height: auto;
+  width: 15em;
+  height: auto
+}
+
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.cupcake-font {
+  font-family: 'Cupcake Treats', sans-serif;
 }

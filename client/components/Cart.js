@@ -19,7 +19,10 @@ class Cart extends Component {
 
   render() {
     return (
-      <div className='my-5 container-fluid'>
+      <div className='mt-3 container-fluid'>
+        <h3 className='cupcake-font'>
+          <u>My Order</u>
+        </h3>
         {this.props.cart !== null && this.props.cart.products ? (
           this.props.cart.products.length === 0 || this.props.cart === null ? (
             <>
@@ -38,25 +41,28 @@ class Cart extends Component {
             </>
           ) : (
             this.props.cart.products.map((product) => (
-              <div className='card' key={product.id}>
-                <div className='row col-12 mt-3'>
-                  <div className='card-horizontal'>
-                    <img
-                      className='img-square-wrapper img-thumbnail'
-                      src={product.imageUrl}
-                    />
-                    <h4 className='card-title'>
-                      {' '}
-                      Product Name: {product.productName}{' '}
-                    </h4>
-                    <p className='card-body'>
-                      {' '}
-                      Quantity: {product.orderItems.totalQuantity}{' '}
-                    </p>
-                    <p className='card-body'>
-                      {' '}
-                      Unit Price: ${(product.price / 100).toFixed(2)}
-                    </p>
+              <div className='card container' key={product.id}>
+                <div className='row '>
+                  <div className='card-horizontal col-8'>
+                    <div className='img-square-wrapper'>
+                      <img
+                        className='img-thumbnail productImg-sm'
+                        src={product.imageUrl}
+                      />
+                    </div>
+                    <div className='card-body'>
+                      <h4 className='card-title cupcake-font'>
+                        {product.productName}{' '}
+                      </h4>
+                      <p className='card-body'>
+                        {' '}
+                        Quantity: {product.orderItems.totalQuantity}{' '}
+                      </p>
+                      <p className='card-body'>
+                        {' '}
+                        Price: ${(product.price / 100).toFixed(2)}
+                      </p>
+                    </div>
                     <p className='card-footer'>
                       {' '}
                       Total Price: $
