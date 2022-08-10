@@ -151,15 +151,16 @@ footer {
 .card-columns {
   width: 100%
   }
-/*
-.orderImg {
-  width: 10%;
-  height: 10%;
-} */
 
 .order-header {
-  background-color:#badae2
+  background-color:#badae2;
 }
+
+.order_Name {
+  font-size: 1.5em;
+  text-indent: 0.5em
+}
+
 .order {
   text-indent: 1em;
 }

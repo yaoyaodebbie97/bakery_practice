@@ -33,18 +33,19 @@ export const fetchUser = () => {
   }
 }
 
-export const updateUser = () => {
+export const updateUser = (user) => {
   return async (dispatch) => {
     try {
       const token = window.localStorage.getItem('token');
-      console.log(token)
+
       if (token) {
-        const { data } = await axios.put(`/api/users/account`, {
+        const { data } = await axios.put(`/api/users/account`, user, {
           headers: {
             authorization: token
           }
         })
-        dispatch(editUser(data))
+        console.log(data)
+        await dispatch(editUser(data))
       }
     } catch (err) {
       console.error('Uh oh, trouble finding user!');

@@ -22,15 +22,12 @@ export class UserAccount extends React.Component {
   }
 
   handleSubmit(evt) {
-    const lastNameInput = document.getElementById('lastName');
-    const firstNameInput = document.getElementById('firstName');
-    const addressInput = document.getElementById('address');
+    const form = document.getElementById('form')
+
     evt.preventDefault();
       this.props.updateUser({ ...this.props.user, ...this.state })
 
-    firstNameInput.value = ""
-    lastNameInput.value = ""
-    addressInput.value = ""
+    form.reset()
   }
 
   componentDidMount() {
@@ -38,22 +35,23 @@ export class UserAccount extends React.Component {
   }
 
   render() {
+    console.log(this.props.user)
     return (
       <div className='my-4'>
         <h4>Welcome {this.props.user.firstName}!</h4>
-        <form className='my-4' onSubmit={this.handleSubmit}>
+        <form id="form" className='my-4' >
           <label>Edit First Name: </label>
           <input id="firstName" name='firstName' type='text' onChange={this.handleChange} value={this.firstName} />
-          <button className='btn btn-primary mx-2' type='submit'>Submit</button>
+          <button className='btn btn-primary mx-2' type='submit' onClick={this.handleSubmit}>Submit</button>
 
           <label>Edit Last Name: </label>
           <input id="lastName" name='lastName' type='text' onChange={this.handleChange} value={this.lastName} />
-          <button className='btn btn-primary mx-2' type='submit'>Submit</button>
+          <button className='btn btn-primary mx-2' type='submit' onClick={this.handleSubmit}>Submit</button>
 
           <label>Edit Address: </label>
           <input id="address" name='address' type='text' onChange={this.handleChange} value={this.address} />
 
-          <button className='btn btn-primary mx-2' type='submit'>Submit</button>
+          <button className='btn btn-primary mx-2' type='submit' onClick={this.handleSubmit}>Submit</button>
         </form>
 
         <div className="Container">

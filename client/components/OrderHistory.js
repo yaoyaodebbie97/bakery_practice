@@ -6,7 +6,6 @@ import { fetchOrders } from '../store/userOrders'
 const divStyle = {
   margin: '10px',
   padding: '10px',
-  // display: 'flex',
   left: '1em'
 }
 
@@ -18,6 +17,7 @@ export class OrderHistory extends React.Component {
 
   render() {
     const orders = this.props.orders
+    console.log(orders)
     return (
       <div className='my-4'>
         <h3>Order History</h3>
@@ -31,8 +31,12 @@ export class OrderHistory extends React.Component {
                     return (
                       <div className=' list-group-item my-1 card-body' key={item.id}>
                       <img className="responsive rounded float-left" src={item.imageUrl} />
-                      <p className='card-title order product-name'>{item.productName}</p>
+                      <Link to={`/products/${item.id}`}>
+                      <p className='card-title order_Name product-name'>{item.productName}</p>
+                      </Link>
                       <p className='card-text order'>Price: ${(item.price / 100).toFixed(2)}</p>
+                         <p className='card-text order'>Quantity: {item.orderItems.totalQuantity}</p>
+                        <p className='card-text order font-weight-bold'>Total Cost: ${(item.orderItems.totalCost / 100).toFixed(2)}</p>
                       </div>
                     )
                   })}
