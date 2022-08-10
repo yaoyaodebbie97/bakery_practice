@@ -536,7 +536,7 @@ const mockProducts = [
     productName: 'Truffle Brioche',
     description:
       'orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat',
-    quantity: null,
+    quantity: 1,
     price: 2674,
     imageUrl:
       'https://chezus.com/wp-content/uploads/2014/12/untitled-1-of-19.jpg',
