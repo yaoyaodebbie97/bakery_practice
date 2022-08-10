@@ -7,9 +7,9 @@ export class UserAccount extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      firstName: "",
-      lastName: "",
-      address: ""
+      // firstName: "",
+      // lastName: "",
+      // address: "",
     }
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -44,14 +44,14 @@ export class UserAccount extends React.Component {
           <button className='btn btn-primary mx-2' type='submit' onClick={this.handleSubmit}>Submit</button>
 
           <label>Edit Last Name: </label>
-          <input id="lastName" name='lastName' type='text' onChange={this.handleChange} value={this.lastName} />
+          <input id="lastName" name='lastName' type='text' onChange={this.handleChange} value={this.lasttName} />
           <button className='btn btn-primary mx-2' type='submit' onClick={this.handleSubmit}>Submit</button>
 
           <label>Edit Address: </label>
-          <input id="address" name='address' type='text' onChange={this.handleChange} value={this.address} />
+          <input id="address" name='address' type='text' onChange={this.handleChange} value={this.addressName} />
 
           <button className='btn btn-primary mx-2' type='submit' onClick={this.handleSubmit}>Submit</button>
-        </form>
+          </form>
 
         <div className="Container">
           <OrderHistory />

@@ -44,7 +44,6 @@ export const updateUser = (user) => {
             authorization: token
           }
         })
-        console.log(data)
         await dispatch(editUser(data))
       }
     } catch (err) {
