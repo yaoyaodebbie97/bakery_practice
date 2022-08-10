@@ -6,13 +6,19 @@ const { requireToken, isAdmin } = require('./middleware');
 module.exports = router;
 
 // get all users if logged in & admin
-router.get('/', requireToken, isAdmin, async (req, res, next) => {
+router.get('/all', requireToken, isAdmin, async (req, res, next) => {
   try {
     const users = await User.findAll({
       // explicitly select only the id and username fields - even though
       // users' passwords are encrypted, it won't help if we just
       // send everything to anyone who asks!
       attributes: ['id', 'firstName', 'lastName', 'email', 'address'],
+      include: [
+        {
+          model: Order,
+          attributes: ['id'],
+        },
+      ]
     });
     res.send(users);
   } catch (err) {

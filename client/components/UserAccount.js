@@ -35,7 +35,6 @@ export class UserAccount extends React.Component {
   }
 
   render() {
-    console.log(this.props.user)
     return (
       <div className='my-4'>
         <h4>Welcome {this.props.user.firstName}!</h4>
