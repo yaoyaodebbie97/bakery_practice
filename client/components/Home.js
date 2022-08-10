@@ -102,7 +102,7 @@ export const Home = () => {
       </div>
 
       <div className='container-fluid my-5'>
-        <h3>Featued Items</h3>
+        <h3>Featured Items</h3>
         <div className='featured-items d-flex justify-content-center row col-md-8'>
           <Link
             className='btn btn-light btn-outline-secondary shadow mx-2 my-2'

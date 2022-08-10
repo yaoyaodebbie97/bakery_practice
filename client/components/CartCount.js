@@ -1,19 +1,20 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class CartCount extends Component {
-
   render() {
     let count = 0;
-    const products = this.props.cart.products;
-    if (products){
-      for (let i = 0; i< products.length; i++){
-        count += products[i].orderItems.totalQuantity;
+    if (this.props.cart !== null) {
+      let products = this.props.cart.products;
+      if (products) {
+        for (let i = 0; i < products.length; i++) {
+          count += products[i].orderItems.totalQuantity;
+        }
       }
     }
     return <>{count}</>;
   }
-}  
+}
 
 const mapState = (state) => {
   return {
@@ -21,4 +22,4 @@ const mapState = (state) => {
   };
 };
 
-export default connect(mapState)(CartCount)
+export default connect(mapState)(CartCount);

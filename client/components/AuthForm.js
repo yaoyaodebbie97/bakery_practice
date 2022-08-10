@@ -9,11 +9,11 @@ const AuthFormSignUp = (props) => {
   const { name, displayName, handleSubmit, error } = props;
 
   return (
-    <div className='py-5 my-5'>
+    <div className='py-3 my-4'>
       <h2 className='my-2 align-middle text-center'>Become a member today!</h2>
       <h3 className='my-2 align-middle text-center'>Sign Up</h3>
       <form
-        className='my-5 justify-content-center text-center py-3'
+        className='my-3 justify-content-center text-center'
         onSubmit={handleSubmit}
         name={name}
       >
@@ -47,7 +47,7 @@ const AuthFormSignUp = (props) => {
         </div>
 
         {error && error.response && (
-          <div>Please fill out all fields before submitting!</div>
+          <div>Please fill in correct username and password!</div>
         )}
       </form>
     </div>
@@ -57,16 +57,14 @@ const AuthFormLogIn = (props) => {
   const { name, displayName, handleSubmit, error } = props;
 
   return (
-    <div className='py-5 my-5'>
-      <h2 className='my-5 align-middle text-center'>
-        Already a member? Log In!
-      </h2>
+    <div className='py-3 my-5'>
+      <h2 className='align-middle text-center'>Already a member? Log In!</h2>
       <form
-        className='my-5 justify-content-center form-inline py-5'
+        className='my-4 justify-content-center form-inline py-5'
         onSubmit={handleSubmit}
         name={name}
       >
-        <div className='form-group py-4'>
+        <div className='form-group'>
           <label className='mx-2' htmlFor='email'>
             Email
           </label>
@@ -75,7 +73,7 @@ const AuthFormLogIn = (props) => {
             Password
           </label>
           <input name='password' type='password' />
-          <div className='mb-3'>
+          <div>
             <button className='btn btn-primary' type='submit'>
               {displayName}
             </button>

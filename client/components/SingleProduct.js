@@ -29,7 +29,7 @@ class SingleProduct extends Component {
   render() {
     const product = this.props.product;
     return (
-      <div className='card mx-4 py-5 my-5 border-0 singleCard justify-content-center'>
+      <div className='card mx-4 border-0 singleCard justify-content-center'>
         <div className='row justify-content-center my-5'>
           <img
             className='responsive rounded center'
