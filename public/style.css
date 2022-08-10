@@ -133,10 +133,10 @@ Link:hover, a:hover {
 
 footer {
   background-color: #42929d71;
-  position: absolute;
   left: 0;
   right: 0;
   color: #4f3b07;
+  will-change: transform;
 }
 
 .root {
@@ -176,4 +176,18 @@ footer {
 .orderImg {
   width: auto;
   height: auto
+}
+
+.cart-img {
+  max-width: 450px;
+  height: auto;
+}
+
+.cart-buttons {
+  text-decoration: none;
+  color: white;
+}
+
+.cart-buttons:hover {
+  color: white;
 }
