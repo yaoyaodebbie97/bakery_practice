@@ -17,9 +17,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
       {isLoggedIn ? (
         <div className='navbar-div menu-toggle ml-auto'>
           {/* The navbar will show these links after you log in */}
-          <Link className='mx-0' to='/home'>
-            Home
-          </Link>
+          <Link to='/home'>Home</Link>
           <Link to='/products'>All Products</Link>
           <a href='#' onClick={handleClick}>
             Logout
