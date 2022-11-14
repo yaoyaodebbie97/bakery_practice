@@ -1,3 +1,10 @@
+
+Yao's todo 
+1. bug: Need to clear local storage when guest has checked out 
+2. button 
+style = {{position: 'absolute', height: "30px", bottom: 0}}
+
+
 # FS-App-Template
 
 ## Setup

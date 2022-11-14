@@ -39,14 +39,15 @@ class Cart extends Component {
           ) : (
             this.props.cart.products.map((product) => (
               <div className='card container col-4' key={product.id}>
-                <div className='row my-1 width:18rem'>
-                  <div className='card-horizontal border-secondary'>
+                {/* <div className='row my-1 width:18rem'>
+                  <div className='card-horizontal border-secondary'> */}
                     <div className='img-square-wrapper p-0'>
                       <img
                         className='img-thumbnail productImg-sm mb-0'
                         src={product.imageUrl}
                       />
                     </div>
+
                     <div className='card-body m-0'>
                       <h4 className='card-title cupcake-font my-0'>
                         {product.productName}{' '}
@@ -56,6 +57,7 @@ class Cart extends Component {
                         Quantity: {product.orderItems.totalQuantity}{' '}
                       </p>
                       <div className='px-4'>
+
                         <button
                           className='mx-1'
                           onClick={() =>
@@ -100,8 +102,8 @@ class Cart extends Component {
                       </p>
                     </div>
                   </div>
-                </div>
-              </div>
+              //   </div>
+              // </div>
             ))
           )
         ) : (
